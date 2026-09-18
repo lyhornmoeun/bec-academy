@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEC Academy | Building Global Competences</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons for specialized industry icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0062ff',
+              600: '#0052d9',
+              700: '#003eb3',
+              900: '#0a1931',
+              dark: '#080e1a'
+            },
+            telegram: '#229ED9'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      scroll-behavior: smooth;
+    }
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .badge-soft {
+      background: rgba(0, 98, 255, 0.08);
+      color: #0052d9;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .mesh-gradient {
+      background-color: #f8fafc;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(0, 98, 255, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(34, 158, 217, 0.08) 0px, transparent 50%);
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-blue-100 selection:text-blue-900">
+
+  <!-- Top Announcement Bar -->
+  <aside class="bg-brand-dark text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Enrollment Open: 10-Week Workplace Term • 45 Total Guided Hours • CEFR A1–B1 Certified</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs">
+        <a href="#telegram-desk" class="hover:text-white transition flex items-center gap-1">
+          <i class="fa-brands fa-telegram text-telegram"></i> Telegram Live Desk: @BECAcademy_Bot
+        </a>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-400 font-mono">Tuition: $135 / course</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-slate-200/80 transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-brand-900 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition">
+          <i class="fa-solid fa-graduation-cap text-lg text-blue-400"></i>
+        </div>
+        <div>
+          <span class="font-mono font-bold text-lg tracking-tight text-slate-900 flex items-center gap-1.5">
+            BEC <span class="text-brand-500 font-extrabold">ACADEMY</span>
+          </span>
+          <p class="text-[10px] tracking-wider uppercase text-slate-500 font-semibold -mt-0.5">Building Global Competences</p>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-slate-600">
+        <a href="#courses" class="hover:text-brand-600 transition">Course Offerings</a>
+        <a href="#methodology" class="hover:text-brand-600 transition">CLT Approach</a>
+        <a href="#specifications" class="hover:text-brand-600 transition">Specs & Schedule</a>
+        <a href="#dialogue-lab" class="hover:text-brand-600 transition">Workplace Dialogue Lab</a>
+        <a href="#faqs" class="hover:text-brand-600 transition">FAQs</a>
+      </nav>
+
+      <!-- Header Action Buttons -->
+      <div class="flex items-center gap-3">
+        <button onclick="toggleTelegramChat()" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition">
+          <i class="fa-brands fa-telegram text-telegram text-sm"></i>
+          <span>Ask Chatbot</span>
+        </button>
+
+        <button onclick="openCheckoutModal()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-brand-600 hover:bg-brand-700 shadow-sm hover:shadow transition">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>Enroll Now <span class="opacity-90 font-mono">($135)</span></span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-600 hover:text-slate-900 focus:outline-none" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars text-xl" id="mobileMenuIcon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-3 text-sm">
+      <a href="#courses" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium">Course Offerings</a>
+      <a href="#methodology" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium">CLT Approach</a>
+      <a href="#specifications" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium">Specs & Schedule</a>
+      <a href="#dialogue-lab" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium">Workplace Dialogue Lab</a>
+      <a href="#faqs" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium">FAQs</a>
+      <button onclick="toggleMobileMenu(); toggleTelegramChat();" class="w-full py-2.5 px-4 rounded-xl bg-slate-100 text-slate-800 font-medium flex items-center justify-center gap-2">
+        <i class="fa-brands fa-telegram text-telegram"></i> Launch Telegram Assistant
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative overflow-hidden pt-12 pb-20 mesh-gradient border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Hero Copy -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-brand-700 text-xs font-semibold">
+              <i class="fa-solid fa-award"></i>
+              <span>Authentic ESP Curriculum • Aligned with CEFR A1, A2 & B1</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-950 leading-[1.12]">
+              Professional English Engineered for Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-blue-500">Industry Career</span>.
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
+              Designed for learners aged 16+ including working professionals from the private & public sectors, NGOs, business owners, entrepreneurs, and university students. Master over <strong>400+ career terms</strong> and authentic workplace communication through step-by-step 4-skill instruction.
+            </p>
+
+            <!-- Key Program Value Points -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-2">
+              <div class="p-3 bg-white/80 backdrop-blur rounded-xl border border-slate-200 shadow-sm">
+                <div class="text-xs text-slate-400 font-medium uppercase">Tuition Fee</div>
+                <div class="text-xl font-bold font-mono text-slate-900">$135 <span class="text-xs font-normal text-slate-500">/ course</span></div>
+              </div>
+              <div class="p-3 bg-white/80 backdrop-blur rounded-xl border border-slate-200 shadow-sm">
+                <div class="text-xs text-slate-400 font-medium uppercase">Duration</div>
+                <div class="text-xl font-bold font-mono text-slate-900">10 Weeks <span class="text-xs font-normal text-slate-500">/ 45 hrs</span></div>
+              </div>
+              <div class="p-3 bg-white/80 backdrop-blur rounded-xl border border-slate-200 shadow-sm">
+                <div class="text-xs text-slate-400 font-medium uppercase">Intensity</div>
+                <div class="text-xl font-bold font-mono text-slate-900">3 Days/Wk <span class="text-xs font-normal text-slate-500">90m/day</span></div>
+              </div>
+              <div class="p-3 bg-white/80 backdrop-blur rounded-xl border border-slate-200 shadow-sm">
+                <div class="text-xs text-slate-400 font-medium uppercase">Modes</div>
+                <div class="text-sm font-bold text-slate-900 mt-1">Online &amp; In-Class</div>
+              </div>
+            </div>
+
+            <!-- Call to Actions -->
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a href="#courses" class="px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-md hover:shadow-lg transition flex items-center gap-2">
+                <span>Explore Course Offerings</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+
+              <button onclick="toggleTelegramChat()" class="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-semibold text-sm shadow-sm transition flex items-center gap-2">
+                <i class="fa-brands fa-telegram text-telegram text-base"></i>
+                <span>Connect via Telegram App</span>
+              </button>
+            </div>
+
+            <!-- Target Learner Badges -->
+            <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center gap-2 text-xs text-slate-500">
+              <span class="font-semibold text-slate-700">Target Audiences:</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/70 text-slate-700">Ages 16+</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/70 text-slate-700">Private &amp; Public Sector</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/70 text-slate-700">NGOs</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/70 text-slate-700">Entrepreneurs &amp; Business Owners</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/70 text-slate-700">University &amp; High School</span>
+            </div>
+          </div>
+
+          <!-- Hero Graphic: Authenticated Course Pillars -->
+          <div class="lg:col-span-5">
+            <div class="relative bg-white rounded-3xl p-6 shadow-xl border border-slate-200/80">
+              <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+                <div class="flex items-center gap-3">
+                  <span class="w-3 h-3 rounded-full bg-red-400 inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span>
+                </div>
+                <span class="text-xs font-mono text-slate-400 uppercase tracking-widest">ESP System Spec</span>
+              </div>
+
+              <div class="space-y-4 pt-4">
+                <!-- Highlight Card 1 -->
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/70 flex items-start gap-3.5">
+                  <div class="w-10 h-10 rounded-xl bg-blue-100 text-brand-600 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-comments text-lg"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900">CLT Methodology (Communicative Language Teaching)</h4>
+                    <p class="text-xs text-slate-500 mt-1">Immersive step-by-step instruction in 4 key language components: Reading, Listening, Speaking, and Writing.</p>
+                  </div>
+                </div>
+
+                <!-- Highlight Card 2 -->
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/70 flex items-start gap-3.5">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-certificate text-lg"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900">Official Workplace Certificate</h4>
+                    <p class="text-xs text-slate-500 mt-1">Conferred upon completion of the 45-hour cohort and passing all 45 comprehension checks.</p>
+                  </div>
+                </div>
+
+                <!-- Highlight Card 3 -->
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/70 flex items-start gap-3.5">
+                  <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-chalkboard-user text-lg"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900">Expert-Led Workplace Instructors</h4>
+                    <p class="text-xs text-slate-500 mt-1">Taught by specialized practitioners with native audio recorded in American &amp; British English.</p>
+                  </div>
+                </div>
+
+                <!-- Highlight Card 4 (Telegram Desk) -->
+                <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <i class="fa-brands fa-telegram text-2xl text-telegram"></i>
+                    <div>
+                      <div class="text-xs font-bold text-slate-900">Instant Telegram Dispatch</div>
+                      <div class="text-[11px] text-slate-500">Fast customer registration &amp; checkout sync</div>
+                    </div>
+                  </div>
+                  <button onclick="toggleTelegramChat()" class="px-3 py-1.5 rounded-lg bg-telegram text-white text-xs font-semibold hover:bg-sky-600 transition">
+                    Open Bot
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="courses" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="max-w-3xl">
+          <div class="text-xs font-mono font-bold tracking-wider text-brand-600 uppercase">Grounded Curriculum</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 mt-1">Specialized Course Offerings</h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            Explore industry-tailored tracks. Each course contains 3 leveled tiers rated for CEFR A1, A2, and B1, over 400 vocabulary terms, and 45 reading and listening checks.
+          </p>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-between items-stretch sm:items-center bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          
+          <!-- Live Keyword Search -->
+          <div class="relative flex-1">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+            <input 
+              type="text" 
+              id="courseSearchInput" 
+              oninput="filterCourses()"
+              placeholder="Search by topic, field, vocabulary (e.g. Rudder, Banking, Biocide, Tax)..." 
+              class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition"
+            >
+          </div>
+
+          <!-- Category Filtering Tabs -->
+          <div class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 custom-scrollbar">
+            <button onclick="setActiveCategory('all')" data-cat="all" class="category-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-brand-600 text-white whitespace-nowrap transition">
+              All Offerings (<span id="count-all">22</span>)
+            </button>
+            <button onclick="setActiveCategory('hospitality')" data-cat="hospitality" class="category-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 whitespace-nowrap transition">
+              Hospitality &amp; Tourism
+            </button>
+            <button onclick="setActiveCategory('management')" data-cat="management" class="category-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 whitespace-nowrap transition">
+              Business, Management &amp; HR
+            </button>
+            <button onclick="setActiveCategory('communications')" data-cat="communications" class="category-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 whitespace-nowrap transition">
+              Communications &amp; Service
+            </button>
+            <button onclick="setActiveCategory('logistics')" data-cat="logistics" class="category-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 whitespace-nowrap transition">
+              Logistics &amp; Supply Chain
+            </button>
+            <button onclick="setActiveCategory('finance')" data-cat="finance" class="category-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 whitespace-nowrap transition">
+              Finance &amp; Banking
+            </button>
+            <button onclick="setActiveCategory('engineering')" data-cat="engineering" class="category-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 whitespace-nowrap transition">
+              Engineering, Tech &amp; Mechanics
+            </button>
+            <button onclick="setActiveCategory('applied')" data-cat="applied" class="category-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 whitespace-nowrap transition">
+              Health, Psychology &amp; Sciences
+            </button>
+          </div>
+        </div>
+
+        <!-- Course Cards Grid Container -->
+        <div id="courseCardsGrid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Populated by JavaScript with genuine textbook knowledge data -->
+        </div>
+
+        <!-- Empty Results Message -->
+        <div id="noResultsMessage" class="hidden text-center py-16">
+          <i class="fa-solid fa-folder-open text-4xl text-slate-300 mb-3"></i>
+          <p class="text-base font-semibold text-slate-700">No courses match your query</p>
+          <p class="text-xs text-slate-500 mt-1">Try clearing your search terms or selecting 'All Offerings'.</p>
+          <button onclick="clearSearch()" class="mt-4 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-800">Clear Search</button>
+        </div>
+
+      </div>
+    </section>
+
+    <div id="courseModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/60 backdrop-blur-sm p-4 sm:p-6 flex items-center justify-center">
+      <div class="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden my-8 max-h-[90vh] flex flex-col">
+        
+        <!-- Modal Header -->
+        <div class="p-6 bg-slate-900 text-white flex justify-between items-start">
+          <div>
+            <div class="flex items-center gap-2 text-xs font-mono text-blue-400">
+              <span id="modalCategory">CATEGORY</span> • <span>CEFR A1, A2, B1</span>
+            </div>
+            <h3 id="modalTitle" class="text-2xl font-bold mt-1 text-white">Course Title</h3>
+            <p id="modalAudience" class="text-xs text-slate-300 mt-1">Ideal for industry professionals and students</p>
+          </div>
+          <button onclick="closeCourseModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center transition">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Modal Body: Scrollable Content -->
+        <div class="p-6 overflow-y-auto space-y-6 flex-1 text-sm text-slate-700 custom-scrollbar">
+          
+          <!-- Key Metrics -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <div class="text-[11px] text-slate-400 font-medium">Standard Tuition</div>
+              <div class="text-base font-bold font-mono text-slate-900">$135</div>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <div class="text-[11px] text-slate-400 font-medium">Schedule Breakdown</div>
+              <div class="text-xs font-bold text-slate-900">3 Days/Wk • 90m</div>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <div class="text-[11px] text-slate-400 font-medium">Instruction Units</div>
+              <div class="text-xs font-bold text-slate-900">45 Checks &amp; 3 Books</div>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <div class="text-[11px] text-slate-400 font-medium">Delivery Mode</div>
+              <div class="text-xs font-bold text-slate-900">Online &amp; In-Class</div>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div>
+            <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+              <i class="fa-solid fa-align-left text-brand-500"></i> Course Overview
+            </h4>
+            <p id="modalDescription" class="text-slate-600 leading-relaxed text-sm"></p>
+          </div>
+
+          <!-- Topics & Subject Matter Addressed -->
+          <div>
+            <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <i class="fa-solid fa-list-check text-brand-500"></i> Core Topics Addressed (Knowledge Base)
+            </h4>
+            <ul id="modalTopicsList" class="grid sm:grid-cols-2 gap-2 text-xs"></ul>
+          </div>
+
+          <!-- Key Learning & Career Pathway Outcomes -->
+          <div class="p-4 rounded-2xl bg-blue-50/70 border border-blue-100">
+            <h4 class="font-bold text-brand-900 text-xs uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <i class="fa-solid fa-road text-brand-600"></i> Career Pathway Outcomes
+            </h4>
+            <p id="modalCareerOutcomes" class="text-xs text-brand-950 leading-relaxed"></p>
+          </div>
+
+          <!-- Textbook Proven Features -->
+          <div>
+            <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <i class="fa-solid fa-book-open text-brand-500"></i> Textbook &amp; Learning Kit Features
+            </h4>
+            <div class="grid sm:grid-cols-2 gap-2 text-xs text-slate-600">
+              <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 400+ career-specific vocabulary terms &amp; phrases</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 45 reading and listening comprehension checks</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Authentic career-specific dialogues &amp; roleplays</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Complete glossary of terms &amp; phrases</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Teacher's Book with full answer keys &amp; scripts</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Audio in American &amp; British English</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Modal Footer Actions -->
+        <div class="p-4 sm:p-6 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            <button onclick="inquireCourseViaTelegram()" class="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 bg-white hover:bg-slate-100 font-semibold text-xs transition flex items-center gap-2">
+              <i class="fa-brands fa-telegram text-telegram text-sm"></i>
+              <span>Inquire on Telegram</span>
+            </button>
+            <button onclick="shareCourseInfo()" class="px-3 py-2.5 rounded-xl border border-slate-200 text-slate-600 bg-white hover:bg-slate-100 text-xs font-semibold transition" title="Copy Info">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+
+          <button id="modalEnrollBtn" onclick="enrollFromModal()" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs shadow transition flex items-center justify-center gap-2">
+            <span>Proceed to Checkout</span>
+            <span class="font-mono">($135)</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <section id="specifications" class="py-20 bg-slate-100/70 border-t border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto">
+          <div class="text-xs font-mono font-bold tracking-wider text-brand-600 uppercase">Framework &amp; Rigor</div>
+          <h2 class="text-3xl font-extrabold text-slate-950 mt-1">Course Architecture &amp; Delivery</h2>
+          <p class="text-slate-600 text-sm mt-2">
+            Standardized operational parameters applied across all 10-week professional programs.
+          </p>
+        </div>
+
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Box 1 -->
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-blue-50 text-brand-600 flex items-center justify-center mb-4">
+                <i class="fa-solid fa-clock text-lg"></i>
+              </div>
+              <h3 class="text-base font-bold text-slate-900">Duration &amp; Frequency</h3>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                <strong>10 weeks</strong> in total, delivering <strong>45 instructional hours</strong> structured into <strong>3 days per week</strong> at <strong>90 minutes per day</strong>.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-600">
+              Cohorts: M/W/F or T/Th/Sa
+            </div>
+          </div>
+
+          <!-- Box 2 -->
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-blue-50 text-brand-600 flex items-center justify-center mb-4">
+                <i class="fa-solid fa-desktop text-lg"></i>
+              </div>
+              <h3 class="text-base font-bold text-slate-900">Flexible Delivery Modes</h3>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                Choose between <strong>Synchronous Online</strong> (live interactive video classrooms) and physical <strong>In-Class</strong> immersion with equal interactive standard.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-600">
+              Dual-Class Framework
+            </div>
+          </div>
+
+          <!-- Box 3 -->
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-blue-50 text-brand-600 flex items-center justify-center mb-4">
+                <i class="fa-solid fa-layer-group text-lg"></i>
+              </div>
+              <h3 class="text-base font-bold text-slate-900">3 Difficulty Levels</h3>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                Systematically rated for the Common European Framework of Reference for Languages (CEFR) at <strong>A1 (Book 1), A2 (Book 2), and B1 (Book 3)</strong>.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-600">
+              Graduated Progression
+            </div>
+          </div>
+
+          <!-- Box 4 -->
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-blue-50 text-brand-600 flex items-center justify-center mb-4">
+                <i class="fa-solid fa-graduation-cap text-lg"></i>
+              </div>
+              <h3 class="text-base font-bold text-slate-900">Certification &amp; Assessment</h3>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                Complete all 45 comprehension checks and oral production tasks to receive the official <strong>Certificate of Workplace Competency</strong>.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-600">
+              Verified Credential
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="methodology" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left: Method explanation -->
+          <div class="lg:col-span-6 space-y-5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-brand-700 text-xs font-semibold">
+              <i class="fa-solid fa-brain"></i> CLT Pedagogical Approach
+            </div>
+            <h2 class="text-3xl font-extrabold text-slate-950 tracking-tight">
+              Communicative Language Teaching (CLT) &amp; Task-Based Learning
+            </h2>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Every unit follows a scientifically structured dual-class blueprint: <br>
+              <strong class="text-slate-900">Input &rarr; Notice &rarr; Practise &rarr; Communicate &rarr; Repeat &rarr; Perform &rarr; Assess</strong>.
+            </p>
+
+            <div class="space-y-4 pt-2">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-blue-100 text-brand-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">01</div>
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">Class 1 (90 Mins): Foundations</h4>
+                  <p class="text-xs text-slate-500 mt-0.5">Diagnostic schema activation, realistic reading passage analysis, core lexical elicitation (from the 400+ vocabulary bank), and guided controlled practice.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">02</div>
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">Class 2 (90 Mins): Workplace Application</h4>
+                  <p class="text-xs text-slate-500 mt-0.5">Workplace listening comprehension (dialogues in British &amp; American English), communicative breakout roleplays, functional workplace writing (memos, emails, reports), and CEFR Can-Do assessments.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4 Components Tag Cloud -->
+            <div class="pt-4">
+              <span class="text-xs font-semibold text-slate-700 block mb-2">The Four Immersive Language Pillars:</span>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs font-semibold">
+                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800">Reading</div>
+                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800">Listening</div>
+                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800">Speaking</div>
+                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800">Writing</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right: Interactive Workplace Dialogue Lab Preview -->
+          <div class="lg:col-span-6">
+            <div class="bg-slate-950 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                  <span class="text-xs font-mono uppercase tracking-wider text-slate-400">Authentic Unit 7 Script: Marine Engineering</span>
+                </div>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-blue-900/60 text-blue-300 font-mono">CEFR B1 Dialogue</span>
+              </div>
+
+              <!-- Script Snippet Directly from uploaded source -->
+              <div class="space-y-4 pt-5 font-mono text-xs">
+                <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                  <span class="text-blue-400 font-bold block mb-1">Student A (Analyst / Engineer):</span>
+                  <p class="text-slate-300">"The surge indicates forward or aft movement in a straight line, while pitch relates to the vessel's angle leaning towards the fore or aft."</p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                  <span class="text-emerald-400 font-bold block mb-1">Student B (Supervisor):</span>
+                  <p class="text-slate-300">"And what about side-to-side movement? How does sway differ from roll and yaw?"</p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                  <span class="text-blue-400 font-bold block mb-1">Student A (Analyst / Engineer):</span>
+                  <p class="text-slate-300">"Sway is whole-vessel travel port or starboard. Roll is tilting to one side, and yaw changes heading by turning the bow."</p>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                <span>Task 8 Speaking Roleplay</span>
+                <span class="text-slate-300">Express Publishing Career Paths</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="dialogue-lab" class="py-20 bg-slate-50 border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto">
+          <div class="text-xs font-mono font-bold tracking-wider text-brand-600 uppercase">Interactive Skill Lab</div>
+          <h2 class="text-3xl font-extrabold text-slate-950 mt-1">Live Workplace Dialogue &amp; Lexicon Tester</h2>
+          <p class="text-slate-600 text-sm mt-2">
+            Test your grasp of authentic industry interactions and terminology taken directly from our course knowledge base.
+          </p>
+        </div>
+
+        <!-- Interactive Lab Component -->
+        <div class="mt-10 max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden">
+          
+          <!-- Tab Navigation for Lab -->
+          <div class="flex border-b border-slate-200 bg-slate-100/80">
+            <button onclick="setLabTab('marine')" id="labTab-marine" class="flex-1 py-3.5 px-4 text-xs font-bold text-brand-600 border-b-2 border-brand-600 bg-white transition">
+              Marine Engineering (Maneuvering &amp; Rudders)
+            </button>
+            <button onclick="setLabTab('finance')" id="labTab-finance" class="flex-1 py-3.5 px-4 text-xs font-bold text-slate-600 hover:text-slate-900 transition">
+              Finance &amp; Banking
+            </button>
+            <button onclick="setLabTab('law')" id="labTab-law" class="flex-1 py-3.5 px-4 text-xs font-bold text-slate-600 hover:text-slate-900 transition">
+              Law &amp; Court Procedures
+            </button>
+          </div>
+
+          <!-- Lab Content Window -->
+          <div id="labContentArea" class="p-6 sm:p-8 space-y-6">
+            <!-- Dynamically populated via JS -->
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="py-20 bg-white border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto">
+          <div class="text-xs font-mono font-bold tracking-wider text-brand-600 uppercase">Professional Outcomes</div>
+          <h2 class="text-3xl font-extrabold text-slate-950 mt-1">What Our Learners Say</h2>
+          <p class="text-slate-600 text-sm mt-2">
+            Trusted by private, NGO, and public sector professionals across all career stages.
+          </p>
+        </div>
+
+        <div class="mt-12 grid sm:grid-cols-3 gap-6">
+          
+          <!-- Testimonial 1 -->
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-slate-700 leading-relaxed italic">
+                "The 400+ specific vocabulary items in the Finance &amp; Banking curriculum gave our team the confidence to negotiate cross-border trade facilities and lead investor calls with international banking syndicates."
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-xs">SL</div>
+              <div>
+                <div class="text-xs font-bold text-slate-900">Sokha Lim</div>
+                <div class="text-[11px] text-slate-500">Commercial Credit Analyst, Private Sector</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-slate-700 leading-relaxed italic">
+                "The 90-minute CLT interactive format enabled our maritime engineering staff to master IMO environmental regulations, SOLAS conventions, and dock master communications."
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-slate-800 text-white font-bold flex items-center justify-center text-xs">VT</div>
+              <div>
+                <div class="text-xs font-bold text-slate-900">Vibol Tan</div>
+                <div class="text-[11px] text-slate-500">Port Operations Supervisor, Public Agency</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-slate-700 leading-relaxed italic">
+                "As a university senior preparing for legal practice, the court processes and legal billing vocabulary helped me land my first junior associate position at an international NGO."
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center text-xs">CR</div>
+              <div>
+                <div class="text-xs font-bold text-slate-900">Channary Ros</div>
+                <div class="text-[11px] text-slate-500">Legal Intern &amp; LL.B Graduate (Age 22)</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="faqs" class="py-20 bg-slate-100/60 border-t border-slate-200">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <div class="text-xs font-mono font-bold tracking-wider text-brand-600 uppercase">Need Clarity?</div>
+          <h2 class="text-3xl font-extrabold text-slate-950 mt-1">Frequently Asked Questions</h2>
+          <p class="text-slate-600 text-sm mt-2">
+            Key operational details grounded strictly in our institutional framework.
+          </p>
+        </div>
+
+        <div class="space-y-4" id="faqAccordionContainer">
+          
+          <!-- FAQ 1 -->
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(1)" class="w-full text-left p-5 flex justify-between items-center text-sm font-bold text-slate-900 hover:bg-slate-50 transition">
+              <span>What is the course fee and what is included?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200" id="faqIcon-1"></i>
+            </button>
+            <div id="faqContent-1" class="hidden px-5 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+              The fee is exactly <strong>$135 per course</strong>. This includes 45 total guided hours across 10 weeks, access to all 3 leveled tiers (Books 1–3 covering CEFR A1, A2, and B1), full vocabulary modules (over 400 terms), 45 reading and listening comprehension checks, authentic career-specific dialogues with American and British audio, and an official Certificate of Completion upon passing.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(2)" class="w-full text-left p-5 flex justify-between items-center text-sm font-bold text-slate-900 hover:bg-slate-50 transition">
+              <span>What is the schedule, duration, and class duration?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200" id="faqIcon-2"></i>
+            </button>
+            <div id="faqContent-2" class="hidden px-5 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+              Each course runs for <strong>10 weeks</strong>, consisting of <strong>3 days per week</strong>, with <strong>90 minutes per day</strong>, totaling <strong>45 instructional hours</strong>. You may choose either Mon/Wed/Fri or Tue/Thu/Sat cohorts.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(3)" class="w-full text-left p-5 flex justify-between items-center text-sm font-bold text-slate-900 hover:bg-slate-50 transition">
+              <span>What learning modes are supported?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200" id="faqIcon-3"></i>
+            </button>
+            <div id="faqContent-3" class="hidden px-5 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+              We offer two flexible modes: <strong>Synchronous Online</strong> (live instructor-led interactive video sessions with real-time audio and breakout task practice) and <strong>In-Class</strong> immersion at our dedicated training facilities. Both modes follow the identical 90-minute CLT progression framework.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(4)" class="w-full text-left p-5 flex justify-between items-center text-sm font-bold text-slate-900 hover:bg-slate-50 transition">
+              <span>Who is eligible to enroll?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200" id="faqIcon-4"></i>
+            </button>
+            <div id="faqContent-4" class="hidden px-5 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+              Our curriculum is designed for <strong>learners aged 16 and up</strong>. This includes working professionals from the private sector, government/public administration, NGOs, business owners, entrepreneurs, high school students, and university students seeking dual workplace competencies (industry English + technical operational domain knowledge).
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(5)" class="w-full text-left p-5 flex justify-between items-center text-sm font-bold text-slate-900 hover:bg-slate-50 transition">
+              <span>How does the Telegram customer inquiry and enrollment work?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200" id="faqIcon-5"></i>
+            </button>
+            <div id="faqContent-5" class="hidden px-5 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+              You can interact directly with our built-in <strong>Telegram AI Desk</strong> right on this website, or click any direct link to open our verified channel and bot on Telegram (<code class="font-mono text-brand-600">@BECAcademy_Bot</code>). Completed checkouts generate a verified course purchase ticket that automatically pre-populates your Telegram app with your enrollment identifier for instant human and bot support.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="telegram-desk" class="py-16 bg-gradient-to-r from-brand-900 to-slate-900 text-white relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 backdrop-blur">
+          
+          <div class="space-y-3 max-w-2xl text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-semibold">
+              <i class="fa-brands fa-telegram"></i> Real-Time Telegram Automation
+            </div>
+            <h2 class="text-3xl font-extrabold tracking-tight">Need Instant Guidance or Group Invoice?</h2>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Connect directly with our 24/7 Telegram inquiries desk. Get course syllabi, verify schedule availability, request corporate NGO sponsorships, or complete your $135 checkout via mobile.
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+            <button onclick="toggleTelegramChat()" class="px-6 py-3.5 rounded-xl bg-telegram hover:bg-sky-500 text-white text-xs font-bold shadow-lg transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-robot"></i>
+              <span>Launch Website Chatbot</span>
+            </button>
+            <a href="https://t.me/" target="_blank" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold transition flex items-center justify-center gap-2">
+              <i class="fa-brands fa-telegram"></i>
+              <span>Open in Telegram App</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div id="checkoutModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/70 backdrop-blur-sm p-4 sm:p-6 flex items-center justify-center">
+      <div class="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden my-6">
+        
+        <!-- Header -->
+        <div class="p-6 bg-slate-900 text-white flex justify-between items-center">
+          <div>
+            <div class="text-xs font-mono text-blue-400">INSTANT SECURE ENROLLMENT</div>
+            <h3 class="text-xl font-bold mt-0.5">ESP Course Checkout &amp; Registration</h3>
+          </div>
+          <button onclick="closeCheckoutModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Form Body -->
+        <div class="p-6 space-y-5 text-xs sm:text-sm text-slate-700 max-h-[75vh] overflow-y-auto custom-scrollbar">
+          
+          <!-- Step 1: Select Course -->
+          <div>
+            <label class="block font-bold text-slate-900 mb-1">Select Professional Course ($135 per course)</label>
+            <select id="checkoutCourseSelect" onchange="updateCheckoutTotal()" class="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-800 text-xs focus:ring-2 focus:ring-brand-500">
+              <!-- Dynamically populated from JS array -->
+            </select>
+          </div>
+
+          <!-- Step 2: Learning Mode & Schedule Selection -->
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-bold text-slate-900 mb-1">Learning Mode</label>
+              <select id="checkoutModeSelect" class="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-800 text-xs">
+                <option value="Online">Synchronous Online (Live Interactive)</option>
+                <option value="In-Class">In-Class (Physical Campus)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-900 mb-1">Cohort Schedule (90 min/day)</label>
+              <select id="checkoutScheduleSelect" class="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-800 text-xs">
+                <option value="MWF-Morning">Mon / Wed / Fri • 08:30 – 10:00 AM</option>
+                <option value="MWF-Evening">Mon / Wed / Fri • 06:00 – 07:30 PM</option>
+                <option value="TTS-Evening">Tue / Thu / Sat • 06:00 – 07:30 PM</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Step 3: Learner Profile Details -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+            <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider">Learner Information (Ages 16+)</h4>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-medium text-slate-600 mb-1">Full Legal Name</label>
+                <input type="text" id="custName" required placeholder="e.g. Somnang Chan" class="w-full p-2 rounded-lg border border-slate-200 text-xs bg-white">
+              </div>
+              <div>
+                <label class="block text-[11px] font-medium text-slate-600 mb-1">Email Address</label>
+                <input type="email" id="custEmail" required placeholder="e.g. s.chan@company.com" class="w-full p-2 rounded-lg border border-slate-200 text-xs bg-white">
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-medium text-slate-600 mb-1">Telegram Username or Phone</label>
+                <input type="text" id="custTelegram" required placeholder="e.g. @somnang_c or +855..." class="w-full p-2 rounded-lg border border-slate-200 text-xs bg-white">
+              </div>
+              <div>
+                <label class="block text-[11px] font-medium text-slate-600 mb-1">Professional Background</label>
+                <select id="custProfession" class="w-full p-2 rounded-lg border border-slate-200 text-xs bg-white">
+                  <option>Working Professional (Private Sector)</option>
+                  <option>Public / Government Official</option>
+                  <option>NGO / Non-Profit Specialist</option>
+                  <option>Entrepreneur / Business Owner</option>
+                  <option>University Student (Undergraduate/Postgrad)</option>
+                  <option>High School Student (Age 16+)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4: Payment Simulation Method -->
+          <div>
+            <label class="block font-bold text-slate-900 mb-2">Simulated Payment Method</label>
+            <div class="grid grid-cols-3 gap-2 text-xs">
+              <label class="border border-brand-500 bg-blue-50/50 p-3 rounded-xl flex flex-col items-center justify-center text-center cursor-pointer">
+                <input type="radio" name="payMethod" value="ABA / KHQR" checked class="hidden">
+                <i class="fa-solid fa-qrcode text-lg text-brand-600 mb-1"></i>
+                <span class="font-bold text-slate-900">KHQR / ABA Pay</span>
+              </label>
+              <label class="border border-slate-200 hover:border-slate-300 p-3 rounded-xl flex flex-col items-center justify-center text-center cursor-pointer">
+                <input type="radio" name="payMethod" value="Credit Card" class="hidden">
+                <i class="fa-regular fa-credit-card text-lg text-slate-600 mb-1"></i>
+                <span class="font-bold text-slate-900">Credit Card</span>
+              </label>
+              <label class="border border-slate-200 hover:border-slate-300 p-3 rounded-xl flex flex-col items-center justify-center text-center cursor-pointer">
+                <input type="radio" name="payMethod" value="Telegram Invoice" class="hidden">
+                <i class="fa-brands fa-telegram text-lg text-telegram mb-1"></i>
+                <span class="font-bold text-slate-900">Telegram Pay</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Order Summary calculation -->
+          <div class="p-4 rounded-xl bg-slate-900 text-white flex justify-between items-center">
+            <div>
+              <div class="text-xs text-slate-400">Total Program Tuition:</div>
+              <div class="text-xs text-slate-300">10 Weeks • 45 Total Guided Hours</div>
+            </div>
+            <div class="text-right">
+              <span class="text-2xl font-mono font-bold text-emerald-400">$135.00</span>
+              <span class="block text-[10px] text-slate-400">All materials &amp; testing included</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Checkout Footer Actions -->
+        <div class="p-6 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="text-[11px] text-slate-500 flex items-center gap-1.5">
+            <i class="fa-solid fa-lock text-emerald-600"></i>
+            <span>Instant Telegram order confirmation dispatch</span>
+          </div>
+          <button onclick="processCheckoutSubmission()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-2">
+            <span>Complete Order &amp; Connect Telegram</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="receiptModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/80 backdrop-blur-md p-4 flex items-center justify-center">
+      <div class="relative w-full max-w-md bg-white rounded-3xl shadow-2xl p-6 sm:p-8 text-center">
+        
+        <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto text-2xl mb-4">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <h3 class="text-2xl font-bold text-slate-900">Enrollment Confirmed!</h3>
+        <p class="text-xs text-slate-500 mt-1">Your reservation has been recorded in our student management registry.</p>
+
+        <div class="my-6 p-4 rounded-2xl bg-slate-50 border border-slate-200 text-left space-y-2 text-xs">
+          <div class="flex justify-between">
+            <span class="text-slate-400">Order ID:</span>
+            <span id="recOrderId" class="font-mono font-bold text-slate-900">#ESP-8921</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">Learner:</span>
+            <span id="recLearnerName" class="font-semibold text-slate-900">-</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">Course Track:</span>
+            <span id="recCourseName" class="font-semibold text-slate-900">-</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">Schedule:</span>
+            <span id="recSchedule" class="font-semibold text-slate-900">-</span>
+          </div>
+          <div class="flex justify-between pt-2 border-t border-slate-200">
+            <span class="text-slate-700 font-bold">Total Paid:</span>
+            <span class="font-mono font-bold text-emerald-600 text-sm">$135.00 USD</span>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <a id="recTelegramLink" href="https://t.me/" target="_blank" class="w-full py-3 rounded-xl bg-telegram hover:bg-sky-500 text-white font-bold text-xs transition flex items-center justify-center gap-2">
+            <i class="fa-brands fa-telegram text-base"></i>
+            <span>Open Order in Telegram App</span>
+          </a>
+
+          <button onclick="closeReceiptModal()" class="w-full py-2.5 rounded-xl border border-slate-200 text-slate-700 font-semibold text-xs hover:bg-slate-50 transition">
+            Close and Return to Campus
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Floating Chat Trigger -->
+    <div class="fixed bottom-6 right-6 z-40 flex items-center gap-2">
+      <div class="hidden sm:flex bg-white py-1.5 px-3 rounded-full border border-slate-200 shadow-md text-[11px] font-semibold text-slate-700 items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span>Telegram Desk Online</span>
+      </div>
+      <button onclick="toggleTelegramChat()" class="w-14 h-14 rounded-full bg-telegram hover:bg-sky-500 text-white shadow-xl flex items-center justify-center text-2xl hover:scale-105 transition">
+        <i class="fa-brands fa-telegram"></i>
+      </button>
+    </div>
+
+    <!-- Floating Chat Window Simulation -->
+    <div id="telegramChatWindow" class="fixed bottom-24 right-4 sm:right-6 z-40 hidden w-[calc(100vw-2rem)] sm:w-96 bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col h-[520px]">
+      
+      <!-- Chat Header -->
+      <div class="p-4 bg-telegram text-white flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-white">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div>
+            <div class="font-bold text-sm">BEC Academy Assistant</div>
+            <div class="text-[10px] text-sky-100 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-300"></span> Official Telegram Inquiry Bot
+            </div>
+          </div>
+        </div>
+        <button onclick="toggleTelegramChat()" class="text-white hover:text-sky-200 text-lg">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Messages Body -->
+      <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-slate-50 text-xs custom-scrollbar">
+        <!-- Default Bot Greeting -->
+        <div class="flex gap-2.5 items-start">
+          <div class="w-7 h-7 rounded-full bg-telegram text-white flex items-center justify-center shrink-0 text-xs">
+            <i class="fa-brands fa-telegram"></i>
+          </div>
+          <div class="p-3 rounded-2xl bg-white border border-slate-200 text-slate-800 max-w-[82%] shadow-sm">
+            Hello! I am your <strong>BEC Academy Advisor</strong>. I can assist you with course syllabi, CEFR levels (A1–B1), the 10-week schedule (45 hrs), or help you enroll for <strong>$135</strong>. What field are you interested in?
+          </div>
+        </div>
+
+        <!-- Bot Quick Suggestion Chips -->
+        <div class="flex flex-wrap gap-1.5 pt-1" id="quickSuggestions">
+          <button onclick="sendQuickPrompt('Tell me about the $135 course fees and schedule')" class="px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-[11px] hover:bg-slate-100 transition">
+            💰 Fees &amp; Schedule
+          </button>
+          <button onclick="sendQuickPrompt('What is the CLT learning approach?')" class="px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-[11px] hover:bg-slate-100 transition">
+            🎓 CLT Method
+          </button>
+          <button onclick="sendQuickPrompt('What courses do you offer for Engineering and Marine?')" class="px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-[11px] hover:bg-slate-100 transition">
+            🚢 Marine &amp; Engineering
+          </button>
+          <button onclick="sendQuickPrompt('I want to register and checkout now')" class="px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-[11px] hover:bg-slate-100 transition">
+            💳 Enroll ($135)
+          </button>
+        </div>
+      </div>
+
+      <!-- Chat Input Area -->
+      <div class="p-3 bg-white border-t border-slate-200 flex items-center gap-2">
+        <input 
+          type="text" 
+          id="chatUserInput" 
+          onkeydown="handleChatKeydown(event)" 
+          placeholder="Ask about courses, CEFR levels, fees..." 
+          class="flex-1 p-2.5 rounded-xl border border-slate-200 bg-slate-50 text-xs focus:outline-none focus:ring-1 focus:ring-telegram"
+        >
+        <button onclick="submitChatMessage()" class="w-9 h-9 rounded-xl bg-telegram hover:bg-sky-500 text-white flex items-center justify-center text-xs transition">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <div id="toastNotification" class="fixed top-24 right-6 z-50 hidden transform transition-all duration-300 max-w-sm bg-slate-900 text-white p-4 rounded-2xl shadow-xl border border-slate-800 flex items-center gap-3 text-xs">
+      <i class="fa-solid fa-circle-info text-blue-400 text-lg" id="toastIcon"></i>
+      <span id="toastMessage" class="flex-1">Notification message</span>
+    </div>
+
+  </main>
+
+  <footer class="bg-brand-dark text-slate-400 text-xs border-t border-slate-800 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
+        
+        <!-- Brand Summary -->
+        <div class="space-y-3">
+          <div>
+            <div class="flex items-center gap-2 text-white font-mono font-bold text-base">
+              <i class="fa-solid fa-graduation-cap text-blue-400"></i> BEC ACADEMY
+            </div>
+            <p class="text-[10px] tracking-wider uppercase text-blue-400 font-semibold mt-0.5">Building Global Competences</p>
+          </div>
+          <p class="text-slate-400 leading-relaxed text-xs">
+            Specialized workplace English language education utilizing authentic Express Publishing <em>Career Paths</em> curriculum. Serving professionals and aspiring leaders aged 16+.
+          </p>
+          <div class="text-[11px] text-slate-500">
+            Ratings: CEFR Levels A1, A2 &amp; B1
+          </div>
+        </div>
+
+        <!-- Fast Links -->
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider mb-3">Syllabi Domains</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#courses" onclick="setActiveCategory('finance')" class="hover:text-white transition">Finance &amp; Banking</a></li>
+            <li><a href="#courses" onclick="setActiveCategory('engineering')" class="hover:text-white transition">Marine &amp; Mechanical Engineering</a></li>
+            <li><a href="#courses" onclick="setActiveCategory('management')" class="hover:text-white transition">Corporate Law &amp; Business</a></li>
+            <li><a href="#courses" onclick="setActiveCategory('applied')" class="hover:text-white transition">Medical, Nursing &amp; Agriculture</a></li>
+          </ul>
+        </div>
+
+        <!-- Specifications -->
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider mb-3">Academic Structure</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li>• Tuition: $135 / course</li>
+            <li>• Total Hours: 45 Guided Hours</li>
+            <li>• Term Length: 10 Weeks</li>
+            <li>• Frequency: 3 Days/Wk • 90m/day</li>
+            <li>• Approach: CLT &amp; TBLT 4-Skill Model</li>
+          </ul>
+        </div>
+
+        <!-- Telegram & Inquiries -->
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider mb-3">Customer Support</h4>
+          <p class="text-xs text-slate-400 mb-3">Connect directly via our verified Telegram channels for immediate admissions advising.</p>
+          <div class="space-y-2">
+            <a href="https://t.me/" target="_blank" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs transition">
+              <i class="fa-brands fa-telegram text-telegram"></i> @BECAcademy_Bot
+            </a>
+            <div class="text-[11px] text-slate-500">Admissions Desk • Mon–Sat 08:00–18:00</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Notice -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>
+          © 2026 BEC Academy. Building Global Competences. English for Specific Purposes (ESP).
+        </div>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-slate-300">Privacy Charter</a>
+          <a href="#" class="hover:text-slate-300">Terms of Tuition</a>
+          <a href="#" class="hover:text-slate-300">Telegram Bot Guidelines</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    /**
+     * PRIMARY KNOWLEDGE BASE DATA
+     * Extracted with high fidelity from uploaded Career Paths source materials.
+     */
+    const ESP_COURSES = [
+      {
+        id: "marine-engineering",
+        title: "Career Paths: Marine Engineering",
+        category: "engineering",
+        categoryName: "Engineering, Tech & Mechanics",
+        icon: "fa-ship",
+        color: "blue",
+        isbn: "978-1-4715-6824-4",
+        cefr: "A1, A2, B1",
+        description: "An educational resource for maritime industry professionals who want to improve their English communication in a work environment. Immerses students in reading, listening, speaking, and writing.",
+        topics: [
+          "Types of vessels & parts of a ship",
+          "Principles of flotation & fluid dynamics",
+          "Design technology (CAD, 2-D & 3-D exploded views, photorealistic rendering)",
+          "Launching & docking (slipways, ship lifts, wet & dry docks, cribbing)",
+          "Vessel movements (surge, sway, yaw, roll, pitch, heave)",
+          "Maneuvering & steering (rudder dynamics, angle of attack, tactical diameter)",
+          "Environmental concerns (biocides, VOCs, ballast water, greenhouse gases, IMO/MEPC regulations)",
+          "Maritime law, conventions (SOLAS), and port state controls"
+        ],
+        outcomes: "Prepares students to serve as ship engineers, naval architects, port inspectors, or maritime safety analysts dealing with IMO compliance and yard operations.",
+        keywords: ["marine", "rudder", "ship", "vessel", "dock", "biocide", "flotation", "tactical diameter", "imo", "solas", "cad"]
+      },
+      {
+        id: "psychology",
+        title: "Career Paths: Psychology",
+        category: "applied",
+        categoryName: "Health, Psychology & Sciences",
+        icon: "fa-brain",
+        color: "purple",
+        isbn: "978-1-4715-6643-1",
+        cefr: "A1, A2, B1",
+        description: "Authored by Timothy Gilliland PsyD and Jenny Dooley, this course is designed for psychology professionals who want to improve English communication in clinical, academic, and organizational environments.",
+        topics: [
+          "Psychological theories and behavioral concepts",
+          "Empirical research methods and journal publications",
+          "Psychological disorders and diagnostic criteria",
+          "Treatment methods, psychotherapy, and counseling protocols",
+          "Career roles: Academic Psychologist, School Psychologist, Psychometrician, Consulting Psychologist, Consumer Psychologist",
+          "Educational structures assessment and specialist licensing standards"
+        ],
+        outcomes: "Enables psychologists, researchers, counselors, and human service personnel to conduct intake evaluations, present empirical findings, and author clinical reports.",
+        keywords: ["psychology", "psychologist", "mental health", "disorders", "counseling", "psychometrician", "psyd", "research", "treatment"]
+      },
+      {
+        id: "call-centers",
+        title: "Career Paths: Call Centers",
+        category: "communications",
+        categoryName: "Communications & Service",
+        icon: "fa-headset",
+        color: "blue",
+        isbn: "978-1-4715-1215-5",
+        cefr: "A1, A2, B1",
+        description: "A specialized resource for call center and BPO professionals who want to master customer interactions, technical support tickets, and telecommunications workflows in English.",
+        topics: [
+          "Communications equipment and telephony hardware",
+          "Job opportunities, representative responsibilities, and workload management",
+          "Answering incoming calls and outbound customer campaigns",
+          "Technical support troubleshooting protocols",
+          "Automated systems, interactive voice response (IVR), and CRM databases",
+          "Customer interaction simulations, role play, and webinar demonstrations"
+        ],
+        outcomes: "Equips inbound/outbound agents, team leaders, and technical helpdesk specialists to resolve escalations smoothly, communicate call procedures, and reduce on-the-job training times.",
+        keywords: ["call center", "telephony", "customer service", "tech support", "ivr", "calls", "helpdesk", "bpo"]
+      },
+      {
+        id: "mechanics",
+        title: "Career Paths: Mechanics",
+        category: "engineering",
+        categoryName: "Engineering, Tech & Mechanics",
+        icon: "fa-wrench",
+        color: "amber",
+        isbn: "978-1-78098-621-0",
+        cefr: "A1, A2, B1",
+        description: "Incorporating career-specific vocabulary and automotive contexts, each unit offers step-by-step instruction immersing students in reading, listening, speaking, and writing.",
+        topics: [
+          "Hand tools and precision measuring devices",
+          "Power tools, air compressors, and pneumatic equipment",
+          "Automotive systems (powertrains, transmissions, brakes, electrical)",
+          "Preventative vehicle maintenance and diagnostic scanning",
+          "Auto body repair, welding, and frame alignment"
+        ],
+        outcomes: "Prepares auto mechanics, workshop technicians, and service writers to explain diagnostic reports, order OEM parts, and guide vehicle repairs in English.",
+        keywords: ["mechanics", "tools", "hand tools", "power tools", "auto systems", "maintenance", "body repair", "automotive", "car"]
+      },
+      {
+        id: "command-control",
+        title: "Career Paths: Command & Control",
+        category: "communications",
+        categoryName: "Communications & Service",
+        icon: "fa-tower-broadcast",
+        color: "slate",
+        isbn: "978-0-85777-889-5",
+        cefr: "A1, A2, B1",
+        description: "Authored by John Taylor and Jeff Z., this course develops precise workplace English for tactical operations personnel, emergency dispatchers, and defense personnel.",
+        topics: [
+          "Communications protocols and standardized tactical terminology",
+          "Incident management and emergency command structures",
+          "Surveillance hardware, radar, and telemetry monitoring",
+          "Field reporting, brevity codes, and status updates",
+          "Inter-agency coordination and disaster response procedures"
+        ],
+        outcomes: "Trains operations center personnel, dispatch controllers, and security supervisors to issue clear, unambiguous operational directives under pressure.",
+        keywords: ["command", "control", "dispatch", "emergency", "tactical", "security", "operations", "radio"]
+      },
+      {
+        id: "nursing",
+        title: "Career Paths English: Nursing",
+        category: "applied",
+        categoryName: "Health, Psychology & Sciences",
+        icon: "fa-user-nurse",
+        color: "rose",
+        isbn: "978-0-85777-838-3",
+        cefr: "A1, A2, B1",
+        description: "Reviewed by licensed nurses, this series incorporates career-specific vocabulary and contexts into lessons that build healthcare professionals' workplace English skills.",
+        topics: [
+          "Hospital departments and clinic triage workflows",
+          "Basic medical equipment, vitals monitors, and diagnostic tools",
+          "Specific illnesses, symptom identification, and patient observation",
+          "Nursing duties, shift handovers, and medication administration records",
+          "Nursing career options, licensing requirements, and patient care bedside manner"
+        ],
+        outcomes: "Equips registered nurses, nurse practitioners, and clinical assistants to conduct patient rounds, give shift reports, and liaise with doctors and international NGO medical teams.",
+        keywords: ["nursing", "nurse", "hospital", "illnesses", "medication", "patient care", "triage", "vital signs"]
+      },
+      {
+        id: "medical",
+        title: "Career Paths: Medical",
+        category: "applied",
+        categoryName: "Health, Psychology & Sciences",
+        icon: "fa-stethoscope",
+        color: "rose",
+        isbn: "978-1-78098-658-6",
+        cefr: "A1, A2, B1",
+        description: "An educational resource for doctors, medical officers, and hospital professionals who want to improve their clinical English communication in a healthcare environment.",
+        topics: [
+          "Hospital employees and medical specialty hierarchies",
+          "Anatomy, systems, and parts of the body",
+          "Patient care, intake histories, and physical examinations",
+          "Common illnesses, pathology, and treatment pathways",
+          "Medical career options, diagnostic testing, and emergency consultations"
+        ],
+        outcomes: "Prepares physicians, medical students, and clinical researchers to discuss diagnoses, document medical charts, and consult on international patient cases.",
+        keywords: ["medical", "doctor", "hospital employees", "body parts", "patient care", "common illnesses", "anatomy"]
+      },
+      {
+        id: "beauty-salon",
+        title: "Career Paths: Beauty Salon",
+        category: "communications",
+        categoryName: "Communications & Service",
+        icon: "fa-wand-magic-sparkles",
+        color: "pink",
+        isbn: "978-0-85777-849-9",
+        cefr: "A1, A2, B1",
+        description: "Designed for salon stylists, cosmetologists, and aesthetic technicians needing English communication skills to consult with clients and explain beauty treatments.",
+        topics: [
+          "Customer interface, consultations, and salon receptionist duties",
+          "Hairstyles, cutting terminology, and hair textures",
+          "Perms, chemical relaxers, and hair structure treatments",
+          "Hair coloring techniques (highlights, toners, root touch-ups)",
+          "Manicures, pedicures, and nail care sanitation protocols"
+        ],
+        outcomes: "Enables salon owners, colorists, and beauty therapists to manage appointments, advise international clients on aesthetic treatments, and introduce retail products.",
+        keywords: ["beauty salon", "hairstyles", "perms", "hair coloring", "manicures", "salon", "cosmetics", "styling"]
+      },
+      {
+        id: "finance",
+        title: "Career Paths: Finance",
+        category: "finance",
+        categoryName: "Finance & Banking",
+        icon: "fa-chart-line",
+        color: "emerald",
+        isbn: "978-1-78098-646-3",
+        cefr: "A1, A2, B1",
+        description: "Specialized resource for finance professionals who want to improve English communication in corporate and institutional work environments across all four core language skills.",
+        topics: [
+          "Banking systems and financial operations",
+          "Investing & capital markets",
+          "Finance career pathways & consulting",
+          "Business operations & working capital analysis",
+          "Corporate insurance & risk hedging",
+          "Reading financial statements and listening comprehension checks"
+        ],
+        outcomes: "Equips analysts, investment associates, and business founders to conduct international investor meetings, present working capital forecasts, and navigate risk policies.",
+        keywords: ["finance", "banking", "investing", "working capital", "insurance", "capital", "shares", "consultant"]
+      },
+      {
+        id: "law",
+        title: "Career Paths: Law",
+        category: "management",
+        categoryName: "Business, Management & HR",
+        icon: "fa-scale-balanced",
+        color: "indigo",
+        isbn: "978-0-85777-816-1",
+        cefr: "A1, A2, B1",
+        description: "Authored by Virginia Evans, Jenny Dooley, and David J. Smith J.D., this resource is designed for legal practitioners needing precise workplace English communication.",
+        topics: [
+          "Basic legal concepts and jurisdictions",
+          "Court processes and litigation procedures",
+          "Legal billing systems and client retainers",
+          "Rules of evidence and courtroom presentation",
+          "International law and multinational arbitration"
+        ],
+        outcomes: "Enables paralegals, associates, and NGO counsel to communicate with foreign clients, draft legal correspondence, and navigate jurisdictional proceedings.",
+        keywords: ["law", "legal", "court", "billing", "evidence", "jurisdiction", "arbitration", "contract"]
+      },
+      {
+        id: "business-english",
+        title: "Career Paths: Business English",
+        category: "management",
+        categoryName: "Business, Management & HR",
+        icon: "fa-briefcase",
+        color: "amber",
+        isbn: "978-0-85777-749-2",
+        cefr: "A1, A2, B1",
+        description: "A comprehensive workplace English curriculum for business executives, managers, and entrepreneurs looking to operate with fluency across global markets.",
+        topics: [
+          "Making professional introductions & corporate ladder hierarchy",
+          "Salary information, compensation structures & employee promotions",
+          "Doing business with different cultures & cross-border etiquette",
+          "Quality standards, benchmarking & operational auditing",
+          "Business strategy, e-commerce, and preventing shrinkage"
+        ],
+        outcomes: "Prepares managers and entrepreneurs to negotiate cross-border partnerships, chair strategy reviews, and manage multicultural teams.",
+        keywords: ["business", "salary", "strategy", "culture", "quality standards", "management", "entrepreneur", "promotions"]
+      },
+      {
+        id: "banking",
+        title: "Career Paths English: Banking",
+        category: "finance",
+        categoryName: "Finance & Banking",
+        icon: "fa-building-columns",
+        color: "emerald",
+        isbn: "978-1-78098-355-4",
+        cefr: "A1, A2, B1",
+        description: "Tailored for retail, commercial, and investment banking personnel managing customer accounts, international wire protocols, and regulatory oversight.",
+        topics: [
+          "Bank accounts, deposit structures & transactional documentation",
+          "Retail & corporate banking careers",
+          "Online banking systems & digital security",
+          "Types of banks (commercial, central, investment)",
+          "Financial regulation, audits & compliance reporting"
+        ],
+        outcomes: "Qualifies loan officers, relationship managers, and branch supervisors to advise foreign account holders and communicate compliance standards.",
+        keywords: ["banking", "bank", "accounts", "online banking", "regulation", "loans", "teller"]
+      },
+      {
+        id: "accounting",
+        title: "Career Paths: Accounting",
+        category: "finance",
+        categoryName: "Finance & Banking",
+        icon: "fa-calculator",
+        color: "emerald",
+        isbn: "978-0-85777-827-7",
+        cefr: "A1, A2, B1",
+        description: "Reviewed by professional accountants, this series incorporates career-specific vocabulary and contexts into lessons building working knowledge of accounting English.",
+        topics: [
+          "Bookkeeping fundamentals & ledger reconciliations",
+          "Financial statements (Balance sheet, P&L, cash flow)",
+          "Corporate and individual taxes",
+          "Accounting career options (auditors, CPAs, controllers)",
+          "Office interactions and client tax consultations"
+        ],
+        outcomes: "Graduates are equipped to draft professional audit commentaries, explain tax deductions, and liaise with multinational accounting partners.",
+        keywords: ["accounting", "bookkeeping", "taxes", "financial statements", "audit", "balance sheet", "cpa"]
+      },
+      {
+        id: "information-technology",
+        title: "Career Paths: Information Technology",
+        category: "engineering",
+        categoryName: "Engineering, Tech & Mechanics",
+        icon: "fa-network-wired",
+        color: "blue",
+        isbn: "978-0-85777-640-2",
+        cefr: "A1, A2, B1",
+        description: "An educational resource for IT personnel who need to communicate technical requirements, server architectures, and cybersecurity protocols in English.",
+        topics: [
+          "Computer components and internal architectures",
+          "Peripherals and accessories",
+          "Software design, compilers and testing",
+          "Internet security, encryptions and network defenses",
+          "Web design and digital interfaces",
+          "The future of the IT industry and computing"
+        ],
+        outcomes: "Empowers system engineers, developers, and IT support technicians to handle international ticket dispatch, client walkthroughs, and security debriefs.",
+        keywords: ["information technology", "it", "software", "hardware", "internet security", "web design", "network"]
+      },
+      {
+        id: "mechanical-engineering",
+        title: "Career Paths: Mechanical Engineering",
+        category: "engineering",
+        categoryName: "Engineering, Tech & Mechanics",
+        icon: "fa-gears",
+        color: "blue",
+        isbn: "978-1-4715-2895-8",
+        cefr: "A1, A2, B1",
+        description: "Immerses students in mechanical engineering vocabulary, physics principles, and factory interactions through step-by-step 4-skill exercises.",
+        topics: [
+          "Materials science, carbon steel & alloy properties",
+          "Simple machines & mechanical leverage",
+          "Basic physics (electricity, thermodynamics, kinetics, stress & strain)",
+          "Power transmission, engines, generators & tool calibration",
+          "Career roles: Design Engineer, Researcher, Management, Public Safety, R&D Consultant"
+        ],
+        outcomes: "Prepares mechanical technicians and design consultants to communicate specifications, handle prototype evaluations, and supervise production line mechanics.",
+        keywords: ["mechanical", "engineering", "materials", "machines", "physics", "design", "r&d", "manufacturing", "stress", "strain"]
+      },
+      {
+        id: "agriculture",
+        title: "Career Paths English: Agriculture",
+        category: "applied",
+        categoryName: "Health, Psychology & Sciences",
+        icon: "fa-seedling",
+        color: "emerald",
+        isbn: "978-1-78098-621-0",
+        cefr: "A1, A2, B1",
+        description: "Covers the key communicative vocabulary and dialogues required by agronomists, farm supervisors, exporters, and livestock managers.",
+        topics: [
+          "Soil preparation and nutrient testing",
+          "Seeding methods and crop management",
+          "Modern farm equipment and machinery maintenance",
+          "Livestock care and animal welfare",
+          "Organic farming, biocides & sustainable cultivation"
+        ],
+        outcomes: "Provides agribusiness entrepreneurs and agricultural project officers with the vocabulary to consult with overseas agronomists and coordinate exports.",
+        keywords: ["agriculture", "soil", "seeding", "farm", "livestock", "organic", "farming"]
+      },
+      {
+        id: "hotels-catering",
+        title: "Career Paths: Hotels & Catering",
+        category: "hospitality",
+        categoryName: "Hospitality & Tourism",
+        icon: "fa-hotel",
+        color: "amber",
+        isbn: "978-0-85777-630-3",
+        cefr: "A1, A2, B1",
+        description: "An educational resource for hotel and catering staff wanting to improve English communication in hospitality work environments across the four key components.",
+        topics: [
+          "Meet our staff & workplace roles (bellhop, concierge, front desk clerk, housekeeper, valet, night auditor)",
+          "Hotel reservations, arrivals, room allocations & checkout procedures",
+          "Customer service inquiries, concierge recommendations & local tours",
+          "Catering operations, banquets, and event table service",
+          "Housekeeping routines, shift coordination, and maintenance reporting",
+          "Handling guest complaints, emergency procedures, and billing queries"
+        ],
+        outcomes: "Enables front office agents, concierges, banquet managers, and hospitality supervisors to interact fluently with international travelers and manage hotel operations.",
+        keywords: ["hotel", "catering", "concierge", "front desk", "housekeeper", "bellhop", "valet", "hospitality", "check in"]
+      },
+      {
+        id: "tourism",
+        title: "Career Paths: Tourism",
+        category: "hospitality",
+        categoryName: "Hospitality & Tourism",
+        icon: "fa-earth-americas",
+        color: "teal",
+        isbn: "978-1-4715-0556-0",
+        cefr: "A1, A2, B1",
+        description: "Equips tourism personnel with the specialized language required to guide visitors, organize multimodal travel itineraries, and manage tourist agencies.",
+        topics: [
+          "Tour itinerary planning and package holidays",
+          "Flight ticketing, airport procedures, and transit transfers",
+          "Tour guiding techniques, architectural landmarks, and heritage explanations",
+          "Booking accommodations, car rentals, and museum admissions",
+          "Currency exchange, travel insurance, and consular assistance",
+          "Ecotourism, sustainable travel, and cultural heritage ethics"
+        ],
+        outcomes: "Prepares tour guides, travel agency consultants, and destination coordinators to lead international tour groups and manage agency reservations.",
+        keywords: ["tourism", "tour", "travel", "itinerary", "guide", "flight", "booking", "landmark", "ecotourism"]
+      },
+      {
+        id: "cooking",
+        title: "Career Paths: Cooking",
+        category: "hospitality",
+        categoryName: "Hospitality & Tourism",
+        icon: "fa-utensils",
+        color: "orange",
+        isbn: "978-1-4715-1886-7",
+        cefr: "A1, A2, B1",
+        description: "Designed for chefs, line cooks, and culinary professionals seeking to communicate effectively in commercial kitchens and fine dining restaurants.",
+        topics: [
+          "CuisArts culinary techniques, basic cooking methods & culinary terminology",
+          "Kitchen brigade hierarchy (executive chef, sous chef, commis, culinarians)",
+          "Food workstations, knife skills & kitchen safety",
+          "Supervised externships & hands-on restaurant experience",
+          "Kitchen management, accredited standards & event catering specializations",
+          "Menu terminology, courses & culinary sanitation"
+        ],
+        outcomes: "Equips cooks, culinary supervisors, and kitchen brigade staff to work fluently in multinational restaurant kitchens and five-star resort dining rooms.",
+        keywords: ["cooking", "chef", "culinary", "kitchen", "cuisarts", "externship", "culinarian", "sanitation", "menu"]
+      },
+      {
+        id: "secretarial",
+        title: "Career Paths English: Secretarial",
+        category: "management",
+        categoryName: "Business, Management & HR",
+        icon: "fa-user-tie",
+        color: "indigo",
+        isbn: "978-0-85777-861-1",
+        cefr: "A1, A2, B1",
+        description: "An educational resource for secretarial and administrative professionals who want to master workplace English across reading, listening, speaking, and writing.",
+        topics: [
+          "Office equipment & modern communication software",
+          "Basic administrative bookkeeping, ledgers & expense tracking",
+          "Formal business correspondence, executive memos & email etiquette",
+          "Telephone screening, visitor greeting & calendar scheduling",
+          "Computer applications, cloud filing & document archiving",
+          "Meeting coordination, agenda preparation & minute taking"
+        ],
+        outcomes: "Prepares executive assistants, office managers, and administrative secretaries to handle executive correspondence, client receptions, and calendar scheduling.",
+        keywords: ["secretarial", "office", "correspondence", "bookkeeping", "executive assistant", "admin", "calendar", "minute taking"]
+      },
+      {
+        id: "management",
+        title: "Career Paths: Management",
+        category: "management",
+        categoryName: "Business, Management & HR",
+        icon: "fa-users-gear",
+        color: "sky",
+        isbn: "978-1-4715-1215-5",
+        cefr: "A1, A2, B1",
+        description: "A comprehensive workplace management resource covering leadership styles, business models, financial reporting, risk assessment, and conflict resolution.",
+        topics: [
+          "Management styles (authoritarian, paternalistic, democratic, bottom-up)",
+          "Starting a business & business plan formulations (break-even, licenses, permits)",
+          "Business models (bait and hook, franchise, distributor, utility models)",
+          "Costs, activity-based costing, direct/indirect overheads & budget forecasting",
+          "P&L reports, balance sheets, cash flow statements & asset reconciliations",
+          "Workplace conflict defusal, mediation, performance reviews & downsizing procedures"
+        ],
+        outcomes: "Equips entrepreneurs, operations heads, and corporate executives to conduct strategic reviews, present balance sheets, and resolve employee disputes.",
+        keywords: ["management", "leadership", "budget", "strategy", "conflict", "evaluation", "p&l", "business plan", "break even"]
+      },
+      {
+        id: "human-resources",
+        title: "Career Paths: Human Resources",
+        category: "management",
+        categoryName: "Business, Management & HR",
+        icon: "fa-id-card-clip",
+        color: "violet",
+        isbn: "978-1-4715-1888-1",
+        cefr: "A1, A2, B1",
+        description: "Tailored for HR specialists, recruiters, and personnel managers who coordinate staffing, training, benefits, and labor law compliance.",
+        topics: [
+          "Recruitment procedures, job specifications & advertising vacancies",
+          "Candidate screening, CV evaluation & structured interview dialogues",
+          "Employee onboarding, orientation & company handbook policies",
+          "Compensation packages, health insurance, bonuses & salary structures",
+          "Employee relations, grievance hearings & labor mediation",
+          "Performance appraisals, talent retention, and professional development programs"
+        ],
+        outcomes: "Prepares talent acquisition managers, HR coordinators, and personnel officers to conduct recruitment interviews, manage employee benefits, and lead disciplinary reviews.",
+        keywords: ["human resources", "hr", "recruitment", "interview", "onboarding", "benefits", "employee relations", "talent", "appraisal"]
+      },
+      {
+        id: "logistics",
+        title: "Career Paths: Logistics",
+        category: "logistics",
+        categoryName: "Logistics & Supply Chain",
+        icon: "fa-truck-fast",
+        color: "cyan",
+        isbn: "978-1-4715-0604-8",
+        cefr: "A1, A2, B1",
+        description: "Specialized workplace English for professionals managing freight forwarding, global supply chains, warehousing, customs clearance, and intermodal freight.",
+        topics: [
+          "Supply chain management & distribution network planning",
+          "Warehousing operations, racking systems & inventory tracking",
+          "Freight forwarding & multimodal transport (maritime, air, road, rail)",
+          "Shipping documentation (bills of lading, waybills, commercial invoices, packing lists)",
+          "Customs clearance procedures, tariff classifications, and cross-border duties",
+          "Third-party logistics (3PL), reverse logistics, and cargo insurance"
+        ],
+        outcomes: "Prepares logistics dispatchers, warehouse directors, customs brokers, and supply chain analysts to coordinate international cargo shipments and customs compliance.",
+        keywords: ["logistics", "supply chain", "freight", "warehouse", "inventory", "shipping", "customs", "bill of lading", "cargo"]
+      }
+    ];
+
+    // Current State
+    let currentCategory = 'all';
+    let currentModalCourse = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCourseCards();
+      populateCheckoutOptions();
+      loadLabContent('marine');
+      updateCourseCount();
+    });
+
+    function updateCourseCount() {
+      const countEl = document.getElementById('count-all');
+      if (countEl) countEl.innerText = ESP_COURSES.length;
+    }
+
+    /**
+     * Renders courses into the catalog grid with dynamic badges and search matching
+     */
+    function renderCourseCards(filterTerm = '') {
+      const container = document.getElementById('courseCardsGrid');
+      const emptyState = document.getElementById('noResultsMessage');
+      if (!container) return;
+
+      container.innerHTML = '';
+      const term = filterTerm.trim().toLowerCase();
+
+      const filtered = ESP_COURSES.filter(course => {
+        const matchesCat = (currentCategory === 'all' || course.category === currentCategory);
+        if (!matchesCat) return false;
+
+        if (!term) return true;
+        const inTitle = course.title.toLowerCase().includes(term);
+        const inDesc = course.description.toLowerCase().includes(term);
+        const inCat = course.categoryName.toLowerCase().includes(term);
+        const inKeywords = course.keywords.some(k => k.toLowerCase().includes(term));
+        const inTopics = course.topics.some(t => t.toLowerCase().includes(term));
+        return inTitle || inDesc || inCat || inKeywords || inTopics;
+      });
+
+      if (filtered.length === 0) {
+        emptyState.classList.remove('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+        filtered.forEach(course => {
+          const card = document.createElement('div');
+          card.className = "group relative bg-white rounded-3xl p-6 border border-slate-200 hover:border-blue-400/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between";
+          
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-slate-100 text-slate-700">
+                  ${course.categoryName}
+                </span>
+                <span class="font-mono text-xs text-brand-600 font-bold">$135 <span class="text-[10px] text-slate-400 font-normal">/ 10 wks</span></span>
+              </div>
+
+              <div class="flex items-start gap-3.5 mb-3">
+                <div class="w-11 h-11 rounded-2xl bg-blue-50 text-brand-600 flex items-center justify-center shrink-0 text-xl group-hover:bg-brand-600 group-hover:text-white transition">
+                  <i class="fa-solid ${course.icon}"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-slate-900 text-base group-hover:text-brand-600 transition leading-snug">
+                    ${course.title}
+                  </h3>
+                  <div class="text-[11px] text-slate-400 font-mono mt-0.5">CEFR ${course.cefr} • 400+ Terms</div>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-600 leading-relaxed line-clamp-3 mb-4">
+                ${course.description}
+              </p>
+
+              <!-- Topic Tags preview -->
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                ${course.topics.slice(0, 3).map(t => `<span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-[10px] truncate max-w-[200px]">${t}</span>`).join('')}
+                ${course.topics.length > 3 ? `<span class="px-2 py-0.5 rounded bg-slate-50 text-slate-400 text-[10px]">+${course.topics.length - 3} more</span>` : ''}
+              </div>
+            </div>
+
+            <!-- Card Actions -->
+            <div class="pt-4 border-t border-slate-100 flex items-center gap-2">
+              <button onclick="openCourseModal('${course.id}')" class="flex-1 py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition text-center">
+                View Syllabus
+              </button>
+              <button onclick="directEnroll('${course.id}')" class="py-2.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                <span>Enroll</span>
+                <i class="fa-solid fa-chevron-right text-[10px]"></i>
+              </button>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    }
+
+    function filterCourses() {
+      const input = document.getElementById('courseSearchInput');
+      renderCourseCards(input ? input.value : '');
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('courseSearchInput');
+      if (input) input.value = '';
+      currentCategory = 'all';
+      updateActiveCategoryButtons();
+      renderCourseCards('');
+    }
+
+    function setActiveCategory(cat) {
+      currentCategory = cat;
+      updateActiveCategoryButtons();
+      const input = document.getElementById('courseSearchInput');
+      renderCourseCards(input ? input.value : '');
+    }
+
+    function updateActiveCategoryButtons() {
+      const buttons = document.querySelectorAll('.category-btn');
+      buttons.forEach(btn => {
+        const cat = btn.getAttribute('data-cat');
+        if (cat === currentCategory) {
+          btn.className = "category-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-brand-600 text-white whitespace-nowrap transition";
+        } else {
+          btn.className = "category-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 whitespace-nowrap transition";
+        }
+      });
+    }
+
+    function openCourseModal(courseId) {
+      const course = ESP_COURSES.find(c => c.id === courseId);
+      if (!course) return;
+
+      currentModalCourse = course;
+      document.getElementById('modalTitle').innerText = course.title;
+      document.getElementById('modalCategory').innerText = `${course.categoryName.toUpperCase()} • ISBN ${course.isbn}`;
+      document.getElementById('modalDescription').innerText = course.description;
+      document.getElementById('modalCareerOutcomes').innerText = course.outcomes;
+
+      // Populate Topics List
+      const list = document.getElementById('modalTopicsList');
+      list.innerHTML = '';
+      course.topics.forEach(t => {
+        const li = document.createElement('li');
+        li.className = "flex items-start gap-2 bg-slate-50 p-2 rounded-lg border border-slate-100";
+        li.innerHTML = `<i class="fa-solid fa-check text-brand-600 text-[11px] mt-0.5"></i> <span>${t}</span>`;
+        list.appendChild(li);
+      });
+
+      const modal = document.getElementById('courseModal');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCourseModal() {
+      const modal = document.getElementById('courseModal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+      currentModalCourse = null;
+    }
+
+    function enrollFromModal() {
+      if (!currentModalCourse) return;
+      const courseId = currentModalCourse.id;
+      closeCourseModal();
+      directEnroll(courseId);
+    }
+
+    function directEnroll(courseId) {
+      const select = document.getElementById('checkoutCourseSelect');
+      if (select) select.value = courseId;
+      openCheckoutModal();
+    }
+
+    function inquireCourseViaTelegram() {
+      if (!currentModalCourse) return;
+      const text = encodeURIComponent(`Hello BEC Academy, I would like to inquire about enrolling in "${currentModalCourse.title}" (10 Weeks, $135). Can you send me the cohort schedule?`);
+      window.open(`https://t.me/share/url?url=https://bec-academy.edu&text=${text}`, '_blank');
+    }
+
+    function shareCourseInfo() {
+      if (!currentModalCourse) return;
+      const text = `BEC Academy: ${currentModalCourse.title} - $135, 10 Weeks (45 Hours), CEFR ${currentModalCourse.cefr}. Building Global Competences. Visit: https://bec-academy.edu`;
+      
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast("Course details copied to clipboard!");
+      } catch (err) {
+        showToast("Unable to copy details.");
+      }
+      document.body.removeChild(textArea);
+    }
+
+    function populateCheckoutOptions() {
+      const select = document.getElementById('checkoutCourseSelect');
+      if (!select) return;
+      select.innerHTML = '';
+      ESP_COURSES.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.id;
+        opt.innerText = `${c.title} — $135.00`;
+        select.appendChild(opt);
+      });
+    }
+
+    function updateCheckoutTotal() {
+      // Each course is uniformly priced at $135 as mandated
+    }
+
+    function openCheckoutModal() {
+      const modal = document.getElementById('checkoutModal');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCheckoutModal() {
+      const modal = document.getElementById('checkoutModal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function processCheckoutSubmission() {
+      const nameInput = document.getElementById('custName');
+      const emailInput = document.getElementById('custEmail');
+      const tgInput = document.getElementById('custTelegram');
+      const courseSelect = document.getElementById('checkoutCourseSelect');
+      const modeSelect = document.getElementById('checkoutModeSelect');
+      const schedSelect = document.getElementById('checkoutScheduleSelect');
+
+      if (!nameInput.value.trim() || !emailInput.value.trim() || !tgInput.value.trim()) {
+        showToast("Please fill in your name, email, and Telegram handle.");
+        return;
+      }
+
+      const selectedCourse = ESP_COURSES.find(c => c.id === courseSelect.value) || ESP_COURSES[0];
+      const randomOrderId = `#ESP-${Math.floor(1000 + Math.random() * 9000)}`;
+
+      // Update receipt modal
+      document.getElementById('recOrderId').innerText = randomOrderId;
+      document.getElementById('recLearnerName').innerText = nameInput.value;
+      document.getElementById('recCourseName').innerText = selectedCourse.title;
+      document.getElementById('recSchedule').innerText = `${modeSelect.value} (${schedSelect.value})`;
+
+      // Create Telegram dispatch deep-link
+      const tgMsg = encodeURIComponent(`🎉 New Registration Confirmation ${randomOrderId}\nCourse: ${selectedCourse.title}\nStudent: ${nameInput.value}\nTelegram: ${tgInput.value}\nMode: ${modeSelect.value}\nSchedule: ${schedSelect.value}\nFee Paid: $135.00\nPlease verify my class access.`);
+      const tgBtn = document.getElementById('recTelegramLink');
+      tgBtn.href = `https://t.me/share/url?url=https://bec-academy.edu&text=${tgMsg}`;
+
+      closeCheckoutModal();
+
+      // Show confirmation modal
+      const recModal = document.getElementById('receiptModal');
+      recModal.classList.remove('hidden');
+    }
+
+    function closeReceiptModal() {
+      document.getElementById('receiptModal').classList.add('hidden');
+      document.body.style.overflow = '';
+      showToast("Registration saved! Check your Telegram app for cohort orientation.");
+    }
+
+    const LAB_DATA = {
+      marine: {
+        title: "Marine Engineering: Vessel Movements & Rudders",
+        context: "Excerpts from Units 7 & 8: Navigational Hydrodynamics & Maneuvering",
+        dialogue: [
+          { speaker: "Supervisor", text: "Did the P-900 vessel meet its tactical diameter during initial steering tests?" },
+          { speaker: "Analyst", text: "No. When I put over the rudder to the appropriate angle of attack, the vessel didn't come around to the desired heading." },
+          { speaker: "Supervisor", text: "Did applying additional torque to the rudder correct the steady turning radius?" },
+          { speaker: "Analyst", text: "It loosened the turning radius, so the advance and transfer required more space than designed. It was behaving like an unbalanced rudder." }
+        ],
+        terms: [
+          { word: "Surge", def: "Forward and aft movement of a vessel along the longitudinal axis." },
+          { word: "Sway", def: "Side-to-side movement along the transverse line towards port or starboard." },
+          { word: "Tactical Diameter", def: "A measure of a vessel's turning circle at its widest point." },
+          { word: "Biocide", def: "A substance intended to kill living organisms, regulated under MEPC/IMO coastal standards." }
+        ]
+      },
+      finance: {
+        title: "Finance & Banking: Balance Sheets & Working Capital",
+        context: "Excerpts from Finance & Banking Units: Corporate Operations & Reconciliations",
+        dialogue: [
+          { speaker: "Financial Director", text: "Have we reviewed the latest working capital metrics before meeting the commercial credit committee?" },
+          { speaker: "Analyst", text: "Yes. Working capital is currently positive: current assets minus current liabilities show healthy liquidity for stimulus spending." },
+          { speaker: "Financial Director", text: "Ensure the complete financial statements and cash flow breakdowns are verified before presenting the investment strategy." }
+        ],
+        terms: [
+          { word: "Working Capital", def: "Calculated as current assets minus current liabilities." },
+          { word: "Stimulus Spending", def: "Targeted capital allocation by government or organizations to spur operations." },
+          { word: "Bookkeeping", def: "The systematic recording of all financial transactions and ledgers." },
+          { word: "Regulation", def: "Rules and restrictions governing institutional banking and operations." }
+        ]
+      },
+      law: {
+        title: "Law: Courtroom Processes & Jurisdictional Practice",
+        context: "Excerpts from Career Paths: Law: Evidence, Billing, & International Treaties",
+        dialogue: [
+          { speaker: "Senior Partner", text: "Did you complete the legal billing report for the maritime arbitration client?" },
+          { speaker: "Associate", text: "Yes, all hours for courtroom motions, evidence collection, and international treaty reviews under SOLAS have been itemized." },
+          { speaker: "Senior Partner", text: "Excellent. Let's make sure the jurisdiction complies with the port state regulations." }
+        ],
+        terms: [
+          { word: "Jurisdiction", def: "The legal authority to make official decisions and enforce rules in a designated territory." },
+          { word: "SOLAS", def: "International Convention for Safety of Life at Sea establishing vessel security standards." },
+          { word: "Legal Billing", def: "The procedure of tracking, invoicing, and retaining client advisory fees." }
+        ]
+      }
+    };
+
+    function setLabTab(key) {
+      ['marine', 'finance', 'law'].forEach(k => {
+        const btn = document.getElementById(`labTab-${k}`);
+        if (btn) {
+          if (k === key) {
+            btn.className = "flex-1 py-3.5 px-4 text-xs font-bold text-brand-600 border-b-2 border-brand-600 bg-white transition";
+          } else {
+            btn.className = "flex-1 py-3.5 px-4 text-xs font-bold text-slate-600 hover:text-slate-900 transition";
+          }
+        }
+      });
+      loadLabContent(key);
+    }
+
+    function loadLabContent(key) {
+      const data = LAB_DATA[key];
+      const area = document.getElementById('labContentArea');
+      if (!data || !area) return;
+
+      area.innerHTML = `
+        <div>
+          <div class="text-[11px] font-mono text-brand-600 font-bold uppercase tracking-wider">${data.context}</div>
+          <h3 class="text-xl font-bold text-slate-900 mt-0.5">${data.title}</h3>
+        </div>
+
+        <!-- Dialogue Script Display -->
+        <div class="space-y-3 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+          <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-headphones text-brand-500"></i> Authentic Workplace Dialogue (Task 7 &amp; 8 Format)
+          </div>
+          ${data.dialogue.map(line => `
+            <div class="text-xs">
+              <span class="font-bold text-slate-900">${line.speaker}:</span>
+              <span class="text-slate-700 italic">"${line.text}"</span>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- Key Vocabulary Glossary Match -->
+        <div>
+          <div class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3">Key Technical Terms From Unit Glossary</div>
+          <div class="grid sm:grid-cols-2 gap-3">
+            ${data.terms.map(t => `
+              <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-sm">
+                <div class="text-xs font-bold text-brand-600 font-mono">${t.word}</div>
+                <div class="text-[11px] text-slate-600 mt-1">${t.def}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function toggleTelegramChat() {
+      const windowEl = document.getElementById('telegramChatWindow');
+      if (windowEl.classList.contains('hidden')) {
+        windowEl.classList.remove('hidden');
+      } else {
+        windowEl.classList.add('hidden');
+      }
+    }
+
+    function handleChatKeydown(e) {
+      if (e.key === 'Enter') {
+        submitChatMessage();
+      }
+    }
+
+    function submitChatMessage() {
+      const input = document.getElementById('chatUserInput');
+      const text = input ? input.value.trim() : '';
+      if (!text) return;
+
+      appendChatMessage(text, 'user');
+      input.value = '';
+
+      // Generate context-aware grounded reply
+      setTimeout(() => {
+        const botReply = generateBotReply(text);
+        appendChatMessage(botReply, 'bot');
+      }, 500);
+    }
+
+    function sendQuickPrompt(promptText) {
+      appendChatMessage(promptText, 'user');
+      setTimeout(() => {
+        const botReply = generateBotReply(promptText);
+        appendChatMessage(botReply, 'bot');
+      }, 400);
+    }
+
+    function appendChatMessage(message, sender) {
+      const chatContainer = document.getElementById('chatMessages');
+      if (!chatContainer) return;
+
+      const row = document.createElement('div');
+      row.className = sender === 'user' ? 'flex justify-end' : 'flex gap-2.5 items-start';
+
+      if (sender === 'user') {
+        row.innerHTML = `
+          <div class="p-3 rounded-2xl bg-telegram text-white max-w-[82%] shadow-sm text-xs">
+            ${message}
+          </div>
+        `;
+      } else {
+        row.innerHTML = `
+          <div class="w-7 h-7 rounded-full bg-telegram text-white flex items-center justify-center shrink-0 text-xs">
+            <i class="fa-brands fa-telegram"></i>
+          </div>
+          <div class="p-3 rounded-2xl bg-white border border-slate-200 text-slate-800 max-w-[82%] shadow-sm text-xs leading-relaxed">
+            ${message}
+          </div>
+        `;
+      }
+
+      chatContainer.appendChild(row);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function generateBotReply(userQuery) {
+      const q = userQuery.toLowerCase();
+
+      if (q.includes('fee') || q.includes('price') || q.includes('cost') || q.includes('135') || q.includes('tuition')) {
+        return "Tuition is exactly <strong>$135 per course</strong> across all career tracks. This covers the full 10-week cohort (45 total guided hours, 3 days/week, 90 minutes/day), authentic reading passages, recorded audio, 45 comprehension checks, and the final certificate.";
+      }
+      if (q.includes('schedule') || q.includes('duration') || q.includes('time') || q.includes('week') || q.includes('hour')) {
+        return "Our schedule parameters are:<br>• Duration: <strong>10 Weeks</strong><br>• Total Hours: <strong>45 Hours</strong><br>• Frequency: <strong>3 days per week</strong><br>• Daily Session: <strong>90 minutes per day</strong><br>Cohorts are offered Mon/Wed/Fri or Tue/Thu/Sat in both Synchronous Online and In-Class formats.";
+      }
+      if (q.includes('cefr') || q.includes('level') || q.includes('a1') || q.includes('b1')) {
+        return "Each series incorporates three difficulty tiers rated for the Common European Framework of Reference for Languages: <strong>Book 1 (CEFR A1), Book 2 (CEFR A2), and Book 3 (CEFR B1)</strong>, with a minimum of 400 specialized terms.";
+      }
+      if (q.includes('clt') || q.includes('method') || q.includes('approach') || q.includes('teach')) {
+        return "We use the <strong>Communicative Language Teaching (CLT)</strong> approach with Task-Based Learning. Class 1 focuses on reading, vocabulary activation, and controlled practice; Class 2 delivers authentic workplace listening dialogues, breakout speaking roleplays, and professional memo/report writing.";
+      }
+      if (q.includes('marine') || q.includes('ship') || q.includes('rudder') || q.includes('boat')) {
+        return "Our <em>Career Paths: Marine Engineering</em> course covers vessel motions (surge, sway, pitch, yaw), slipways and dry docks, CAD design technology, rudder dynamics, and IMO environmental protection conventions (MEPC, biocides, VOCs). Tuition is $135.";
+      }
+      if (q.includes('psychology') || q.includes('mental health') || q.includes('disorder') || q.includes('counseling')) {
+        return "Our <em>Career Paths: Psychology</em> track (ISBN 978-1-4715-6643-1 by Dr. Timothy Gilliland & Jenny Dooley) covers psychological theories, research methods, treatment approaches, and career roles including Academic, School, and Consulting Psychologists ($135).";
+      }
+      if (q.includes('call center') || q.includes('telephony') || q.includes('customer service') || q.includes('helpdesk')) {
+        return "Our <em>Career Paths: Call Centers</em> course (ISBN 978-1-4715-1215-5) trains agents in communications equipment, answering customer calls, tech support troubleshooting, automated systems, and role play simulations ($135).";
+      }
+      if (q.includes('mechanic') || q.includes('hand tool') || q.includes('auto') || q.includes('car repair')) {
+        return "Our <em>Career Paths: Mechanics</em> course (ISBN 978-1-78098-621-0) develops workplace English for hand tools, power tools, automotive systems, diagnostic maintenance, and body repair ($135).";
+      }
+      if (q.includes('beauty') || q.includes('salon') || q.includes('hair') || q.includes('manicure')) {
+        return "Our <em>Career Paths: Beauty Salon</em> track focuses on customer interface consultations, hairstyles, chemical perms, hair coloring, and manicure sanitation protocols across CEFR A1–B1 ($135).";
+      }
+      if (q.includes('command') || q.includes('control') || q.includes('dispatch') || q.includes('tactical')) {
+        return "Our <em>Career Paths: Command & Control</em> course (by John Taylor & Jeff Z.) covers standardized brevity codes, tactical communications, emergency incident command, and field surveillance ($135).";
+      }
+      if (q.includes('nursing') || q.includes('nurse')) {
+        return "Our <em>Career Paths English: Nursing</em> course covers hospital departments, basic equipment, triage protocols, nursing duties, medication administration, and patient care bedside English ($135).";
+      }
+      if (q.includes('medical') || q.includes('doctor')) {
+        return "Our <em>Career Paths: Medical</em> course (ISBN 978-1-78098-658-6) covers hospital staff hierarchies, human anatomy, patient examinations, common illnesses, and clinical consultations ($135).";
+      }
+      if (q.includes('hotel') || q.includes('catering') || q.includes('concierge') || q.includes('reception')) {
+        return "Our <em>Career Paths: Hotels & Catering</em> curriculum covers hotel roles (bellhop, front desk clerk, concierge, housekeeper, valet), guest reservations, check-in, banquet catering, and complaint management across CEFR A1–B1 ($135).";
+      }
+      if (q.includes('tourism') || q.includes('travel') || q.includes('tour') || q.includes('flight')) {
+        return "Our <em>Career Paths: Tourism</em> program develops workplace English for travel agents, tour guides, and booking coordinators: package itineraries, airport transfers, sightseeing commentary, and ecotourism ethics ($135).";
+      }
+      if (q.includes('cooking') || q.includes('chef') || q.includes('kitchen') || q.includes('culinary')) {
+        return "Our <em>Career Paths: Cooking</em> course immerses culinary staff in kitchen brigade communications, food preparation techniques, cooking methods, HACCP food hygiene, and menu design ($135).";
+      }
+      if (q.includes('secretarial') || q.includes('secretary') || q.includes('admin') || q.includes('assistant')) {
+        return "Our <em>Career Paths English: Secretarial</em> (ISBN 978-0-85777-861-1) covers office equipment, bookkeeping ledgers, formal business correspondence, telephone etiquette, and executive calendar management ($135).";
+      }
+      if (q.includes('management') || q.includes('manager') || q.includes('leadership') || q.includes('supervisor')) {
+        return "Our <em>Career Paths: Management</em> course covers leadership styles (authoritarian, democratic), business plan drafting, break-even analysis, P&L statements, budget forecasting, and workplace conflict mediation ($135).";
+      }
+      if (q.includes('hr') || q.includes('human resources') || q.includes('recruitment') || q.includes('hiring')) {
+        return "Our <em>Career Paths: Human Resources</em> course trains HR professionals in job postings, CV screening, structured employment interviews, onboarding handbooks, employee grievances, and compensation structures ($135).";
+      }
+      if (q.includes('logistics') || q.includes('supply chain') || q.includes('warehouse') || q.includes('freight') || q.includes('shipping')) {
+        return "Our <em>Career Paths: Logistics</em> course prepares professionals for freight forwarding, bills of lading, inventory management, warehousing, customs clearance, and multimodal cargo transport ($135).";
+      }
+      if (q.includes('finance') || q.includes('banking') || q.includes('account') || q.includes('money')) {
+        return "We offer <em>Career Paths: Finance</em>, <em>Banking</em>, and <em>Accounting</em>. Topics cover working capital, investment consultation, financial statements (P&L, balance sheet), online banking regulation, and audits ($135).";
+      }
+      if (q.includes('enroll') || q.includes('buy') || q.includes('checkout') || q.includes('register')) {
+        return "You can enroll immediately by clicking the <strong>Enroll Now</strong> button or using our checkout modal. Once submitted, your registration order ticket will open directly in your Telegram app for instant confirmation!";
+      }
+
+      return "Thank you for reaching out to BEC Academy! I can assist you with all 22 course syllabi (Psychology, Call Centers, Mechanics, Beauty Salon, Nursing, Medical, Finance, Marine Engineering, Law, IT, etc.), CEFR levels (A1–B1), schedule options (10 weeks/45 hrs), and instant enrollment at $135/course.";
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.getElementById('mobileMenuIcon');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        icon.className = 'fa-solid fa-xmark text-xl';
+      } else {
+        menu.classList.add('hidden');
+        icon.className = 'fa-solid fa-bars text-xl';
+      }
+    }
+
+    function toggleFaq(id) {
+      const content = document.getElementById(`faqContent-${id}`);
+      const icon = document.getElementById(`faqIcon-${id}`);
+      if (!content || !icon) return;
+
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+      } else {
+        content.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toastNotification');
+      const msgEl = document.getElementById('toastMessage');
+      if (!toast || !msgEl) return;
+
+      msgEl.innerText = message;
+      toast.classList.remove('hidden');
+
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4000);
+    }
+  </script>
+
+</body>
+</html>
