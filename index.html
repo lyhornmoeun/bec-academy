@@ -1,0 +1,2366 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEC Academy — Building Global Competences.</title>
+  <meta name="description" content="Practical career and vocational language courses benchmarked against CEFR standards across 60+ industry fields.">
+  <link rel="canonical" href="https://becacademy.edu">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple950: '#1b1226',
+              purple900: '#26143b',
+              purple800: '#391a58',
+              purple700: '#55257f',
+              purple600: '#7333ab',
+              purple100: '#f4eaff',
+              purple50: '#faf5ff',
+              green500: '#22c55e',
+              green400: '#4ade80',
+              green100: '#ecfdf5',
+              green50: '#f0fdf4',
+              blue400: '#60a5fa',
+              yellow400: '#facc15',
+              slate900: '#0f172a',
+              slate800: '#1e293b',
+              slate700: '#334155',
+              muted: '#64748b'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          boxShadow: {
+            'subtle': '0 4px 20px -2px rgba(15, 23, 42, 0.05)',
+            'card': '0 10px 30px -4px rgba(27, 18, 38, 0.06)',
+            'card-hover': '0 20px 35px -5px rgba(27, 18, 38, 0.12)',
+            'focus-ring': '0 0 0 3px rgba(74, 222, 128, 0.35)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1e293b;
+      background-color: #f8fafc;
+      overflow-x: hidden;
+      letter-spacing: -0.01em;
+    }
+
+    /* Minimalist smooth animations */
+    @keyframes floatGentle {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .animate-float {
+      animation: floatGentle 5s ease-in-out infinite;
+    }
+
+    /* Scrollbar refinement */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Accessible focus rings */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid #4ade80;
+      outline-offset: 2px;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Strict Single-Page Print Rules for Enrollment Receipt */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm;
+      }
+      /* Completely eliminate all site chrome and non-receipt modals from print flow */
+      aside,
+      header,
+      main,
+      footer,
+      #authModal,
+      #courseEditorModal,
+      #courseDetailModal,
+      #paymentModal,
+      #dashboardModal,
+      #confirmModal,
+      #telegramWidgetContainer,
+      #toastContainer,
+      .no-print {
+        display: none !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      html, body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        height: auto !important;
+        min-height: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        font-size: 11pt !important;
+      }
+
+      /* Make receipt modal the sole rendered element in static flow */
+      #receiptModal {
+        display: block !important;
+        position: static !important;
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        overflow: visible !important;
+      }
+
+      #receiptModal > div {
+        max-width: 650px !important;
+        margin: 0 auto !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        overflow: visible !important;
+        padding: 0 !important;
+      }
+
+      #printableReceipt {
+        display: block !important;
+        position: static !important;
+        visibility: visible !important;
+        width: 100% !important;
+        max-width: 620px !important;
+        margin: 0 auto !important;
+        box-shadow: none !important;
+        border: 1.5px solid #0f172a !important;
+        border-radius: 12px !important;
+        padding: 24px !important;
+        background: #ffffff !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      #printableReceipt * {
+        visibility: visible !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-brand-green400 selection:text-brand-purple950 text-slate-800">
+
+  <aside aria-label="Announcement Bar" class="bg-brand-purple950 text-white text-xs py-2.5 px-4 border-b border-white/10 hidden md:block">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-brand-green500/20 text-brand-green400 border border-brand-green500/30">
+          <i class="fa-solid fa-award text-[10px]"></i> CEFR A1–B1 Accredited
+        </span>
+      </div>
+      <div class="flex items-center gap-4 text-white/70">
+        <a href="#courses" class="hover:text-brand-green400 transition">Course Catalog</a>
+        <span class="text-white/20">|</span>
+        <a href="#faq" class="hover:text-brand-green400 transition font-semibold text-brand-green400">FAQs</a>
+        <span class="text-white/20">|</span>
+        <button onclick="app.toggleRole()" id="roleSwitcherBtn" class="px-2.5 py-0.5 rounded-md bg-white/10 hover:bg-white/20 text-brand-yellow400 transition font-semibold text-[11px] flex items-center gap-1.5" title="Switch between Student and Admin modes">
+          <i class="fa-solid fa-user-shield"></i> <span id="roleLabel">Role: Student</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <header class="sticky top-0 z-40 bg-brand-purple900/95 backdrop-blur-md border-b border-white/10 text-white transition-all duration-200" id="mainHeader">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between" aria-label="Primary Navigation">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none" aria-label="BEC Academy Homepage">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-purple700 via-brand-purple600 to-brand-green500 flex items-center justify-center text-white shadow-md shadow-brand-purple950/40 group-hover:scale-105 transition duration-200">
+          <i class="fa-solid fa-graduation-cap text-lg text-white"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-1">
+            <span class="font-extrabold text-2xl tracking-tight text-white">BEC</span>
+            <span class="font-extrabold text-2xl tracking-tight text-brand-green400">Academy</span>
+          </div>
+          <span class="block text-[10px] tracking-wider uppercase text-white/60 font-semibold">Building Global Competences</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center gap-7 font-medium text-sm text-white/90">
+        <a href="#home" class="hover:text-brand-green400 transition py-1">Home</a>
+        <a href="#courses" class="hover:text-brand-green400 transition py-1">Courses (61 Tracks)</a>
+        <a href="#methodology" class="hover:text-brand-green400 transition py-1">Methodology</a>
+        <a href="#faq" class="hover:text-brand-green400 transition py-1 font-semibold text-brand-green400 flex items-center gap-1">
+          <span>FAQs</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-green400"></span>
+        </a>
+        <a href="#about" class="hover:text-brand-green400 transition py-1">About</a>
+      </div>
+
+      <!-- Right Actions: Admin Tools, Telegram, Search, Auth -->
+      <div class="hidden sm:flex items-center gap-3">
+        <!-- Quick Course Editor Trigger for Admins -->
+        <button onclick="app.showAdminPanel()" id="navAdminBtn" class="hidden px-3.5 py-2 rounded-xl bg-brand-yellow400 hover:bg-yellow-300 text-brand-purple950 text-xs font-bold transition items-center gap-1.5 shadow-sm">
+          <i class="fa-solid fa-plus-circle"></i> Add Course
+        </button>
+
+        <!-- Telegram Bot Quick Launch -->
+        <button onclick="telegramBot.toggleChat()" class="px-3 py-1.5 rounded-xl bg-[#2AABEE]/20 hover:bg-[#2AABEE]/30 text-[#2AABEE] border border-[#2AABEE]/40 text-xs font-bold flex items-center gap-2 transition" title="Ask Telegram Assistant">
+          <i class="fa-brands fa-telegram text-sm"></i> Telegram Bot
+        </button>
+
+        <!-- Dynamic User Auth Buttons Container -->
+        <div id="navAuthContainer" class="flex items-center gap-2"></div>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="flex sm:hidden items-center gap-2">
+        <button onclick="telegramBot.toggleChat()" class="p-2 rounded-xl text-[#2AABEE] hover:bg-white/10" aria-label="Telegram Bot">
+          <i class="fa-brands fa-telegram text-xl"></i>
+        </button>
+        <button id="mobileMenuBtn" onclick="app.toggleMobileMenu()" class="p-2.5 rounded-xl text-white hover:bg-white/10 focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false">
+          <i class="fa-solid fa-bars text-xl" id="mobileMenuIcon"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden sm:hidden bg-brand-purple950/98 border-b border-white/10 px-5 pt-3 pb-6 space-y-3">
+      <div class="flex flex-col space-y-2 text-sm font-semibold">
+        <a href="#home" onclick="app.toggleMobileMenu()" class="px-3 py-2 rounded-lg text-white hover:bg-white/10">Home</a>
+        <a href="#courses" onclick="app.toggleMobileMenu()" class="px-3 py-2 rounded-lg text-white hover:bg-white/10">All Courses (61 Tracks)</a>
+        <a href="#methodology" onclick="app.toggleMobileMenu()" class="px-3 py-2 rounded-lg text-white hover:bg-white/10">Teaching Methodology</a>
+        <a href="#faq" onclick="app.toggleMobileMenu()" class="px-3 py-2 rounded-lg text-brand-green400 font-bold hover:bg-white/10">Frequently Asked Questions</a>
+        <a href="#about" onclick="app.toggleMobileMenu()" class="px-3 py-2 rounded-lg text-white hover:bg-white/10">About BEC Academy</a>
+        <button onclick="app.toggleRole(); app.toggleMobileMenu();" class="text-left px-3 py-2 rounded-lg text-brand-yellow400 hover:bg-white/10 flex items-center gap-2">
+          <i class="fa-solid fa-user-gear"></i> <span id="mobileRoleLabel">Switch to Admin Mode</span>
+        </button>
+      </div>
+      <div id="mobileAuthContainer" class="pt-3 border-t border-white/10 flex flex-col gap-2"></div>
+    </div>
+  </header>
+
+  <main class="flex-grow" id="home">
+    <section class="relative bg-gradient-to-br from-brand-purple950 via-brand-purple900 to-brand-purple800 text-white overflow-hidden pt-12 pb-16 lg:pt-16 lg:pb-24">
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          
+          <!-- Left Column -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm">
+              <span class="w-2 h-2 rounded-full bg-brand-green400 animate-pulse"></span>
+              <span class="text-xs font-bold tracking-wide text-brand-green400 uppercase">Building Global Competences.</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12]">
+              Best courses to <span class="bg-gradient-to-r from-brand-green400 via-brand-yellow400 to-brand-blue400 bg-clip-text text-transparent">architecture</span> your future career
+            </h1>
+
+            <p class="text-base sm:text-lg text-white/80 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+              BEC Academy delivers practical, career-specific language programs designed to empower vocational students and professionals with authentic workplace communication fluency.
+            </p>
+
+            <!-- Search Bar -->
+            <div class="max-w-xl mx-auto lg:mx-0">
+              <form onsubmit="app.handleHeroSearch(event)" class="relative flex items-center bg-white rounded-2xl p-1.5 shadow-2xl transition duration-200 focus-within:ring-4 focus-within:ring-brand-green400/40">
+                <div class="pl-3.5 pr-2 text-brand-purple700 pointer-events-none" aria-hidden="true">
+                  <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                </div>
+                <input 
+                  type="text" 
+                  id="heroSearchInput"
+                  placeholder="Search vocational tracks (e.g. Tourism, Cooking, Business English)..." 
+                  class="w-full text-brand-slate900 placeholder-slate-400 text-sm sm:text-base font-normal bg-transparent border-0 focus:outline-none focus:ring-0 py-2.5"
+                  autocomplete="off"
+                >
+                <button 
+                  type="submit" 
+                  class="bg-brand-purple700 hover:bg-brand-purple800 text-white font-bold px-5 sm:px-6 py-2.5 rounded-xl transition duration-150 flex items-center gap-2 shrink-0 shadow-md active:scale-95 text-sm"
+                >
+                  <span>Search</span>
+                  <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+              </form>
+
+              <!-- Popular Quick Pills -->
+              <div class="mt-3.5 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs">
+                <span class="text-white/60 font-medium">Quick find:</span>
+                <button type="button" onclick="app.quickFilter('Tourism')" class="px-2.5 py-1 rounded-full bg-white/10 hover:bg-brand-green400/20 hover:text-brand-green400 transition text-white/90 border border-white/10">Tourism</button>
+                <button type="button" onclick="app.quickFilter('Hotels & Catering')" class="px-2.5 py-1 rounded-full bg-white/10 hover:bg-brand-green400/20 hover:text-brand-green400 transition text-white/90 border border-white/10">Hotels</button>
+                <button type="button" onclick="app.quickFilter('Business English')" class="px-2.5 py-1 rounded-full bg-white/10 hover:bg-brand-green400/20 hover:text-brand-green400 transition text-white/90 border border-white/10">Business</button>
+                <button type="button" onclick="app.quickFilter('Cooking')" class="px-2.5 py-1 rounded-full bg-white/10 hover:bg-brand-green400/20 hover:text-brand-green400 transition text-white/90 border border-white/10">Cooking</button>
+                <button type="button" onclick="app.quickFilter('Software')" class="px-2.5 py-1 rounded-full bg-white/10 hover:bg-brand-green400/20 hover:text-brand-green400 transition text-white/90 border border-white/10">Software</button>
+              </div>
+            </div>
+
+            <!-- Stats strip -->
+            <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-white/80">
+              <div class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-brand-green400 text-sm"></i> 45 Units / Course</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-brand-green400 text-sm"></i> $135 Flat (KHQR Pay)</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-brand-green400 text-sm"></i> CEFR Verified Transcript</div>
+            </div>
+          </div>
+
+          <!-- Right Column: Vector Artwork -->
+          <div class="lg:col-span-5 flex justify-center items-center relative">
+            <div class="relative w-full max-w-md aspect-square flex items-center justify-center">
+              <div class="absolute w-72 h-72 rounded-full bg-brand-purple700/40 filter blur-3xl"></div>
+              <div class="absolute w-56 h-56 rounded-full bg-brand-green500/20 filter blur-2xl"></div>
+
+              <!-- Vector Character -->
+              <svg viewBox="0 0 500 500" class="w-full h-full drop-shadow-2xl select-none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="beanbagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#7333ab"/>
+                    <stop offset="60%" stop-color="#55257f"/>
+                    <stop offset="100%" stop-color="#391a58"/>
+                  </linearGradient>
+                  <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#4ade80"/>
+                    <stop offset="100%" stop-color="#22c55e"/>
+                  </linearGradient>
+                </defs>
+                <ellipse cx="250" cy="440" rx="160" ry="22" fill="#120b1a" opacity="0.6"/>
+                <path d="M 160 380 C 100 370, 90 280, 140 220 C 180 180, 230 190, 290 210 C 370 240, 420 300, 390 380 C 370 430, 200 450, 160 380 Z" fill="url(#beanbagGrad)" stroke="#4ade80" stroke-width="2" stroke-opacity="0.2"/>
+                <path d="M 130 320 C 160 340, 220 360, 280 340" stroke="#391a58" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <path d="M 180 390 C 230 410, 300 400, 350 360" stroke="#391a58" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <path d="M 230 330 C 240 370, 260 410, 310 400 C 340 390, 350 360, 320 330 Z" fill="#334155"/>
+                <path d="M 200 340 C 210 390, 230 420, 270 415 C 285 410, 280 380, 250 340 Z" fill="#1e293b"/>
+                <ellipse cx="320" cy="405" rx="20" ry="11" fill="#ffffff"/>
+                <ellipse cx="275" cy="420" rx="19" ry="10" fill="#f8fafc"/>
+                <path d="M 200 240 C 220 230, 270 235, 290 270 C 290 310, 260 340, 220 340 C 190 330, 185 270, 200 240 Z" fill="url(#shirtGrad)"/>
+                <rect x="228" y="210" width="18" height="25" rx="6" fill="#f6ad55"/>
+                <circle cx="237" cy="185" r="28" fill="#f6ad55"/>
+                <path d="M 210 180 C 210 150, 240 145, 262 165 C 270 172, 268 190, 260 190 C 255 170, 235 160, 215 175 Z" fill="#0f172a"/>
+                <circle cx="246" cy="184" r="7" fill="none" stroke="#26143b" stroke-width="2"/>
+                <path d="M 240 184 L 235 184" stroke="#26143b" stroke-width="2"/>
+                <path d="M 205 260 C 215 285, 230 300, 255 295" stroke="#f6ad55" stroke-width="12" stroke-linecap="round" fill="none"/>
+                <path d="M 280 265 C 275 290, 265 300, 245 298" stroke="#f6ad55" stroke-width="12" stroke-linecap="round" fill="none"/>
+                <g transform="rotate(-15 260 280)">
+                  <rect x="220" y="240" width="85" height="60" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+                  <rect x="225" y="245" width="75" height="50" rx="4" fill="#f8fafc"/>
+                  <rect x="230" y="252" width="35" height="5" rx="2" fill="#55257f"/>
+                  <rect x="230" y="261" width="55" height="4" rx="2" fill="#4ade80"/>
+                  <rect x="230" y="268" width="45" height="4" rx="2" fill="#60a5fa"/>
+                </g>
+              </svg>
+
+              <!-- Floating Micro Card -->
+              <div class="absolute -bottom-3 left-0 bg-white/95 backdrop-blur-md rounded-2xl p-3 shadow-xl border border-white/60 flex items-center gap-3 animate-float max-w-[210px] text-slate-900">
+                <div class="w-10 h-10 rounded-xl bg-brand-green100 text-brand-purple700 flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-graduation-cap text-base"></i>
+                </div>
+                <div class="min-w-0">
+                  <div class="text-[11px] font-bold truncate">Vocational Syllabus</div>
+                  <div class="text-[10px] text-slate-500">61 Industry Tracks</div>
+                  <div class="w-24 bg-slate-200 h-1.5 rounded-full mt-1 overflow-hidden">
+                    <div class="bg-brand-green500 h-full rounded-full" style="width: 85%"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white border-b border-slate-200/70 py-8 shadow-subtle relative z-10" aria-label="Key Facts">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="flex items-center gap-3.5 p-2">
+            <div class="w-11 h-11 rounded-2xl bg-brand-purple100 text-brand-purple700 flex items-center justify-center text-lg shrink-0">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div>
+              <div class="text-2xl font-extrabold text-brand-purple950 tracking-tight">1,000+</div>
+              <div class="text-xs font-medium text-slate-500">Active Learners</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3.5 p-2">
+            <div class="w-11 h-11 rounded-2xl bg-brand-green100 text-green-700 flex items-center justify-center text-lg shrink-0">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <div>
+              <div class="text-2xl font-extrabold text-brand-purple950 tracking-tight" id="statsCourseCount">61</div>
+              <div class="text-xs font-medium text-slate-500">Vocational Tracks</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3.5 p-2">
+            <div class="w-11 h-11 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg shrink-0">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <div>
+              <div class="text-2xl font-extrabold text-brand-purple950 tracking-tight">45 Units</div>
+              <div class="text-xs font-medium text-slate-500">Per Specialization</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3.5 p-2">
+            <div class="w-11 h-11 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg shrink-0">
+              <i class="fa-solid fa-qrcode"></i>
+            </div>
+            <div>
+              <div class="text-2xl font-extrabold text-brand-purple950 tracking-tight">$135</div>
+              <div class="text-xs font-medium text-slate-500">KHQR Pay & Verified Receipt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses" class="py-16 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header & Admin Controls -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 text-brand-purple700 font-bold text-xs uppercase tracking-wider bg-brand-purple100 px-3 py-1 rounded-full mb-2">
+              <i class="fa-solid fa-book-open"></i> Curriculum Catalog
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-purple950 tracking-tight">Explore Vocational Courses</h2>
+            <p class="text-slate-500 text-sm sm:text-base mt-1">Select from 60+ industry fields with authentic dialogs and CEFR certifications.</p>
+          </div>
+
+          <!-- Admin Action + Status Counter -->
+          <div class="flex items-center gap-3 flex-wrap">
+            <button onclick="app.showAdminPanel()" id="catalogAddBtn" class="hidden px-4 py-2 bg-brand-purple700 hover:bg-brand-purple800 text-white rounded-xl text-xs font-bold transition flex items-center gap-2 shadow-sm">
+              <i class="fa-solid fa-plus"></i> Add New Course
+            </button>
+            <span id="courseCountBadge" class="text-xs font-semibold text-slate-700 bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200">
+              Showing 61 courses
+            </span>
+            <button onclick="app.resetFilters()" class="text-xs font-semibold text-brand-purple700 hover:text-brand-purple950 underline cursor-pointer">
+              Reset Filters
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Controls Bar -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 mb-8 shadow-sm">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 items-center">
+            
+            <!-- Search Input with Clear / Close Action -->
+            <div class="lg:col-span-4 relative">
+              <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+              <input 
+                type="text" 
+                id="catalogSearchInput" 
+                oninput="app.handleFilterChange()" 
+                placeholder="Search by title or keyword..." 
+                class="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-10 py-2.5 sm:py-2 text-sm focus:border-brand-purple700 focus:ring-1 focus:ring-brand-purple700 text-slate-800"
+              >
+              <button 
+                type="button" 
+                id="clearSearchBtn" 
+                onclick="app.closeSearch()" 
+                class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-slate-200 hover:bg-slate-300 text-slate-600 flex items-center justify-center text-xs transition" 
+                title="Close and reset search"
+                aria-label="Clear and close search"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="lg:col-span-3">
+              <select id="categoryFilter" onchange="app.handleFilterChange()" class="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 sm:py-2 text-sm text-slate-800 focus:border-brand-purple700">
+                <option value="ALL">All Categories</option>
+                <option value="Hospitality & Services">Hospitality & Services</option>
+                <option value="Business & Finance">Business & Finance</option>
+                <option value="Engineering & Tech">Engineering & Tech</option>
+                <option value="Medical & Health">Medical & Health</option>
+                <option value="Aviation & Maritime">Aviation & Maritime</option>
+                <option value="Energy & Natural Resources">Energy & Natural Resources</option>
+                <option value="Public Safety & Law">Public Safety & Law</option>
+              </select>
+            </div>
+
+            <!-- Level Filter (CEFR) -->
+            <div class="lg:col-span-2">
+              <select id="levelFilter" onchange="app.handleFilterChange()" class="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 sm:py-2 text-sm text-slate-800 focus:border-brand-purple700">
+                <option value="ALL">All Levels</option>
+                <option value="A1">A1 Beginner</option>
+                <option value="A2">A2 Elementary</option>
+                <option value="B1">B1 Intermediate</option>
+              </select>
+            </div>
+
+            <!-- Sort By -->
+            <div class="lg:col-span-3">
+              <select id="sortFilter" onchange="app.handleFilterChange()" class="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 sm:py-2 text-sm text-slate-800 focus:border-brand-purple700">
+                <option value="popular">Sort: Most Popular</option>
+                <option value="rating">Sort: Highest Rated</option>
+                <option value="newest">Sort: Newest Added</option>
+                <option value="price-asc">Sort: Tuition (Low to High)</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Active Search Indicator Banner with Close Action -->
+          <div id="activeSearchBanner" class="hidden mt-3 pt-3 border-t border-slate-200 flex items-center justify-between text-xs bg-brand-purple50 p-2.5 rounded-xl text-brand-purple950">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-green500"></span>
+              <span>Active search query: <strong id="activeSearchQueryText" class="font-bold">""</strong></span>
+            </div>
+            <button onclick="app.closeSearch()" class="px-2.5 py-1 rounded-lg bg-brand-purple700 hover:bg-brand-purple800 text-white font-bold flex items-center gap-1.5 transition">
+              <i class="fa-solid fa-xmark text-[10px]"></i> Close Search View
+            </button>
+          </div>
+
+          <!-- Quick Category Chips -->
+          <div class="mt-3.5 pt-3 border-t border-slate-200/80 flex items-center gap-2 overflow-x-auto pb-1 text-xs no-scrollbar" id="categoryChips">
+            <button onclick="app.setCategoryPill('ALL')" class="cat-pill active-pill px-3 py-1.5 rounded-lg whitespace-nowrap font-medium transition bg-brand-purple950 text-white">All Tracks</button>
+            <button onclick="app.setCategoryPill('Hospitality & Services')" class="cat-pill px-3 py-1.5 rounded-lg whitespace-nowrap font-medium transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">Hospitality & Tourism</button>
+            <button onclick="app.setCategoryPill('Business & Finance')" class="cat-pill px-3 py-1.5 rounded-lg whitespace-nowrap font-medium transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">Business & Management</button>
+            <button onclick="app.setCategoryPill('Engineering & Tech')" class="cat-pill px-3 py-1.5 rounded-lg whitespace-nowrap font-medium transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">Engineering & Tech</button>
+            <button onclick="app.setCategoryPill('Medical & Health')" class="cat-pill px-3 py-1.5 rounded-lg whitespace-nowrap font-medium transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">Medical & Nursing</button>
+            <button onclick="app.setCategoryPill('Aviation & Maritime')" class="cat-pill px-3 py-1.5 rounded-lg whitespace-nowrap font-medium transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">Aviation & Maritime</button>
+          </div>
+        </div>
+
+        <!-- Course Cards Responsive Grid -->
+        <div id="coursesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+
+        <!-- Empty State Container -->
+        <div id="noCoursesState" class="hidden py-16 text-center bg-slate-50 rounded-3xl border-2 border-dashed border-slate-200 max-w-xl mx-auto my-8">
+          <div class="w-14 h-14 rounded-2xl bg-brand-purple100 text-brand-purple700 flex items-center justify-center text-xl mx-auto mb-3">
+            <i class="fa-solid fa-search"></i>
+          </div>
+          <h3 class="text-base font-bold text-brand-purple950">No matching courses found</h3>
+          <p class="text-xs text-slate-500 mt-1">Try a different search keyword or category filter.</p>
+          <button onclick="app.resetFilters()" class="mt-4 px-4 py-2 bg-brand-purple700 text-white rounded-xl text-xs font-semibold hover:bg-brand-purple800 transition">
+            View All Courses
+          </button>
+        </div>
+
+        <!-- Load More -->
+        <div id="paginationWrap" class="mt-12 text-center">
+          <button id="loadMoreBtn" onclick="app.loadMoreCourses()" class="px-7 py-3 rounded-2xl font-bold text-xs bg-slate-100 hover:bg-brand-purple100 text-brand-purple950 hover:text-brand-purple700 transition border border-slate-200 shadow-sm">
+            Show More Courses <i class="fa-solid fa-chevron-down ml-1 text-[10px]"></i>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="methodology" class="py-16 sm:py-20 bg-slate-50 border-t border-b border-slate-200/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-brand-purple700 font-bold text-xs uppercase tracking-wider bg-brand-purple100 px-3 py-1 rounded-full">Teaching Methodology</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-purple950 mt-3 tracking-tight">
+            The Communicative Language Teaching (CLT) Framework
+          </h2>
+          <p class="text-slate-500 text-sm sm:text-base mt-2">
+            Structured for job-ready language fluency through task-based simulations across 45 modular units.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white p-6 rounded-2xl shadow-card border border-slate-200/60 flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-brand-green100 text-brand-purple700 flex items-center justify-center font-bold mb-4">01</div>
+              <h3 class="font-bold text-brand-purple950 text-base mb-2">45 Modular Units</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">Comprehensive coverage of workplace interaction: reception, safety briefings, incident memos, and supplier negotiations.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-xs text-brand-purple700 font-semibold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check text-brand-green500"></i> Authentic Scenarios
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl shadow-card border border-slate-200/60 flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold mb-4">02</div>
+              <h3 class="font-bold text-brand-purple950 text-base mb-2">4 Integrated Skills</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">Holistic combination of Reading, Listening, Speaking, and Writing plus 2 micro-skills: visual vocabulary and applied grammar.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-xs text-brand-purple700 font-semibold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check text-brand-green500"></i> 400 Visual Terms
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl shadow-card border border-slate-200/60 flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-brand-purple100 text-brand-purple700 flex items-center justify-center font-bold mb-4">03</div>
+              <h3 class="font-bold text-brand-purple950 text-base mb-2">Task-Based Sequence</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">Every unit follows a rigorous 7-stage learning progression: Input &rarr; Notice &rarr; Practise &rarr; Communicate &rarr; Repeat &rarr; Perform &rarr; Assess.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-xs text-brand-purple700 font-semibold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check text-brand-green500"></i> Active Roleplays
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl shadow-card border border-slate-200/60 flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold mb-4">04</div>
+              <h3 class="font-bold text-brand-purple950 text-base mb-2">CEFR Benchmarks</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">Clearly measured Can-Do competencies spanning A1 (Beginner), A2 (Elementary), to B1 (Independent Professional).</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-xs text-brand-purple700 font-semibold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check text-brand-green500"></i> Global Accreditation
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-20 sm:py-24 bg-white relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- FAQ Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 text-brand-green500 font-extrabold text-xs uppercase tracking-wider bg-brand-green100 px-3.5 py-1 rounded-full border border-brand-green500/20 mb-3">
+            <i class="fa-solid fa-circle-question"></i> Help & Inquiries
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-purple950 tracking-tight">Frequently Asked Questions</h2>
+          <p class="text-slate-500 text-sm sm:text-base mt-2">
+            Clear answers about class durations, curriculum structure, CEFR outcomes, and instant bank checkout.
+          </p>
+        </div>
+
+        <!-- FAQ Filter Category Pills -->
+        <div class="flex items-center justify-center gap-2 mb-8 flex-wrap">
+          <button onclick="app.filterFaq('all')" class="faq-filter-btn active-faq-filter px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-brand-purple950 text-white">All Questions</button>
+          <button onclick="app.filterFaq('tuition')" class="faq-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold transition bg-slate-100 text-slate-700 hover:bg-slate-200">Tuition & KHQR</button>
+          <button onclick="app.filterFaq('schedules')" class="faq-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold transition bg-slate-100 text-slate-700 hover:bg-slate-200">Duration & Schedules</button>
+          <button onclick="app.filterFaq('pedagogy')" class="faq-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold transition bg-slate-100 text-slate-700 hover:bg-slate-200">CLT & CEFR</button>
+        </div>
+
+        <!-- Dedicated FAQ Accordions -->
+        <div class="space-y-4" id="faqAccordion">
+          
+          <!-- FAQ 1: Tuition & Payments -->
+          <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-subtle transition" data-faq-cat="tuition">
+            <button onclick="app.toggleFaq(this)" class="w-full p-5 sm:p-6 text-left font-bold text-sm sm:text-base flex items-center justify-between text-brand-purple950 hover:bg-slate-100/70 transition">
+              <span class="flex items-center gap-3">
+                <span class="w-7 h-7 rounded-lg bg-brand-purple100 text-brand-purple700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-dollar-sign"></i></span>
+                <span>What is the tuition fee and what payment methods are accepted?</span>
+              </span>
+              <i class="fa-solid fa-chevron-down text-brand-purple700 text-xs transition-transform duration-200 ml-4 shrink-0"></i>
+            </button>
+            <div class="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/80 pt-4 hidden">
+              All courses are priced at a transparent standard rate of <strong>$135 USD</strong> (approximately <strong>550,000 KHR</strong>). There are no additional registration or material surcharges. We support instant, zero-fee payments via <strong>ABA KHQR</strong> and <strong>ACLEDA KHQR (Unity ToanChet)</strong> with instant authenticated digital e-receipt generation for print or PDF download.
+            </div>
+          </div>
+
+          <!-- FAQ 2: Duration & Schedules -->
+          <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-subtle transition" data-faq-cat="schedules">
+            <button onclick="app.toggleFaq(this)" class="w-full p-5 sm:p-6 text-left font-bold text-sm sm:text-base flex items-center justify-between text-brand-purple950 hover:bg-slate-100/70 transition">
+              <span class="flex items-center gap-3">
+                <span class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs shrink-0"><i class="fa-regular fa-clock"></i></span>
+                <span>What are the available cohort dates, daily times, and schedules?</span>
+              </span>
+              <i class="fa-solid fa-chevron-down text-brand-purple700 text-xs transition-transform duration-200 ml-4 shrink-0"></i>
+            </button>
+            <div class="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/80 pt-4 hidden">
+              Each course is a structured <strong>10-week intensive program totaling 45 classroom hours</strong> (30 classes of 90 minutes each). Students select from three cohort day rotations and six daily time blocks:
+              <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 bg-white p-3.5 rounded-xl border border-slate-200">
+                <div>
+                  <div class="font-bold text-brand-purple950 mb-1 flex items-center gap-1.5">
+                    <i class="fa-solid fa-calendar-days text-brand-green500"></i> Day Cohorts:
+                  </div>
+                  <ul class="list-disc list-inside space-y-1 text-slate-700 font-medium">
+                    <li>Monday — Wednesday — Friday</li>
+                    <li>Tuesday — Thursday — Saturday</li>
+                    <li>Saturday &amp; Sunday (Weekend Intensives)</li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="font-bold text-brand-purple950 mb-1 flex items-center gap-1.5">
+                    <i class="fa-solid fa-clock text-blue-500"></i> Daily Time Slots (90 Mins):
+                  </div>
+                  <ul class="grid grid-cols-2 gap-1 text-[11px] text-slate-700">
+                    <li>• 8:00 – 9:30 AM</li>
+                    <li>• 10:00 – 11:30 AM</li>
+                    <li>• 1:00 – 2:30 PM</li>
+                    <li>• 3:00 – 4:30 PM</li>
+                    <li>• 5:30 – 7:00 PM</li>
+                    <li>• 7:30 – 9:00 PM</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3: CLT Pedagogy -->
+          <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-subtle transition" data-faq-cat="pedagogy">
+            <button onclick="app.toggleFaq(this)" class="w-full p-5 sm:p-6 text-left font-bold text-sm sm:text-base flex items-center justify-between text-brand-purple950 hover:bg-slate-100/70 transition">
+              <span class="flex items-center gap-3">
+                <span class="w-7 h-7 rounded-lg bg-brand-green100 text-green-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-chalkboard-user"></i></span>
+                <span>How does the Communicative Language Teaching (CLT) cycle operate?</span>
+              </span>
+              <i class="fa-solid fa-chevron-down text-brand-purple700 text-xs transition-transform duration-200 ml-4 shrink-0"></i>
+            </button>
+            <div class="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/80 pt-4 hidden">
+              Instead of abstract grammar drills, our vocational pedagogy centers on authentic workplace actions through a 7-stage learning sequence:
+              <br><br>
+              <code class="text-xs bg-brand-purple100 text-brand-purple950 px-2 py-1 rounded font-bold">Input &rarr; Notice &rarr; Practise &rarr; Communicate &rarr; Repeat &rarr; Perform &rarr; Assess</code>
+              <br><br>
+              Learners actively roleplay real industry situations—such as conducting guest check-ins, drafting engineering reports, triaging medical handovers, and pitching business briefs.
+            </div>
+          </div>
+
+          <!-- FAQ 4: CEFR Benchmarking -->
+          <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-subtle transition" data-faq-cat="pedagogy">
+            <button onclick="app.toggleFaq(this)" class="w-full p-5 sm:p-6 text-left font-bold text-sm sm:text-base flex items-center justify-between text-brand-purple950 hover:bg-slate-100/70 transition">
+              <span class="flex items-center gap-3">
+                <span class="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-certificate"></i></span>
+                <span>How are CEFR Can-Do statements and credentials certified?</span>
+              </span>
+              <i class="fa-solid fa-chevron-down text-brand-purple700 text-xs transition-transform duration-200 ml-4 shrink-0"></i>
+            </button>
+            <div class="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/80 pt-4 hidden">
+              All courses are benchmarked against the <strong>Common European Framework of Reference (CEFR)</strong> from levels A1 to B1. Every unit tests specific Can-Do statements (e.g., <em>"Can describe electrical fault schematics accurately"</em>). Graduating students receive an authenticated CEFR transcript verifying mastery across 400 lexical terms and simulation assessments.
+            </div>
+          </div>
+
+          <!-- FAQ 5: Real-time Telegram Support -->
+          <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-subtle transition" data-faq-cat="tuition">
+            <button onclick="app.toggleFaq(this)" class="w-full p-5 sm:p-6 text-left font-bold text-sm sm:text-base flex items-center justify-between text-brand-purple950 hover:bg-slate-100/70 transition">
+              <span class="flex items-center gap-3">
+                <span class="w-7 h-7 rounded-lg bg-[#2AABEE]/15 text-[#2AABEE] flex items-center justify-center text-xs shrink-0"><i class="fa-brands fa-telegram"></i></span>
+                <span>Can I verify enrollment or get instant help via the Telegram Bot?</span>
+              </span>
+              <i class="fa-solid fa-chevron-down text-brand-purple700 text-xs transition-transform duration-200 ml-4 shrink-0"></i>
+            </button>
+            <div class="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/80 pt-4 hidden">
+              Yes! Click the <strong>Telegram Bot bubble</strong> at the bottom right corner of your screen anytime. The assistant provides instant responses regarding course curriculums, schedule offerings, bank QR verifications, and direct connectivity to our academic advisory team.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- FAQ CTA Box -->
+        <div class="mt-10 p-6 rounded-2xl bg-brand-purple950 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="space-y-1">
+            <h4 class="font-bold text-sm text-white">Have a specific question not covered here?</h4>
+            <p class="text-xs text-white/70">
+              Campus Office: <strong class="text-white">Siem Reap province, Cambodia</strong> • Hotline/Telegram: <strong class="text-brand-green400">086 212 277</strong>
+            </p>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0">
+            <a href="tel:086212277" class="px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition flex items-center gap-1.5 border border-white/15">
+              <i class="fa-solid fa-phone text-xs text-brand-green400"></i> Call 086 212 277
+            </a>
+            <a href="https://t.me/+85586212277" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-[#2AABEE] hover:bg-[#2297D4] text-white font-bold text-xs transition flex items-center gap-2 shadow-md">
+              <i class="fa-brands fa-telegram text-sm"></i> Telegram Us
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="about" class="py-16 sm:py-20 bg-slate-50 border-t border-slate-200/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-brand-purple700 font-bold text-xs uppercase tracking-wider bg-brand-purple100 px-3 py-1 rounded-full">The BEC Advantage</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-purple950 mt-3 tracking-tight">Built for Professional Excellence</h2>
+          <p class="text-slate-500 text-sm mt-2">Comprehensive learning ecosystem engineered to turn classroom theory into international job readiness.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-subtle">
+            <div class="w-12 h-12 rounded-xl bg-brand-purple100 text-brand-purple700 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <h3 class="text-base font-bold text-brand-purple950 mb-2">Certified Faculty Board</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Courses authored and delivered by vocational linguistics specialists and industry veterans with 10+ years domain expertise.</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-subtle">
+            <div class="w-12 h-12 rounded-xl bg-brand-green100 text-green-700 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <h3 class="text-base font-bold text-brand-purple950 mb-2">Flexible Scheduling</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Convenient 10-week tracks (30 classes of 90 minutes) engineered specifically for working adults and university students.</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-subtle">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-certificate"></i>
+            </div>
+            <h3 class="text-base font-bold text-brand-purple950 mb-2">CEFR & ASEAN Alignment</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Curriculum integrates CEFR Can-Do descriptors with ASEAN Qualifications Reference Framework (AQRF) standards for regional professional mobility.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-6xl mx-auto rounded-3xl bg-gradient-to-r from-brand-purple950 via-brand-purple900 to-brand-purple800 text-white p-8 sm:p-12 relative overflow-hidden shadow-2xl border border-brand-green400/20 text-center space-y-5">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-green400/20 text-brand-green400 border border-brand-green400/30">
+          <i class="fa-solid fa-bolt text-[10px]"></i> Enrollments Open for 2026/2027 Cohorts
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Ready to build your career future?</h2>
+        <p class="text-sm sm:text-base text-white/80 max-w-xl mx-auto font-normal">
+          Gain authentic workplace confidence with 45 units of industry-focused instruction and verifiable CEFR credentials.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
+          <a href="#courses" class="w-full sm:w-auto px-7 py-3 rounded-xl bg-brand-green500 hover:bg-brand-green400 text-brand-purple950 font-bold text-sm transition shadow-lg shadow-brand-green500/25 active:scale-95">
+            Browse All 61 Courses
+          </a>
+          <button onclick="app.showAuthModal('signup')" class="w-full sm:w-auto px-7 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm transition border border-white/20 active:scale-95">
+            Create Free Account
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="bg-brand-purple950 text-white/80 border-t border-white/10 pt-12 pb-10 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-white/10">
+        <div class="md:col-span-2 space-y-3">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-brand-purple700 flex items-center justify-center text-white">
+              <i class="fa-solid fa-graduation-cap text-xs"></i>
+            </div>
+            <span class="font-bold text-xl text-white">BEC <span class="text-brand-green400">Academy</span></span>
+          </div>
+          <p class="text-white/60 max-w-sm leading-relaxed text-xs">
+            Equipping vocational students and professionals with career-specific language competence across 60+ global career fields.
+          </p>
+          <div class="pt-2 space-y-1.5 text-xs text-white/80">
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-location-dot text-brand-green400 text-sm w-4 text-center"></i>
+              <span>Address: <strong class="text-white">Siem Reap province, Cambodia</strong></span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-brands fa-telegram text-[#2AABEE] text-sm w-4 text-center"></i>
+              <span>Mobile / Telegram: <a href="tel:086212277" class="text-brand-green400 font-bold hover:underline">086 212 277</a></span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider mb-3">Curriculum</h4>
+          <ul class="space-y-2 text-white/70">
+            <li><a href="#courses" class="hover:text-brand-green400 transition">61 Course Catalog</a></li>
+            <li><a href="#methodology" class="hover:text-brand-green400 transition">CLT Framework</a></li>
+            <li><a href="#faq" class="hover:text-brand-green400 transition">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider mb-3">Admin & Tools</h4>
+          <ul class="space-y-2 text-white/70">
+            <li><button onclick="app.showAdminPanel()" class="hover:text-brand-yellow400 transition text-left flex items-center gap-1"><i class="fa-solid fa-sliders text-[10px]"></i> Course Management</button></li>
+            <li><button onclick="app.toggleRole()" class="hover:text-brand-yellow400 transition text-left flex items-center gap-1"><i class="fa-solid fa-user-shield text-[10px]"></i> Switch Role</button></li>
+            <li><button onclick="app.showDashboardModal()" class="hover:text-brand-green400 transition text-left flex items-center gap-1"><i class="fa-solid fa-table-columns text-[10px]"></i> Student Dashboard</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-6 text-center text-white/50 text-[11px]">
+        <div>&copy; 2026 BEC Academy. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="authModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-brand-purple950/80 backdrop-blur-sm" role="dialog" aria-modal="true">
+    <div class="relative w-full max-w-md bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden">
+      <button onclick="app.closeModal('authModal')" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100 transition" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="p-6 pb-2 text-center">
+        <div class="w-12 h-12 rounded-2xl bg-brand-purple100 text-brand-purple700 flex items-center justify-center mx-auto mb-3">
+          <i class="fa-solid fa-user-lock text-lg"></i>
+        </div>
+        <h3 id="authModalTitle" class="text-xl font-extrabold text-brand-purple950">Welcome to BEC Academy</h3>
+        <p class="text-xs text-slate-500 mt-1">Sign in to your learning dashboard</p>
+      </div>
+
+      <div class="flex border-b border-slate-200 px-6 mt-2">
+        <button id="tabSignInBtn" onclick="app.switchAuthTab('signin')" class="w-1/2 py-2.5 text-xs font-bold border-b-2 border-brand-purple700 text-brand-purple700">Sign In</button>
+        <button id="tabSignUpBtn" onclick="app.switchAuthTab('signup')" class="w-1/2 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-800">Sign Up</button>
+      </div>
+
+      <div class="p-6">
+        <div id="authErrorAlert" class="hidden mb-4 p-3 rounded-xl bg-red-50 text-red-700 text-xs font-medium border border-red-200"></div>
+
+        <form id="signInForm" onsubmit="app.handleSignIn(event)" class="space-y-4">
+          <div>
+            <label for="signInEmail" class="block text-xs font-bold text-slate-700 uppercase mb-1">Email Address</label>
+            <input type="email" id="signInEmail" required placeholder="learner@becacademy.edu" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:bg-white focus:border-brand-purple700 text-slate-800">
+          </div>
+          <div>
+            <label for="signInPassword" class="block text-xs font-bold text-slate-700 uppercase mb-1">Password</label>
+            <input type="password" id="signInPassword" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:bg-white focus:border-brand-purple700 text-slate-800">
+          </div>
+          <button type="submit" class="w-full py-2.5 bg-brand-purple700 hover:bg-brand-purple800 text-white font-bold rounded-xl text-xs transition shadow-md">
+            Sign In
+          </button>
+        </form>
+
+        <form id="signUpForm" onsubmit="app.handleSignUp(event)" class="space-y-3.5 hidden">
+          <div>
+            <label for="signUpName" class="block text-xs font-bold text-slate-700 uppercase mb-1">Full Name</label>
+            <input type="text" id="signUpName" required placeholder="e.g. Sokha Vanna" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs focus:bg-white focus:border-brand-purple700 text-slate-800">
+          </div>
+          <div>
+            <label for="signUpEmail" class="block text-xs font-bold text-slate-700 uppercase mb-1">Email Address</label>
+            <input type="email" id="signUpEmail" required placeholder="sokha@example.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs focus:bg-white focus:border-brand-purple700 text-slate-800">
+          </div>
+          <div>
+            <label for="signUpPassword" class="block text-xs font-bold text-slate-700 uppercase mb-1">Create Password</label>
+            <input type="password" id="signUpPassword" required minlength="6" placeholder="Min 6 characters" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs focus:bg-white border-brand-purple700 text-slate-800">
+          </div>
+          <button type="submit" class="w-full py-2.5 bg-brand-green500 hover:bg-brand-green400 text-brand-purple950 font-bold rounded-xl text-xs transition shadow-md">
+            Create Free Account
+          </button>
+        </form>
+
+        <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px]">
+          <span class="text-slate-400 font-medium">Quick switch:</span>
+          <button type="button" onclick="app.quickLogin('student')" class="text-brand-purple700 hover:underline font-semibold">Demo Student</button>
+          <span>•</span>
+          <button type="button" onclick="app.quickLogin('instructor')" class="text-brand-purple700 hover:underline font-semibold">Demo Admin</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="courseEditorModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-brand-purple950/80 backdrop-blur-md overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden my-6">
+      <button onclick="app.closeModal('courseEditorModal')" class="absolute top-4 right-4 z-20 w-8 h-8 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full flex items-center justify-center transition" aria-label="Close Editor">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="bg-brand-purple950 text-white p-6">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-brand-yellow400/20 text-brand-yellow400 mb-2">
+          <i class="fa-solid fa-sliders"></i> Course Management Desk
+        </div>
+        <h3 id="editorModalTitle" class="text-xl font-bold">Edit Course Offering</h3>
+        <p class="text-xs text-white/70 mt-1">Add, update, or remove courses. All changes sync live across the catalog.</p>
+      </div>
+
+      <form id="courseEditorForm" onsubmit="app.handleSaveCourse(event)" class="p-6 space-y-4 max-h-[75vh] overflow-y-auto">
+        <input type="hidden" id="editCourseId">
+
+        <div>
+          <label for="editTitle" class="block text-xs font-bold text-slate-700 uppercase mb-1">Course Title *</label>
+          <input type="text" id="editTitle" required placeholder="e.g. Artificial Intelligence for Business" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs focus:border-brand-purple700 focus:bg-white text-slate-800">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="editCategory" class="block text-xs font-bold text-slate-700 uppercase mb-1">Category *</label>
+            <select id="editCategory" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs focus:border-brand-purple700 text-slate-800">
+              <option value="Hospitality & Services">Hospitality & Services</option>
+              <option value="Business & Finance">Business & Finance</option>
+              <option value="Engineering & Tech">Engineering & Tech</option>
+              <option value="Medical & Health">Medical & Health</option>
+              <option value="Aviation & Maritime">Aviation & Maritime</option>
+              <option value="Energy & Natural Resources">Energy & Natural Resources</option>
+              <option value="Public Safety & Law">Public Safety & Law</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="editIcon" class="block text-xs font-bold text-slate-700 uppercase mb-1">FontAwesome Icon Class</label>
+            <input type="text" id="editIcon" required value="fa-graduation-cap" placeholder="fa-briefcase, fa-code, fa-hotel..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs focus:border-brand-purple700 focus:bg-white text-slate-800">
+          </div>
+        </div>
+
+        <div>
+          <label for="editDescription" class="block text-xs font-bold text-slate-700 uppercase mb-1">Course Description *</label>
+          <textarea id="editDescription" rows="3" required placeholder="Describe practical career outcomes and vocabulary objectives..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs focus:border-brand-purple700 focus:bg-white text-slate-800"></textarea>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label for="editLevel" class="block text-xs font-bold text-slate-700 uppercase mb-1">CEFR Level</label>
+            <select id="editLevel" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:border-brand-purple700 text-slate-800">
+              <option value="A1">A1 Beginner</option>
+              <option value="A2">A2 Elementary</option>
+              <option value="B1">B1 Intermediate</option>
+              <option value="A1–B1">A1–B1 Complete</option>
+              <option value="A2–B1">A2–B1 Core</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="editPrice" class="block text-xs font-bold text-slate-700 uppercase mb-1">Tuition ($ USD)</label>
+            <input type="number" id="editPrice" required value="135" min="0" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:border-brand-purple700 text-slate-800">
+          </div>
+
+          <div>
+            <label for="editDuration" class="block text-xs font-bold text-slate-700 uppercase mb-1">Duration & Hours</label>
+            <input type="text" id="editDuration" value="10 Weeks / 45 Hours" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:border-brand-purple700 text-slate-800">
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+          <button type="button" id="btnDeleteCourse" onclick="app.confirmDeleteCourse()" class="hidden px-4 py-2 text-xs font-bold text-red-600 hover:bg-red-50 rounded-xl transition">
+            <i class="fa-solid fa-trash mr-1.5"></i> Delete Course
+          </button>
+          <div class="flex items-center gap-2.5 ml-auto">
+            <button type="button" onclick="app.closeModal('courseEditorModal')" class="px-4 py-2 rounded-xl border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-slate-100">
+              Cancel
+            </button>
+            <button type="submit" class="px-5 py-2 rounded-xl bg-brand-purple700 hover:bg-brand-purple800 text-white text-xs font-bold transition shadow-md">
+              Save Course
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="courseDetailModal" onclick="if (event.target === this) app.closeModal('courseDetailModal')" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-brand-purple950/80 backdrop-blur-md overflow-y-auto cursor-pointer" role="dialog" aria-modal="true">
+    <div class="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden my-6 cursor-default">
+      <button onclick="app.closeModal('courseDetailModal')" class="absolute top-4 right-4 z-20 w-9 h-9 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition" aria-label="Close Course Details">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="relative bg-gradient-to-r from-brand-purple950 via-brand-purple900 to-brand-purple700 text-white p-5 sm:p-8">
+        <div class="flex flex-wrap items-center gap-2 mb-2.5">
+          <span id="detailCategory" class="px-3 py-0.5 rounded-full text-xs font-bold bg-brand-green400/20 text-brand-green400 border border-brand-green400/30">Category</span>
+          <span id="detailLevel" class="px-3 py-0.5 rounded-full text-xs font-bold bg-white/10 text-white border border-white/20">CEFR A1–B1</span>
+        </div>
+        <h2 id="detailTitle" class="text-xl sm:text-3xl font-extrabold text-white mb-2">Course Title</h2>
+        <p id="detailDescription" class="text-xs sm:text-sm text-white/80 max-w-2xl leading-relaxed">Detailed career description.</p>
+        
+        <div class="grid grid-cols-3 gap-2 sm:gap-4 mt-4 pt-4 sm:mt-5 sm:pt-5 border-t border-white/10 text-xs">
+          <div>
+            <span class="text-white/60 block text-[11px]">Duration</span>
+            <span class="font-bold text-white text-xs sm:text-sm" id="detailDuration">10 Wks / 45 Hrs</span>
+          </div>
+          <div>
+            <span class="text-white/60 block text-[11px]">Curriculum</span>
+            <span class="font-bold text-white text-xs sm:text-sm">45 Units (CLT)</span>
+          </div>
+          <div>
+            <span class="text-white/60 block text-[11px]">Tuition</span>
+            <span id="detailPrice" class="font-black text-brand-green400 text-sm sm:text-base">$135</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-5 sm:p-8 space-y-6">
+        <!-- Class Schedule Selector Section -->
+        <div class="bg-brand-purple50/60 border border-brand-purple100 rounded-2xl p-4 sm:p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-6 h-6 rounded-lg bg-brand-purple700 text-white flex items-center justify-center text-xs font-bold">
+              <i class="fa-regular fa-calendar-check"></i>
+            </span>
+            <h4 class="text-xs sm:text-sm font-extrabold text-brand-purple950">Select Preferred Class Schedule</h4>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div>
+              <label for="detailScheduleDays" class="block text-[11px] font-bold uppercase text-slate-600 mb-1.5">Class Days (Pick Cohort)</label>
+              <select id="detailScheduleDays" onchange="app.handleScheduleChange()" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-800 font-semibold focus:border-brand-purple700 focus:ring-1 focus:ring-brand-purple700">
+                <option value="Mon-Wed-Fri">Mon-Wed-Fri (Weekday Cohort)</option>
+                <option value="Tue-Thu-Sat">Tue-Thu-Sat (Alternate Days)</option>
+                <option value="Sat and Sun">Sat and Sun (Weekend Intensives)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="detailScheduleTime" class="block text-[11px] font-bold uppercase text-slate-600 mb-1.5">Class Time Slot (90 mins)</label>
+              <select id="detailScheduleTime" onchange="app.handleScheduleChange()" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-800 font-semibold focus:border-brand-purple700 focus:ring-1 focus:ring-brand-purple700">
+                <option value="8:00 - 9:30 AM">8:00 - 9:30 AM (Morning)</option>
+                <option value="10:00 - 11:30 AM">10:00 - 11:30 AM (Late Morning)</option>
+                <option value="1:00 - 2:30 PM">1:00 - 2:30 PM (Early Afternoon)</option>
+                <option value="3:00 - 4:30 PM">3:00 - 4:30 PM (Late Afternoon)</option>
+                <option value="5:30 - 7:00 PM" selected>5:30 - 7:00 PM (Evening / After-Work)</option>
+                <option value="7:30 - 9:00 PM">7:30 - 9:00 PM (Night Cohort)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mt-2.5 text-[11px] text-brand-purple700 flex items-center gap-1.5 font-medium">
+            <i class="fa-solid fa-circle-info text-[10px]"></i>
+            <span>Selected schedule will be permanently registered to your student profile &amp; receipt.</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
+          <div class="flex items-center gap-2 text-xs">
+            <span class="text-amber-500 font-bold flex items-center gap-1"><i class="fa-solid fa-star"></i> <span id="detailRating">5.0</span></span>
+            <span class="text-slate-400">• 45 Classroom Hours</span>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap sm:flex-nowrap">
+            <button id="detailAdminEditBtn" onclick="app.openEditFromDetail()" class="hidden flex-1 sm:flex-none px-3 py-2.5 rounded-xl bg-brand-yellow400 hover:bg-yellow-300 text-brand-purple950 font-bold text-xs transition flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-pen-to-square"></i> Edit
+            </button>
+            <button id="detailBookmarkBtn" onclick="app.toggleBookmarkFromDetail()" class="flex-1 sm:flex-none px-3.5 py-2.5 rounded-xl border border-slate-300 font-semibold text-xs text-slate-700 hover:bg-slate-100 transition flex items-center justify-center gap-1.5">
+              <i class="fa-regular fa-bookmark" id="detailBookmarkIcon"></i> Bookmark
+            </button>
+            <button id="detailEnrollBtn" onclick="app.handleEnrollFromDetail()" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-brand-green500 hover:bg-brand-green400 text-brand-purple950 font-extrabold text-xs transition shadow-md flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-qrcode"></i> Enroll Now ($135)
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-bold text-brand-purple950 mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-bullseye text-brand-purple700"></i> What You'll Learn & Can-Do Statements
+          </h4>
+          <div id="detailOutcomes" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-700"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="paymentModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-brand-purple950/85 backdrop-blur-md overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden my-6">
+      <button onclick="app.closeModal('paymentModal')" class="absolute top-4 right-4 z-20 w-8 h-8 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full flex items-center justify-center transition" aria-label="Close Checkout">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="bg-brand-purple950 text-white p-5 sm:p-6">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-green400/20 text-brand-green400 text-[11px] font-bold mb-1.5">
+          <i class="fa-solid fa-shield-halved"></i> 256-Bit Secure KHQR Gateway
+        </div>
+        <h3 class="text-xl font-extrabold text-white">Enrollment Checkout</h3>
+        <p class="text-xs text-white/70">Scan with any Cambodian banking app (ABA, ACLEDA, Bakong)</p>
+      </div>
+
+      <div class="p-5 sm:p-6 space-y-4">
+        <!-- Course & Chosen Schedule Details -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-2">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-[10px] font-bold uppercase text-slate-400 block">Course</span>
+              <h4 id="checkoutCourseTitle" class="font-extrabold text-brand-purple950 text-sm">Tourism</h4>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] font-bold uppercase text-slate-400 block">Tuition</span>
+              <div id="checkoutAmountUSD" class="text-base sm:text-lg font-black text-brand-purple950">$135.00</div>
+              <div id="checkoutAmountKHR" class="text-[10px] font-semibold text-brand-purple700">~ 550,000 KHR</div>
+            </div>
+          </div>
+          
+          <div class="pt-2.5 border-t border-slate-200/80 flex items-center justify-between text-xs">
+            <span class="text-slate-500 flex items-center gap-1.5">
+              <i class="fa-regular fa-clock text-brand-purple700"></i> Registered Schedule:
+            </span>
+            <span id="checkoutScheduleBadge" class="font-bold text-brand-purple950 bg-white px-2.5 py-0.5 rounded-lg border border-slate-200">
+              Mon-Wed-Fri • 5:30 - 7:00 PM
+            </span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <button type="button" id="tabAbaBtn" onclick="paymentController.switchBank('aba')" class="p-3 rounded-xl border-2 border-[#005E82] bg-[#005E82]/5 flex items-center justify-center gap-2 transition min-h-[48px]">
+            <div class="w-6 h-6 rounded bg-[#005E82] text-white flex items-center justify-center font-black text-[10px]">ABA</div>
+            <div class="text-left text-xs font-bold text-slate-800">ABA PAY</div>
+          </button>
+          <button type="button" id="tabAcledaBtn" onclick="paymentController.switchBank('acleda')" class="p-3 rounded-xl border-2 border-transparent bg-slate-100 hover:bg-slate-200 flex items-center justify-center gap-2 transition min-h-[48px]">
+            <div class="w-6 h-6 rounded bg-[#1B365D] text-[#DCA23E] flex items-center justify-center font-bold text-[10px]"><i class="fa-solid fa-building-columns"></i></div>
+            <div class="text-left text-xs font-bold text-slate-800">ACLEDA KHQR</div>
+          </button>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-4 sm:p-5 flex flex-col items-center justify-center text-center">
+          <div id="qrBankBadge" class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#005E82] text-white text-[11px] font-bold mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span id="qrBankName">ABA Bank • KHQR Instant Pay</span>
+          </div>
+          <div class="bg-white p-3 rounded-2xl border border-slate-200 w-44 h-44 sm:w-48 sm:h-48 flex items-center justify-center shadow-sm">
+            <div id="qrGraphicWrap" class="w-full h-full flex items-center justify-center"></div>
+          </div>
+          <div class="mt-2.5 text-[11px] font-mono text-slate-500" id="checkoutAccNumber">ABA: 001 893 214 (USD)</div>
+        </div>
+
+        <button type="button" onclick="paymentController.verifyAndCompletePayment()" class="w-full py-3.5 bg-brand-green500 hover:bg-brand-green400 text-brand-purple950 font-extrabold rounded-xl text-xs transition shadow-md flex items-center justify-center gap-2 min-h-[48px]">
+          <i class="fa-solid fa-circle-check"></i> I Have Paid via Mobile App (Issue Receipt)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="receiptModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-brand-purple950/85 backdrop-blur-md overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="relative w-full max-w-md bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden my-6">
+      <button onclick="app.closeModal('receiptModal')" class="absolute top-4 right-4 z-20 w-8 h-8 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full flex items-center justify-center transition no-print" aria-label="Close Receipt">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Exact 1-Page Printable Receipt Component -->
+      <div id="printableReceipt" class="p-6 sm:p-7 space-y-4 bg-white text-slate-800 text-xs">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-brand-purple700 text-white flex items-center justify-center font-bold text-sm">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div>
+              <h3 class="font-extrabold text-sm sm:text-base text-brand-purple950 leading-tight">BEC Academy</h3>
+              <p class="text-[10px] text-slate-500">Official Enrollment &amp; Tuition Receipt</p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 bg-green-100 text-green-800 border border-green-300 rounded-full text-[10px] font-extrabold tracking-wide">PAID IN FULL</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 text-[11px] bg-slate-50 p-3 rounded-xl border border-slate-100">
+          <div><span class="text-slate-400 block font-semibold text-[10px] uppercase">Receipt No</span><span id="receiptNumber" class="font-mono font-bold text-slate-900">BEC-2026-90412</span></div>
+          <div><span class="text-slate-400 block font-semibold text-[10px] uppercase">Transaction Date</span><span id="receiptDate" class="text-slate-900 font-medium">Sep 23, 2026</span></div>
+          <div><span class="text-slate-400 block font-semibold text-[10px] uppercase">Learner Name</span><span id="receiptStudentName" class="font-bold text-slate-900">Sokha Vanna</span></div>
+          <div><span class="text-slate-400 block font-semibold text-[10px] uppercase">Payment Method</span><span id="receiptPaymentMethod" class="text-slate-900 font-medium">ABA PayWay</span></div>
+        </div>
+
+        <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50 space-y-2">
+          <div class="flex justify-between items-start font-bold">
+            <div>
+              <div id="receiptCourseName" class="text-slate-900 text-sm font-extrabold">Tourism</div>
+              <div class="text-[10px] text-slate-500 font-normal">10 Weeks / 45 Class Hours (30 Classes of 1.5 Hours)</div>
+            </div>
+            <div id="receiptItemPrice" class="text-sm font-extrabold text-brand-purple950">$135.00</div>
+          </div>
+
+          <div class="pt-2 border-t border-slate-200/80 flex items-center justify-between text-[11px]">
+            <span class="text-slate-500 font-medium">Enrolled Schedule:</span>
+            <span id="receiptScheduleDetails" class="font-bold text-brand-purple900 bg-white px-2 py-0.5 rounded border border-slate-200">Mon-Wed-Fri • 5:30 - 7:00 PM</span>
+          </div>
+        </div>
+
+        <div class="text-[10px] text-slate-400 space-y-1 text-center pt-1 border-t border-slate-100">
+          <div>Accredited CEFR A1–B1 Curriculum • ASEAN Qualifications Framework Aligned</div>
+          <div>Address: Siem Reap province, Cambodia • Mobile/Telegram: 086 212 277</div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 no-print">
+          <button type="button" onclick="paymentController.printReceipt()" class="flex-1 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-100 font-bold transition flex items-center justify-center gap-1.5 text-xs">
+            <i class="fa-solid fa-print"></i> Print 1-Page Receipt
+          </button>
+          <button type="button" onclick="paymentController.downloadReceiptHtml()" class="flex-1 py-2.5 rounded-xl bg-brand-purple700 hover:bg-brand-purple800 text-white font-bold transition shadow-sm text-xs">
+            Save HTML File
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dashboardModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-brand-purple950/80 backdrop-blur-md overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden my-6 min-h-[480px] flex flex-col md:flex-row">
+      <button onclick="app.closeModal('dashboardModal')" class="absolute top-4 right-4 z-20 w-8 h-8 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full flex items-center justify-center transition" aria-label="Close Dashboard">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <aside class="w-full md:w-60 bg-slate-900 text-white p-6 flex flex-col justify-between shrink-0">
+        <div>
+          <div class="flex items-center gap-3 pb-5 border-b border-white/10">
+            <div id="dashUserAvatar" class="w-10 h-10 rounded-xl bg-brand-green500 text-brand-purple950 font-black text-sm flex items-center justify-center">S</div>
+            <div class="min-w-0">
+              <div id="dashUserName" class="font-bold text-xs truncate">User Name</div>
+              <div id="dashUserRole" class="text-[10px] text-brand-green400 capitalize">Student</div>
+            </div>
+          </div>
+          <nav class="mt-5 space-y-1 text-xs font-semibold">
+            <button onclick="app.switchDashTab('enrolled')" id="dashTabEnrolledBtn" class="w-full flex items-center justify-between px-3 py-2 rounded-xl bg-brand-purple700 text-white">
+              <span>Enrolled Courses</span>
+              <span id="dashEnrolledCountBadge" class="bg-white/20 text-white px-2 py-0.2 rounded-full text-[10px]">0</span>
+            </button>
+            <button onclick="app.switchDashTab('saved')" id="dashTabSavedBtn" class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-white/70 hover:bg-white/5">
+              <span>Bookmarked</span>
+              <span id="dashSavedCountBadge" class="bg-white/10 text-white px-2 py-0.2 rounded-full text-[10px]">0</span>
+            </button>
+          </nav>
+        </div>
+        <div class="pt-4 border-t border-white/10">
+          <button onclick="app.handleSignOut()" class="w-full text-left text-xs font-semibold text-red-400 hover:text-red-300 flex items-center gap-2">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+          </button>
+        </div>
+      </aside>
+
+      <main class="flex-grow p-6 sm:p-8 bg-slate-50 overflow-y-auto">
+        <h3 class="text-xl font-extrabold text-brand-purple950 mb-1">Learning Dashboard</h3>
+        <p class="text-xs text-slate-500 mb-6">Track your study hours and CEFR Can-Do badges.</p>
+
+        <div id="dashTabEnrolled" class="space-y-3">
+          <div id="dashEnrolledList" class="space-y-3"></div>
+          <div id="dashEnrolledEmpty" class="hidden text-center py-10 bg-white rounded-2xl border border-slate-200 p-4">
+            <p class="text-xs text-slate-500">No active course enrollments.</p>
+          </div>
+        </div>
+
+        <div id="dashTabSaved" class="space-y-3 hidden">
+          <div id="dashSavedList" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+          <div id="dashSavedEmpty" class="hidden text-center py-10 bg-white rounded-2xl border border-slate-200 p-4">
+            <p class="text-xs text-slate-500">No saved courses yet.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div id="confirmModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-brand-purple950/80 backdrop-blur-sm" role="dialog" aria-modal="true">
+    <div class="relative w-full max-w-sm bg-white rounded-3xl p-6 shadow-2xl text-center border border-slate-100">
+      <div class="w-11 h-11 rounded-2xl bg-red-100 text-red-600 flex items-center justify-center mx-auto mb-3 text-lg">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <h3 id="confirmModalTitle" class="text-base font-bold text-brand-purple950">Confirm Action</h3>
+      <p id="confirmModalDesc" class="text-xs text-slate-500 mt-1">This operation cannot be undone.</p>
+      
+      <div class="flex items-center gap-2.5 mt-5">
+        <button onclick="app.resolveConfirm(false)" class="w-1/2 py-2 rounded-xl border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-100">Cancel</button>
+        <button onclick="app.resolveConfirm(true)" class="w-1/2 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold shadow-md">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="telegramWidgetContainer" class="fixed bottom-5 right-5 z-40 flex flex-col items-end">
+    <div id="telegramChatWindow" class="hidden mb-3 w-[92vw] sm:w-[360px] h-[480px] bg-white rounded-3xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
+      <div class="bg-[#2AABEE] text-white p-3.5 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white"><i class="fa-brands fa-telegram"></i></div>
+          <div>
+            <div class="font-bold text-xs flex items-center gap-1">BEC Assistant <i class="fa-solid fa-circle-check text-[10px]"></i></div>
+            <div class="text-[10px] text-white/90">Online • Fast responses</div>
+          </div>
+        </div>
+        <button onclick="telegramBot.toggleChat()" class="p-1 text-white/80 hover:text-white" aria-label="Close Telegram widget">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <div id="telegramMessages" class="flex-grow p-3.5 overflow-y-auto space-y-2.5 bg-[#E4ECF2]/40 text-xs"></div>
+
+      <div class="p-2 bg-white border-t border-slate-100 flex items-center gap-1.5 overflow-x-auto text-[11px] no-scrollbar">
+        <button onclick="telegramBot.handleQuickAction('offerings')" class="px-2.5 py-1 bg-slate-100 hover:bg-[#2AABEE]/15 rounded-full whitespace-nowrap text-slate-700">61 Courses</button>
+        <button onclick="telegramBot.handleQuickAction('prices')" class="px-2.5 py-1 bg-slate-100 hover:bg-[#2AABEE]/15 rounded-full whitespace-nowrap text-slate-700">$135 Tuition</button>
+        <button onclick="telegramBot.handleQuickAction('methodology')" class="px-2.5 py-1 bg-slate-100 hover:bg-[#2AABEE]/15 rounded-full whitespace-nowrap text-slate-700">CLT Cycle</button>
+        <button onclick="telegramBot.handleQuickAction('payment')" class="px-2.5 py-1 bg-slate-100 hover:bg-[#2AABEE]/15 rounded-full whitespace-nowrap text-slate-700">KHQR Pay</button>
+      </div>
+
+      <form onsubmit="telegramBot.handleSend(event)" class="p-2.5 bg-white border-t border-slate-200 flex items-center gap-2">
+        <input type="text" id="telegramInput" placeholder="Ask about fees, courses, CEFR..." class="flex-grow bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-800" autocomplete="off">
+        <button type="submit" class="w-8 h-8 rounded-xl bg-[#2AABEE] text-white flex items-center justify-center shrink-0" aria-label="Send message">
+          <i class="fa-solid fa-paper-plane text-xs"></i>
+        </button>
+      </form>
+    </div>
+
+    <button id="telegramTriggerBtn" onclick="telegramBot.toggleChat()" class="w-13 h-13 p-3.5 rounded-full bg-[#2AABEE] hover:bg-[#2297D4] text-white flex items-center justify-center shadow-xl shadow-[#2AABEE]/40 transition hover:scale-105 active:scale-95" aria-label="Toggle Telegram Assistant">
+      <i class="fa-brands fa-telegram text-2xl"></i>
+    </button>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none max-w-sm w-full px-4" aria-live="polite"></div>
+
+  <script>
+    const INITIAL_COURSES = [
+      { id: 1, title: "Accounting", category: "Business & Finance", rating: 4.9, reviews: 312, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-calculator", desc: "Master financial statements, audit reporting, balance reconciliation, and corporate accounting discourse." },
+      { id: 2, title: "Agricultural Engineering", category: "Engineering & Tech", rating: 4.8, reviews: 140, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-tractor", desc: "Technical terminology for automated irrigation, machinery calibration, and soil mechanics." },
+      { id: 3, title: "Agriculture", category: "Energy & Natural Resources", rating: 4.7, reviews: 185, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-seedling", desc: "Crop lifecycle communication, export compliance standards, and sustainable harvest operations." },
+      { id: 4, title: "Air Force", category: "Public Safety & Law", rating: 4.9, reviews: 98, duration: "10 Weeks / 45 Hours", level: "B1", price: 135, icon: "fa-plane-departure", desc: "Aeronautical standard communications, flight coordination, telemetry, and avionics." },
+      { id: 5, title: "Architecture", category: "Engineering & Tech", rating: 4.9, reviews: 260, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-compass-drafting", desc: "Spatial design reviews, blueprint specifications, structural BIM documentation, and client briefs." },
+      { id: 6, title: "Art & Design", category: "Hospitality & Services", rating: 4.8, reviews: 210, duration: "10 Weeks / 45 Hours", level: "A1–B1", price: 135, icon: "fa-palette", desc: "Design thinking workshops, creative critique lexicons, typography, and international client briefs." },
+      { id: 7, title: "Au Pair", category: "Hospitality & Services", rating: 4.8, reviews: 154, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-baby", desc: "Domestic cross-cultural communication, safety reporting, routine management, and childcare English." },
+      { id: 8, title: "Banking", category: "Business & Finance", rating: 4.9, reviews: 420, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-building-columns", desc: "Retail banking transactions, KYC documentation, credit facilities, and consumer financial support." },
+      { id: 9, title: "Beauty Salon", category: "Hospitality & Services", rating: 4.7, reviews: 190, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-scissors", desc: "Salon consultations, treatments vocabulary, scheduling, and high-end client hospitality." },
+      { id: 10, title: "Business English", category: "Business & Finance", rating: 5.0, reviews: 680, duration: "10 Weeks / 45 Hours", level: "A1–B1", price: 135, icon: "fa-briefcase", desc: "Professional negotiation, executive presentations, email drafting, and intercultural team meetings." },
+      { id: 11, title: "Call Centers", category: "Hospitality & Services", rating: 4.8, reviews: 310, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-headset", desc: "Customer service empathy scripts, call handling resolution, technical de-escalation, and ticketing." },
+      { id: 12, title: "Civil Aviation", category: "Aviation & Maritime", rating: 4.9, reviews: 235, duration: "10 Weeks / 45 Hours", level: "B1", price: 135, icon: "fa-plane", desc: "ICAO aviation phraseology, ATC radiotelephony, flight dispatching, and aerodrome protocols." },
+      { id: 13, title: "Command & Control", category: "Public Safety & Law", rating: 4.9, reviews: 88, duration: "10 Weeks / 45 Hours", level: "B1", price: 135, icon: "fa-tower-observation", desc: "Tactical communication, crisis operations briefing, resource dispatch, and situational coordination." },
+      { id: 14, title: "Computer Engineering", category: "Engineering & Tech", rating: 4.9, reviews: 380, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-microchip", desc: "Hardware architecture documentation, circuit validation, and technical lab collaboration." },
+      { id: 15, title: "Computing", category: "Engineering & Tech", rating: 4.8, reviews: 340, duration: "10 Weeks / 45 Hours", level: "A1–B1", price: 135, icon: "fa-laptop-code", desc: "Operating systems, troubleshooting protocols, networking fundamentals, and documentation." },
+      { id: 16, title: "Construction I - Buildings", category: "Engineering & Tech", rating: 4.8, reviews: 215, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-trowel-bricks", desc: "Site safety briefings, structural components, material requisitions, and architectural reading." },
+      { id: 17, title: "Construction II - Roads & Highways", category: "Engineering & Tech", rating: 4.8, reviews: 180, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-road", desc: "Civil earthworks, asphalt compaction standards, surveying logs, and traffic diversion plans." },
+      { id: 18, title: "Cooking", category: "Hospitality & Services", rating: 4.9, reviews: 450, duration: "10 Weeks / 45 Hours", level: "A1–B1", price: 135, icon: "fa-utensils", desc: "Culinary terminology, brigade de cuisine communication, recipe scaling, and food sanitation." },
+      { id: 19, title: "Electrician", category: "Engineering & Tech", rating: 4.8, reviews: 290, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-bolt", desc: "Wiring diagrams, circuit breaker diagnostics, load balancing calculations, and safety OSHA standards." },
+      { id: 20, title: "Electronics", category: "Engineering & Tech", rating: 4.8, reviews: 220, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-plug", desc: "Semiconductors, oscilloscope readings, soldering protocols, and component diagnostics." },
+      { id: 21, title: "Engineering", category: "Engineering & Tech", rating: 4.9, reviews: 510, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-gears", desc: "General engineering communication, tolerances, material properties, and design specifications." },
+      { id: 22, title: "Environmental Engineering", category: "Engineering & Tech", rating: 4.9, reviews: 195, duration: "10 Weeks / 45 Hours", level: "B1", price: 135, icon: "fa-leaf", desc: "Water treatment reporting, emissions compliance, EIA documentation, and remediation plans." },
+      { id: 23, title: "Environmental Science", category: "Energy & Natural Resources", rating: 4.8, reviews: 170, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-tree", desc: "Biodiversity sampling logs, ecological monitoring, climate data synthesis, and field research." },
+      { id: 24, title: "Finance", category: "Business & Finance", rating: 4.9, reviews: 480, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-chart-pie", desc: "Corporate valuation, financial instruments, portfolio briefings, and risk mitigation models." },
+      { id: 25, title: "Fishing & Seafood Industry", category: "Energy & Natural Resources", rating: 4.7, reviews: 110, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-fish", desc: "Aquaculture vocabulary, HACCP seafood safety regulations, catch logs, and maritime logistics." },
+      { id: 26, title: "Fitness Training", category: "Hospitality & Services", rating: 4.8, reviews: 230, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-dumbbell", desc: "Kinesiology terms, exercise coaching cues, client goal assessment, and nutrition advisement." },
+      { id: 27, title: "Flight Attendant", category: "Aviation & Maritime", rating: 5.0, reviews: 540, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-person-booth", desc: "In-flight cabin announcements, medical emergency drills, luxury passenger service, and safety checks." },
+      { id: 28, title: "Food Service Industries", category: "Hospitality & Services", rating: 4.8, reviews: 275, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-bell-concierge", desc: "Dining service sequences, table settings, customer dietary requests, and point-of-sale discourse." },
+      { id: 29, title: "Hotels & Catering", category: "Hospitality & Services", rating: 4.9, reviews: 620, duration: "10 Weeks / 45 Hours", level: "A1–B1", price: 135, icon: "fa-hotel", desc: "Front desk reception, banqueting logistics, concierge recommendations, and complaint handling." },
+      { id: 30, title: "Information Technology", category: "Engineering & Tech", rating: 4.9, reviews: 650, duration: "10 Weeks / 45 Hours", level: "A1–B1", price: 135, icon: "fa-network-wired", desc: "IT enterprise helpdesk, cloud server management, security protocols, and infrastructure logs." },
+      { id: 31, title: "Insurance", category: "Business & Finance", rating: 4.7, reviews: 160, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-shield-halved", desc: "Underwriting policies, claims assessment, actuarial loss analysis, and premium terms." },
+      { id: 32, title: "Kindergarten Teacher", category: "Hospitality & Services", rating: 4.9, reviews: 310, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-shapes", desc: "Early childhood pedagogy English, parent-teacher conferences, classroom storytelling, and craft guides." },
+      { id: 33, title: "Law", category: "Public Safety & Law", rating: 4.9, reviews: 340, duration: "10 Weeks / 45 Hours", level: "B1", price: 135, icon: "fa-scale-balanced", desc: "Common law vocabulary, contractual clauses, legal briefings, arbitration, and litigation basics." },
+      { id: 34, title: "Management I", category: "Business & Finance", rating: 4.8, reviews: 390, duration: "10 Weeks / 45 Hours", level: "A2", price: 135, icon: "fa-users-gear", desc: "Supervisory duties, shift handovers, operational delegation, and KPI tracking conversations." },
+      { id: 35, title: "Management II", category: "Business & Finance", rating: 4.9, reviews: 360, duration: "10 Weeks / 45 Hours", level: "B1", price: 135, icon: "fa-sitemap", desc: "Strategic planning, organizational change management, cross-departmental coordination, and appraisals." },
+      { id: 36, title: "MBA English", category: "Business & Finance", rating: 5.0, reviews: 490, duration: "10 Weeks / 45 Hours", level: "B1", price: 135, icon: "fa-graduation-cap", desc: "Case study method discussions, boardroom executive summaries, pitch deck defenses, and finance strategy." },
+      { id: 37, title: "Mechanical Engineering", category: "Engineering & Tech", rating: 4.8, reviews: 290, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-wrench", desc: "Thermodynamics, mechanical parts assembly instructions, CAD modeling notes, and stress tests." },
+      { id: 38, title: "Mechanics", category: "Engineering & Tech", rating: 4.8, reviews: 280, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-gears", desc: "Automotive overhaul terminology, diagnostic OBD fault reporting, engine repair walkthroughs." },
+      { id: 39, title: "Medical", category: "Medical & Health", rating: 5.0, reviews: 710, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-notes-medical", desc: "Clinical patient histories, anatomy, pharmacology dosage charts, and bedside physician manners." },
+      { id: 40, title: "Merchant Navy", category: "Aviation & Maritime", rating: 4.8, reviews: 140, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-anchor", desc: "Standard Marine Communication Phrases (SMCP), cargo stowage, navigation bridge, and port authority." },
+      { id: 41, title: "Natural Gas I", category: "Energy & Natural Resources", rating: 4.7, reviews: 125, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-fire-flame-simple", desc: "Upstream gas extraction terminology, pipeline monitoring, valve operations, and safety valves." },
+      { id: 42, title: "Natural Gas II", category: "Energy & Natural Resources", rating: 4.8, reviews: 115, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-gas-pump", desc: "LNG cryogenic shipping, regasification terminals, pressure vessel safety, and export contracts." },
+      { id: 43, title: "Natural Resources I - Forestry", category: "Energy & Natural Resources", rating: 4.7, reviews: 95, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-tree", desc: "Silviculture timber measurement, sustainable canopy conservation, harvesting logs, and permits." },
+      { id: 44, title: "Natural Resources II - Mining", category: "Energy & Natural Resources", rating: 4.8, reviews: 110, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-gem", desc: "Subsurface ventilation logs, mineral extraction terminology, geotechnical stability assessments." },
+      { id: 45, title: "Navy", category: "Public Safety & Law", rating: 4.9, reviews: 130, duration: "10 Weeks / 45 Hours", level: "B1", price: 135, icon: "fa-ship", desc: "Naval operational command terms, fleet maneuvering, sonar reports, and joint allied operations." },
+      { id: 46, title: "Nuclear Engineering", category: "Engineering & Tech", rating: 4.9, reviews: 90, duration: "10 Weeks / 45 Hours", level: "B1", price: 135, icon: "fa-atom", desc: "Reactor coolant loop diagnostics, radiation shielding metrics, neutron flux data, and IAEA regulations." },
+      { id: 47, title: "Nursing", category: "Medical & Health", rating: 4.9, reviews: 590, duration: "10 Weeks / 45 Hours", level: "A1–B1", price: 135, icon: "fa-user-nurse", desc: "Patient triage intake, medication administration records, empathetic caregiving, and shift handovers." },
+      { id: 48, title: "Petroleum I", category: "Energy & Natural Resources", rating: 4.8, reviews: 175, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-oil-well", desc: "Drilling rig mechanics, mud logging, wellhead installation, and offshore safety drills." },
+      { id: 49, title: "Petroleum II", category: "Energy & Natural Resources", rating: 4.8, reviews: 160, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-droplet", desc: "Refinery cracking processes, pipeline pressure management, distillation towers, and quality assurance." },
+      { id: 50, title: "Physician’s Assistant", category: "Medical & Health", rating: 4.9, reviews: 290, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-stethoscope", desc: "Diagnostic lab consultations, outpatient surgical prep, medical dictation, and treatment protocols." },
+      { id: 51, title: "Physiotherapy", category: "Medical & Health", rating: 4.9, reviews: 240, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-crutch", desc: "Rehabilitation exercise directions, range-of-motion assessments, muscular charts, and patient motivation." },
+      { id: 52, title: "Plumbing", category: "Engineering & Tech", rating: 4.7, reviews: 210, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-faucet-drip", desc: "Sanitary drainage codes, pipe fitting schematics, water heating diagnostics, and customer estimates." },
+      { id: 53, title: "Police", category: "Public Safety & Law", rating: 4.8, reviews: 195, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-shield", desc: "Incident reporting, witness interrogation, traffic citation communication, and emergency response dispatch." },
+      { id: 54, title: "Sales & Marketing", category: "Business & Finance", rating: 4.9, reviews: 530, duration: "10 Weeks / 45 Hours", level: "A1–B1", price: 135, icon: "fa-bullhorn", desc: "Customer persona analysis, promotional campaigns, sales pipeline calls, and value proposition pitches." },
+      { id: 55, title: "Science", category: "Energy & Natural Resources", rating: 4.8, reviews: 240, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-flask", desc: "Laboratory experiment logs, hypothesis testing, peer-review reading, and academic presentations." },
+      { id: 56, title: "Secretarial", category: "Business & Finance", rating: 4.8, reviews: 320, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-address-book", desc: "Executive diary management, travel logistics booking, professional meeting minutes, and office calls." },
+      { id: 57, title: "Security Personnel", category: "Public Safety & Law", rating: 4.7, reviews: 175, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-user-shield", desc: "Access control protocols, CCTV surveillance logkeeping, visitor badges, and emergency building evacuation." },
+      { id: 58, title: "Software Engineering", category: "Engineering & Tech", rating: 5.0, reviews: 780, duration: "10 Weeks / 45 Hours", level: "A2–B1", price: 135, icon: "fa-code", desc: "Agile sprint standups, pull request code reviews, API documentation, and technical system design debates." },
+      { id: 59, title: "Sports", category: "Hospitality & Services", rating: 4.8, reviews: 160, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-medal", desc: "Team coaching strategy, referee terminology, athlete interview briefs, and tournament management." },
+      { id: 60, title: "TAXI Drivers", category: "Hospitality & Services", rating: 4.7, reviews: 220, duration: "10 Weeks / 45 Hours", level: "A1–A2", price: 135, icon: "fa-taxi", desc: "Airport pickup greetings, directional navigation, fare explanation, and polite international passenger care." },
+      { id: 61, title: "Tourism", category: "Hospitality & Services", rating: 5.0, reviews: 850, duration: "10 Weeks / 45 Hours", level: "A1–B1", price: 135, icon: "fa-earth-americas", desc: "Heritage guiding commentary, travel itinerary building, cultural briefing, and tourist emergency assistance." }
+    ];
+
+    const state = {
+      courses: [],
+      currentUser: null,
+      isAdmin: false,
+      enrolledCourseIds: [61, 10],
+      savedCourseIds: [1, 29],
+      filters: { search: '', category: 'ALL', level: 'ALL', sort: 'popular' },
+      displayLimit: 8,
+      activeDetailCourseId: null,
+      confirmCallback: null,
+      selectedSchedule: {
+        days: 'Mon-Wed-Fri',
+        time: '5:30 - 7:00 PM'
+      }
+    };
+
+    const app = {
+      init() {
+        const stored = localStorage.getItem('bec_courses_v2');
+        state.courses = stored ? JSON.parse(stored) : [...INITIAL_COURSES];
+
+        const storedUser = localStorage.getItem('bec_user_v2');
+        state.currentUser = storedUser ? JSON.parse(storedUser) : {
+          id: 101,
+          name: "Sokha Vanna",
+          email: "sokha.student@becacademy.edu",
+          role: "student"
+        };
+        state.isAdmin = state.currentUser.role === 'admin' || state.currentUser.role === 'instructor';
+
+        const storedBm = localStorage.getItem('bec_bookmarks_v2');
+        if (storedBm) state.savedCourseIds = JSON.parse(storedBm);
+
+        const storedEn = localStorage.getItem('bec_enroll_v2');
+        if (storedEn) state.enrolledCourseIds = JSON.parse(storedEn);
+
+        const storedSched = localStorage.getItem('bec_schedule_v2');
+        if (storedSched) state.selectedSchedule = JSON.parse(storedSched);
+
+        this.renderAuthState();
+        this.renderCourses();
+        this.updateStatsCounters();
+      },
+
+      persistCourses() {
+        localStorage.setItem('bec_courses_v2', JSON.stringify(state.courses));
+      },
+      persistUser() {
+        localStorage.setItem('bec_user_v2', JSON.stringify(state.currentUser));
+      },
+      persistBookmarks() {
+        localStorage.setItem('bec_bookmarks_v2', JSON.stringify(state.savedCourseIds));
+      },
+      persistEnrollments() {
+        localStorage.setItem('bec_enroll_v2', JSON.stringify(state.enrolledCourseIds));
+      },
+      persistSchedule() {
+        localStorage.setItem('bec_schedule_v2', JSON.stringify(state.selectedSchedule));
+      },
+
+      handleScheduleChange() {
+        const days = document.getElementById('detailScheduleDays').value;
+        const time = document.getElementById('detailScheduleTime').value;
+        state.selectedSchedule = { days, time };
+        this.persistSchedule();
+      },
+
+      closeSearch() {
+        state.filters.search = '';
+        const searchInput = document.getElementById('catalogSearchInput');
+        const heroInput = document.getElementById('heroSearchInput');
+        if (searchInput) searchInput.value = '';
+        if (heroInput) heroInput.value = '';
+        const clearBtn = document.getElementById('clearSearchBtn');
+        if (clearBtn) clearBtn.classList.add('hidden');
+        const banner = document.getElementById('activeSearchBanner');
+        if (banner) banner.classList.add('hidden');
+        this.renderCourses();
+        this.showToast("Search cleared.", "info");
+      },
+
+      handleFilterChange() {
+        const q = document.getElementById('catalogSearchInput').value;
+        state.filters.search = q;
+        state.filters.category = document.getElementById('categoryFilter').value;
+        state.filters.level = document.getElementById('levelFilter').value;
+        state.filters.sort = document.getElementById('sortFilter').value;
+        state.displayLimit = 8;
+
+        const clearBtn = document.getElementById('clearSearchBtn');
+        const banner = document.getElementById('activeSearchBanner');
+        const bannerText = document.getElementById('activeSearchQueryText');
+
+        if (q.trim()) {
+          if (clearBtn) clearBtn.classList.remove('hidden');
+          if (banner) banner.classList.remove('hidden');
+          if (bannerText) bannerText.textContent = `"${q.trim()}"`;
+        } else {
+          if (clearBtn) clearBtn.classList.add('hidden');
+          if (banner) banner.classList.add('hidden');
+        }
+
+        this.renderCourses();
+      },
+
+      quickFilter(term) {
+        state.filters.search = term;
+        document.getElementById('catalogSearchInput').value = term;
+        const clearBtn = document.getElementById('clearSearchBtn');
+        if (clearBtn) clearBtn.classList.remove('hidden');
+        const banner = document.getElementById('activeSearchBanner');
+        const bannerText = document.getElementById('activeSearchQueryText');
+        if (banner) banner.classList.remove('hidden');
+        if (bannerText) bannerText.textContent = `"${term}"`;
+        location.href = '#courses';
+        this.renderCourses();
+      },
+
+      handleHeroSearch(e) {
+        e.preventDefault();
+        const term = document.getElementById('heroSearchInput').value.trim();
+        state.filters.search = term;
+        document.getElementById('catalogSearchInput').value = term;
+        const clearBtn = document.getElementById('clearSearchBtn');
+        if (clearBtn) clearBtn.classList.toggle('hidden', !term);
+        const banner = document.getElementById('activeSearchBanner');
+        const bannerText = document.getElementById('activeSearchQueryText');
+        if (banner) banner.classList.toggle('hidden', !term);
+        if (bannerText && term) bannerText.textContent = `"${term}"`;
+        location.href = '#courses';
+        this.renderCourses();
+      },
+
+      resetFilters() {
+        state.filters = { search: '', category: 'ALL', level: 'ALL', sort: 'popular' };
+        document.getElementById('catalogSearchInput').value = '';
+        document.getElementById('heroSearchInput').value = '';
+        document.getElementById('categoryFilter').value = 'ALL';
+        document.getElementById('levelFilter').value = 'ALL';
+        document.getElementById('sortFilter').value = 'popular';
+        const clearBtn = document.getElementById('clearSearchBtn');
+        if (clearBtn) clearBtn.classList.add('hidden');
+        const banner = document.getElementById('activeSearchBanner');
+        if (banner) banner.classList.add('hidden');
+        state.displayLimit = 8;
+        this.renderCourses();
+      },
+
+      setCategoryPill(category) {
+        state.filters.category = category;
+        document.getElementById('categoryFilter').value = category;
+        document.querySelectorAll('.cat-pill').forEach(pill => {
+          pill.classList.remove('bg-brand-purple950', 'text-white');
+          pill.classList.add('bg-white', 'text-slate-700');
+        });
+        event.currentTarget.classList.remove('bg-white', 'text-slate-700');
+        event.currentTarget.classList.add('bg-brand-purple950', 'text-white');
+        this.renderCourses();
+      },
+
+      renderAuthState() {
+        const roleLabel = document.getElementById('roleLabel');
+        if (roleLabel) roleLabel.textContent = `Role: ${state.isAdmin ? 'Admin' : 'Student'}`;
+        
+        const mobileRoleLabel = document.getElementById('mobileRoleLabel');
+        if (mobileRoleLabel) mobileRoleLabel.textContent = state.isAdmin ? 'Switch to Student Mode' : 'Switch to Admin Mode';
+
+        const roleSwitcherBtn = document.getElementById('roleSwitcherBtn');
+        if (roleSwitcherBtn) {
+          roleSwitcherBtn.title = `Currently ${state.isAdmin ? 'Admin' : 'Student'}. Click to switch role.`;
+        }
+
+        const navAdminBtn = document.getElementById('navAdminBtn');
+        if (navAdminBtn) navAdminBtn.classList.toggle('hidden', !state.isAdmin);
+
+        const catalogAddBtn = document.getElementById('catalogAddBtn');
+        if (catalogAddBtn) catalogAddBtn.classList.toggle('hidden', !state.isAdmin);
+
+        const detailAdminEditBtn = document.getElementById('detailAdminEditBtn');
+        if (detailAdminEditBtn) detailAdminEditBtn.classList.toggle('hidden', !state.isAdmin);
+
+        const navAuth = document.getElementById('navAuthContainer');
+        const mobileAuth = document.getElementById('mobileAuthContainer');
+
+        if (state.currentUser && state.currentUser.name && state.currentUser.name !== 'Guest') {
+          const initial = (state.currentUser.name || 'U').charAt(0).toUpperCase();
+          if (navAuth) {
+            navAuth.innerHTML = `
+              <button onclick="app.showDashboardModal()" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition border border-white/10">
+                <span class="w-6 h-6 rounded-lg bg-brand-green400 text-brand-purple950 font-extrabold flex items-center justify-center text-xs">${initial}</span>
+                <span class="max-w-[100px] truncate">${state.currentUser.name}</span>
+              </button>
+            `;
+          }
+          if (mobileAuth) {
+            mobileAuth.innerHTML = `
+              <div class="flex items-center justify-between p-2 rounded-xl bg-white/5">
+                <div class="flex items-center gap-2">
+                  <span class="w-7 h-7 rounded-lg bg-brand-green400 text-brand-purple950 font-bold flex items-center justify-center text-xs">${initial}</span>
+                  <span class="text-xs text-white font-semibold">${state.currentUser.name}</span>
+                </div>
+                <button onclick="app.showDashboardModal(); app.toggleMobileMenu();" class="text-xs text-brand-green400 font-bold hover:underline">Dashboard</button>
+              </div>
+            `;
+          }
+        } else {
+          if (navAuth) {
+            navAuth.innerHTML = `
+              <button onclick="app.showAuthModal('signin')" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition">Sign In</button>
+              <button onclick="app.showAuthModal('signup')" class="px-3.5 py-1.5 rounded-xl bg-brand-green500 hover:bg-brand-green400 text-brand-purple950 text-xs font-extrabold transition shadow-sm">Join Free</button>
+            `;
+          }
+          if (mobileAuth) {
+            mobileAuth.innerHTML = `
+              <button onclick="app.showAuthModal('signin'); app.toggleMobileMenu();" class="w-full py-2 rounded-xl bg-white/10 text-white text-xs font-semibold">Sign In</button>
+              <button onclick="app.showAuthModal('signup'); app.toggleMobileMenu();" class="w-full py-2 rounded-xl bg-brand-green500 text-brand-purple950 text-xs font-bold">Join Free</button>
+            `;
+          }
+        }
+      },
+
+      toggleRole() {
+        state.isAdmin = !state.isAdmin;
+        state.currentUser.role = state.isAdmin ? 'admin' : 'student';
+        this.persistUser();
+        this.renderAuthState();
+        this.renderCourses();
+        this.showToast(`Switched to ${state.isAdmin ? 'Admin' : 'Student'} mode.`, 'info');
+      },
+
+      renderCourses() {
+        const grid = document.getElementById('coursesGrid');
+        const emptyState = document.getElementById('noCoursesState');
+        const countBadge = document.getElementById('courseCountBadge');
+        const paginationWrap = document.getElementById('paginationWrap');
+        if (!grid) return;
+
+        let filtered = state.courses.filter(course => {
+          const q = (state.filters.search || '').toLowerCase().trim();
+          const matchesSearch = !q || 
+            course.title.toLowerCase().includes(q) ||
+            course.desc.toLowerCase().includes(q) ||
+            course.category.toLowerCase().includes(q);
+          
+          const matchesCategory = state.filters.category === 'ALL' || course.category === state.filters.category;
+          const matchesLevel = state.filters.level === 'ALL' || course.level.includes(state.filters.level);
+
+          return matchesSearch && matchesCategory && matchesLevel;
+        });
+
+        // Sorting options
+        if (state.filters.sort === 'popular') {
+          filtered.sort((a, b) => b.reviews - a.reviews);
+        } else if (state.filters.sort === 'rating') {
+          filtered.sort((a, b) => b.rating - a.rating);
+        } else if (state.filters.sort === 'newest') {
+          filtered.sort((a, b) => b.id - a.id);
+        } else if (state.filters.sort === 'price-asc') {
+          filtered.sort((a, b) => a.price - b.price);
+        }
+
+        if (countBadge) {
+          countBadge.textContent = `Showing ${Math.min(state.displayLimit, filtered.length)} of ${filtered.length} courses`;
+        }
+
+        if (filtered.length === 0) {
+          grid.innerHTML = '';
+          if (emptyState) emptyState.classList.remove('hidden');
+          if (paginationWrap) paginationWrap.classList.add('hidden');
+          return;
+        }
+
+        if (emptyState) emptyState.classList.add('hidden');
+        if (paginationWrap) {
+          paginationWrap.classList.toggle('hidden', state.displayLimit >= filtered.length);
+        }
+
+        const visibleCourses = filtered.slice(0, state.displayLimit);
+        grid.innerHTML = visibleCourses.map(course => {
+          const isBookmarked = state.savedCourseIds.includes(course.id);
+          const isEnrolled = state.enrolledCourseIds.includes(course.id);
+
+          return `
+            <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-sm hover:shadow-card-hover transition-all duration-200 flex flex-col justify-between group relative">
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-3">
+                  <span class="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700">
+                    ${course.category}
+                  </span>
+                  <div class="flex items-center gap-1.5">
+                    ${state.isAdmin ? `
+                      <button onclick="app.showAdminPanel(${course.id}, event)" class="w-8 h-8 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-700 flex items-center justify-center transition" title="Edit course">
+                        <i class="fa-solid fa-pen text-xs"></i>
+                      </button>
+                    ` : ''}
+                    <button onclick="app.toggleBookmark(${course.id}, event)" class="w-8 h-8 rounded-lg hover:bg-slate-100 flex items-center justify-center transition text-slate-400 hover:text-amber-500" title="${isBookmarked ? 'Remove bookmark' : 'Bookmark course'}">
+                      <i class="${isBookmarked ? 'fa-solid text-brand-yellow400' : 'fa-regular'} fa-bookmark text-sm"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-xl bg-brand-purple100 text-brand-purple700 flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition">
+                    <i class="fa-solid ${course.icon || 'fa-graduation-cap'}"></i>
+                  </div>
+                  <h3 class="font-extrabold text-base text-brand-purple950 leading-snug line-clamp-1">${course.title}</h3>
+                </div>
+
+                <p class="text-xs text-slate-500 line-clamp-2 mb-4 leading-relaxed">${course.desc}</p>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 space-y-3">
+                <div class="flex items-center justify-between text-xs">
+                  <div class="flex items-center gap-1.5 text-amber-500 font-bold">
+                    <i class="fa-solid fa-star text-[11px]"></i>
+                    <span>${course.rating.toFixed(1)}</span>
+                    <span class="text-slate-400 font-normal">(${course.reviews})</span>
+                  </div>
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-brand-green50 text-brand-green500 border border-brand-green500/30">
+                    CEFR ${course.level}
+                  </span>
+                </div>
+
+                <div class="flex items-center justify-between pt-1">
+                  <div>
+                    <span class="text-[10px] text-slate-400 uppercase font-semibold block leading-none mb-0.5">Tuition</span>
+                    <span class="font-extrabold text-brand-purple950 text-base">$${course.price}</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <button onclick="app.showCourseDetail(${course.id})" class="px-3 py-2 rounded-xl border border-slate-200 hover:bg-slate-100 font-bold text-xs text-slate-700 transition">
+                      Details
+                    </button>
+                    ${isEnrolled ? `
+                      <span class="px-3 py-2 rounded-xl bg-brand-green50 text-emerald-700 font-bold text-xs border border-emerald-200">
+                        Enrolled
+                      </span>
+                    ` : `
+                      <button onclick="paymentController.openCheckout(${course.id})" class="px-3.5 py-2 rounded-xl bg-brand-purple700 hover:bg-brand-purple800 text-white font-bold text-xs transition shadow-sm">
+                        Enroll
+                      </button>
+                    `}
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      },
+
+      loadMoreCourses() {
+        state.displayLimit += 8;
+        this.renderCourses();
+      },
+
+      showAdminPanel(courseId = null, event = null) {
+        if (event) event.stopPropagation();
+        const form = document.getElementById('courseEditorForm');
+        form.reset();
+        const deleteBtn = document.getElementById('btnDeleteCourse');
+
+        if (courseId) {
+          const course = state.courses.find(c => c.id === courseId);
+          if (!course) return;
+          document.getElementById('editorModalTitle').textContent = `Edit Course: ${course.title}`;
+          document.getElementById('editCourseId').value = course.id;
+          document.getElementById('editTitle').value = course.title;
+          document.getElementById('editCategory').value = course.category;
+          document.getElementById('editIcon').value = course.icon || 'fa-graduation-cap';
+          document.getElementById('editDescription').value = course.desc;
+          document.getElementById('editLevel').value = course.level;
+          document.getElementById('editPrice').value = course.price;
+          document.getElementById('editDuration').value = course.duration;
+          deleteBtn.classList.remove('hidden');
+        } else {
+          document.getElementById('editorModalTitle').textContent = "Add New Course Offering";
+          document.getElementById('editCourseId').value = "";
+          document.getElementById('editIcon').value = "fa-graduation-cap";
+          document.getElementById('editPrice').value = 135;
+          document.getElementById('editDuration').value = "10 Weeks / 45 Hours";
+          deleteBtn.classList.add('hidden');
+        }
+
+        this.openModal('courseEditorModal');
+      },
+
+      handleSaveCourse(e) {
+        e.preventDefault();
+        const idVal = document.getElementById('editCourseId').value;
+        const title = document.getElementById('editTitle').value.trim();
+        const category = document.getElementById('editCategory').value;
+        const icon = document.getElementById('editIcon').value.trim() || 'fa-graduation-cap';
+        const desc = document.getElementById('editDescription').value.trim();
+        const level = document.getElementById('editLevel').value;
+        const price = parseFloat(document.getElementById('editPrice').value) || 135;
+        const duration = document.getElementById('editDuration').value.trim() || "10 Weeks / 45 Hours";
+
+        if (idVal) {
+          const courseId = parseInt(idVal, 10);
+          const idx = state.courses.findIndex(c => c.id === courseId);
+          if (idx > -1) {
+            state.courses[idx] = {
+              ...state.courses[idx],
+              title, category, icon, desc, level, price, duration
+            };
+            this.showToast(`Updated "${title}" successfully.`, "success");
+          }
+        } else {
+          const newCourse = {
+            id: Date.now(),
+            title, category, icon, desc, level, price, duration,
+            rating: 5.0,
+            reviews: 1
+          };
+          state.courses.unshift(newCourse);
+          this.showToast(`Created new course "${title}".`, "success");
+        }
+
+        this.persistCourses();
+        this.renderCourses();
+        this.updateStatsCounters();
+        this.closeModal('courseEditorModal');
+      },
+
+      confirmDeleteCourse() {
+        const idVal = document.getElementById('editCourseId').value;
+        if (!idVal) return;
+        const courseId = parseInt(idVal, 10);
+        this.confirmCallback = () => {
+          state.courses = state.courses.filter(c => c.id !== courseId);
+          state.savedCourseIds = state.savedCourseIds.filter(id => id !== courseId);
+          state.enrolledCourseIds = state.enrolledCourseIds.filter(id => id !== courseId);
+          this.persistCourses();
+          this.persistBookmarks();
+          this.persistEnrollments();
+          this.renderCourses();
+          this.updateStatsCounters();
+          this.closeModal('courseEditorModal');
+          this.showToast('Course removed from platform.', 'info');
+        };
+        document.getElementById('confirmModalTitle').textContent = "Delete Course?";
+        document.getElementById('confirmModalDesc').textContent = "This course will be permanently removed from the catalog.";
+        this.openModal('confirmModal');
+      },
+
+      resolveConfirm(result) {
+        this.closeModal('confirmModal');
+        if (result && typeof this.confirmCallback === 'function') {
+          this.confirmCallback();
+        }
+        this.confirmCallback = null;
+      },
+
+      openEditFromDetail() {
+        const id = state.activeDetailCourseId;
+        this.closeModal('courseDetailModal');
+        this.showAdminPanel(id);
+      },
+
+      filterFaq(category) {
+        document.querySelectorAll('.faq-filter-btn').forEach(btn => {
+          btn.className = "faq-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold transition bg-slate-100 text-slate-700 hover:bg-slate-200";
+        });
+        event.currentTarget.className = "faq-filter-btn active-faq-filter px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-brand-purple950 text-white";
+
+        const items = document.querySelectorAll('.faq-item');
+        items.forEach(item => {
+          const itemCat = item.getAttribute('data-faq-cat');
+          if (category === 'all' || itemCat === category) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      },
+
+      toggleFaq(btn) {
+        const answer = btn.nextElementSibling;
+        const icon = btn.querySelector('.fa-chevron-down');
+        const isHidden = answer.classList.contains('hidden');
+
+        document.querySelectorAll('#faqAccordion .faq-item > div').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('#faqAccordion .fa-chevron-down').forEach(el => el.style.transform = 'rotate(0deg)');
+
+        if (isHidden) {
+          answer.classList.remove('hidden');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      },
+
+      toggleBookmark(courseId, event) {
+        if (event) event.stopPropagation();
+        const idx = state.savedCourseIds.indexOf(courseId);
+        if (idx > -1) {
+          state.savedCourseIds.splice(idx, 1);
+          this.showToast("Bookmark removed.", "info");
+        } else {
+          state.savedCourseIds.push(courseId);
+          this.showToast("Course bookmarked.", "success");
+        }
+        this.persistBookmarks();
+        this.renderCourses();
+        if (state.activeDetailCourseId === courseId) this.updateDetailBookmarkState();
+      },
+
+      toggleBookmarkFromDetail() {
+        if (state.activeDetailCourseId) this.toggleBookmark(state.activeDetailCourseId);
+      },
+
+      updateDetailBookmarkState() {
+        if (!state.activeDetailCourseId) return;
+        const isSaved = state.savedCourseIds.includes(state.activeDetailCourseId);
+        const btn = document.getElementById('detailBookmarkBtn');
+        if (!btn) return;
+        
+        if (isSaved) {
+          btn.innerHTML = `<i id="detailBookmarkIcon" class="fa-solid fa-bookmark text-brand-yellow400 mr-1.5"></i> Saved`;
+        } else {
+          btn.innerHTML = `<i id="detailBookmarkIcon" class="fa-regular fa-bookmark mr-1.5"></i> Bookmark`;
+        }
+      },
+
+      showCourseDetail(courseId) {
+        state.activeDetailCourseId = courseId;
+        const course = state.courses.find(c => c.id === courseId);
+        if (!course) return;
+
+        document.getElementById('detailCategory').textContent = course.category;
+        document.getElementById('detailLevel').textContent = `CEFR ${course.level}`;
+        document.getElementById('detailTitle').textContent = course.title;
+        document.getElementById('detailDescription').textContent = course.desc;
+        document.getElementById('detailRating').textContent = course.rating.toFixed(1);
+        document.getElementById('detailPrice').textContent = `$${course.price}`;
+        document.getElementById('detailDuration').textContent = course.duration;
+
+        // Restore active schedule dropdown values
+        if (document.getElementById('detailScheduleDays')) {
+          document.getElementById('detailScheduleDays').value = state.selectedSchedule.days || 'Mon-Wed-Fri';
+        }
+        if (document.getElementById('detailScheduleTime')) {
+          document.getElementById('detailScheduleTime').value = state.selectedSchedule.time || '5:30 - 7:00 PM';
+        }
+
+        document.getElementById('detailAdminEditBtn').classList.toggle('hidden', !state.isAdmin);
+
+        const outcomesWrap = document.getElementById('detailOutcomes');
+        outcomesWrap.innerHTML = `
+          <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-green500 mt-0.5"></i> <span><strong>Workplace Fluency:</strong> Real dialogue roleplays meeting CEFR ${course.level} standards.</span></div>
+          <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-green500 mt-0.5"></i> <span><strong>Industry Lexicon:</strong> Master 400 domain terms & situational phrases.</span></div>
+          <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-green500 mt-0.5"></i> <span><strong>Written Skills:</strong> Incident logs, professional emails, and client memos.</span></div>
+          <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-green500 mt-0.5"></i> <span><strong>Certification:</strong> Official verified graduation credential.</span></div>
+        `;
+
+        this.updateDetailBookmarkState();
+        this.openModal('courseDetailModal');
+      },
+
+      handleEnrollFromDetail() {
+        const id = state.activeDetailCourseId;
+        this.closeModal('courseDetailModal');
+        paymentController.openCheckout(id);
+      },
+
+      showDashboardModal() {
+        document.getElementById('dashUserName').textContent = state.currentUser.name;
+        document.getElementById('dashUserRole').textContent = `${state.currentUser.role} Account`;
+        document.getElementById('dashUserAvatar').textContent = state.currentUser.name.charAt(0).toUpperCase();
+
+        this.renderDashboardEnrolled();
+        this.renderDashboardSaved();
+        this.openModal('dashboardModal');
+      },
+
+      switchDashTab(tab) {
+        document.getElementById('dashTabEnrolled').classList.toggle('hidden', tab !== 'enrolled');
+        document.getElementById('dashTabSaved').classList.toggle('hidden', tab !== 'saved');
+        document.getElementById('dashTabEnrolledBtn').className = tab === 'enrolled' ? "w-full flex items-center justify-between px-3 py-2 rounded-xl bg-brand-purple700 text-white font-semibold text-xs" : "w-full flex items-center justify-between px-3 py-2 rounded-xl text-white/70 hover:bg-white/5 font-semibold text-xs";
+        document.getElementById('dashTabSavedBtn').className = tab === 'saved' ? "w-full flex items-center justify-between px-3 py-2 rounded-xl bg-brand-purple700 text-white font-semibold text-xs" : "w-full flex items-center justify-between px-3 py-2 rounded-xl text-white/70 hover:bg-white/5 font-semibold text-xs";
+      },
+
+      renderDashboardEnrolled() {
+        const list = document.getElementById('dashEnrolledList');
+        const empty = document.getElementById('dashEnrolledEmpty');
+        const enrolled = state.courses.filter(c => state.enrolledCourseIds.includes(c.id));
+        document.getElementById('dashEnrolledCountBadge').textContent = enrolled.length;
+
+        if (enrolled.length === 0) {
+          list.innerHTML = '';
+          empty.classList.remove('hidden');
+          return;
+        }
+        empty.classList.add('hidden');
+        list.innerHTML = enrolled.map(c => `
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-center justify-between">
+            <div>
+              <div class="text-xs font-bold text-brand-purple950">${c.title}</div>
+              <div class="text-[10px] text-slate-500">${c.category} • CEFR ${c.level}</div>
+            </div>
+            <button onclick="app.showCourseDetail(${c.id})" class="px-3 py-1 bg-brand-purple700 text-white rounded-lg text-xs font-bold">Open</button>
+          </div>
+        `).join('');
+      },
+
+      renderDashboardSaved() {
+        const list = document.getElementById('dashSavedList');
+        const empty = document.getElementById('dashSavedEmpty');
+        const saved = state.courses.filter(c => state.savedCourseIds.includes(c.id));
+        document.getElementById('dashSavedCountBadge').textContent = saved.length;
+
+        if (saved.length === 0) {
+          list.innerHTML = '';
+          empty.classList.remove('hidden');
+          return;
+        }
+        empty.classList.add('hidden');
+        list.innerHTML = saved.map(c => `
+          <div class="bg-white p-3 rounded-xl border border-slate-200 flex items-center justify-between">
+            <div class="min-w-0 pr-2">
+              <div class="text-xs font-bold text-brand-purple950 truncate">${c.title}</div>
+              <div class="text-[10px] text-slate-400">$${c.price}</div>
+            </div>
+            <button onclick="app.showCourseDetail(${c.id})" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-brand-purple950 rounded-lg text-xs font-semibold">View</button>
+          </div>
+        `).join('');
+      },
+
+      updateStatsCounters() {
+        const statsEl = document.getElementById('statsCourseCount');
+        if (statsEl) statsEl.textContent = state.courses.length;
+      },
+
+      showToast(msg, type = 'info') {
+        const container = document.getElementById('toastContainer');
+        const toast = document.createElement('div');
+        const colors = {
+          success: 'bg-emerald-600 text-white',
+          info: 'bg-brand-purple950 text-white border border-brand-green400/30'
+        };
+        toast.className = `p-3 rounded-xl shadow-xl flex items-center gap-2.5 text-xs font-semibold pointer-events-auto transition-all duration-200 ${colors[type] || colors.info}`;
+        toast.innerHTML = `<span>${msg}</span><button onclick="this.parentElement.remove()" class="ml-auto text-white/70 hover:text-white"><i class="fa-solid fa-xmark"></i></button>`;
+        container.appendChild(toast);
+        setTimeout(() => toast.remove(), 3500);
+      },
+
+      openModal(id) {
+        const m = document.getElementById(id);
+        if (m) {
+          m.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      },
+      closeModal(id) {
+        const m = document.getElementById(id);
+        if (m) {
+          m.classList.add('hidden');
+          if (document.querySelectorAll('[role="dialog"]:not(.hidden)').length === 0) {
+            document.body.style.overflow = '';
+          }
+        }
+      },
+      toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('hidden');
+      },
+      showAuthModal(tab = 'signin') {
+        this.switchAuthTab(tab);
+        this.openModal('authModal');
+      },
+      switchAuthTab(tab) {
+        document.getElementById('signInForm').classList.toggle('hidden', tab !== 'signin');
+        document.getElementById('signUpForm').classList.toggle('hidden', tab !== 'signup');
+        document.getElementById('tabSignInBtn').className = tab === 'signin' ? "w-1/2 py-2.5 text-xs font-bold border-b-2 border-brand-purple700 text-brand-purple700" : "w-1/2 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-500";
+        document.getElementById('tabSignUpBtn').className = tab === 'signup' ? "w-1/2 py-2.5 text-xs font-bold border-b-2 border-brand-green500 text-brand-purple950" : "w-1/2 py-2.5 text-xs font-semibold border-b-2 border-transparent text-slate-500";
+      },
+      handleSignIn(e) {
+        e.preventDefault();
+        const email = document.getElementById('signInEmail').value.trim();
+        state.currentUser = { id: Date.now(), name: email.split('@')[0], email, role: state.isAdmin ? 'admin' : 'student' };
+        this.persistUser();
+        this.renderAuthState();
+        this.closeModal('authModal');
+        this.showToast(`Signed in as ${state.currentUser.name}`, 'success');
+      },
+      handleSignUp(e) {
+        e.preventDefault();
+        const name = document.getElementById('signUpName').value.trim();
+        const email = document.getElementById('signUpEmail').value.trim();
+        state.currentUser = { id: Date.now(), name, email, role: 'student' };
+        state.isAdmin = false;
+        this.persistUser();
+        this.renderAuthState();
+        this.closeModal('authModal');
+        this.showToast(`Welcome, ${name}!`, 'success');
+      },
+      quickLogin(role) {
+        state.isAdmin = role === 'instructor';
+        state.currentUser = {
+          id: role === 'instructor' ? 202 : 101,
+          name: role === 'instructor' ? "Admin Vance" : "Sokha Vanna",
+          email: `${role}@becacademy.edu`,
+          role: state.isAdmin ? 'admin' : 'student'
+        };
+        this.persistUser();
+        this.renderAuthState();
+        this.renderCourses();
+        this.closeModal('authModal');
+        this.showToast(`Logged in as ${state.currentUser.name}`, 'success');
+      },
+      handleSignOut() {
+        state.currentUser = { id: 101, name: "Guest", email: "guest@becacademy.edu", role: "student" };
+        state.isAdmin = false;
+        this.persistUser();
+        this.renderAuthState();
+        this.renderCourses();
+        this.closeModal('dashboardModal');
+        this.showToast("Signed out", "info");
+      }
+    };
+
+    const paymentController = {
+      activeBank: 'aba',
+      currentCourse: null,
+      lastReceipt: null,
+
+      openCheckout(courseId) {
+        const c = state.courses.find(item => item.id === courseId);
+        if (!c) return;
+        this.currentCourse = c;
+        document.getElementById('checkoutCourseTitle').textContent = c.title;
+        document.getElementById('checkoutAmountUSD').textContent = `$${c.price}.00`;
+        document.getElementById('checkoutAmountKHR').textContent = `~ ${(c.price * 4100).toLocaleString()} KHR`;
+        
+        // Show selected class schedule
+        const schedText = `${state.selectedSchedule.days} • ${state.selectedSchedule.time}`;
+        const schedBadge = document.getElementById('checkoutScheduleBadge');
+        if (schedBadge) schedBadge.textContent = schedText;
+
+        this.switchBank('aba');
+        app.openModal('paymentModal');
+      },
+
+      switchBank(bank) {
+        this.activeBank = bank;
+        const isAba = bank === 'aba';
+        document.getElementById('tabAbaBtn').className = isAba ? "p-3 rounded-xl border-2 border-[#005E82] bg-[#005E82]/5 flex items-center justify-center gap-2 transition min-h-[48px]" : "p-3 rounded-xl border-2 border-transparent bg-slate-100 flex items-center justify-center gap-2 transition min-h-[48px]";
+        document.getElementById('tabAcledaBtn').className = !isAba ? "p-3 rounded-xl border-2 border-[#1B365D] bg-[#1B365D]/5 flex items-center justify-center gap-2 transition min-h-[48px]" : "p-3 rounded-xl border-2 border-transparent bg-slate-100 flex items-center justify-center gap-2 transition min-h-[48px]";
+        document.getElementById('qrBankBadge').className = isAba ? "inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#005E82] text-white text-[11px] font-bold mb-3" : "inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#1B365D] text-[#DCA23E] text-[11px] font-bold mb-3";
+        document.getElementById('qrBankName').textContent = isAba ? "ABA Bank • KHQR Pay" : "ACLEDA Bank • Unity KHQR";
+        document.getElementById('checkoutAccNumber').textContent = isAba ? "ABA: 001 893 214 (USD)" : "ACLEDA: 1008-29401-2 (USD)";
+        
+        const primary = isAba ? '#005E82' : '#1B365D';
+        const brand = isAba ? 'ABA' : 'ACLEDA';
+        document.getElementById('qrGraphicWrap').innerHTML = `
+          <svg viewBox="0 0 200 200" class="w-full h-full select-none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="200" height="200" fill="#ffffff" rx="10"/>
+            <rect x="15" y="15" width="45" height="45" rx="6" fill="${primary}"/>
+            <rect x="23" y="23" width="29" height="29" rx="3" fill="#ffffff"/>
+            <rect x="29" y="29" width="17" height="17" rx="2" fill="${primary}"/>
+            <rect x="140" y="15" width="45" height="45" rx="6" fill="${primary}"/>
+            <rect x="148" y="23" width="29" height="29" rx="3" fill="#ffffff"/>
+            <rect x="154" y="29" width="17" height="17" rx="2" fill="${primary}"/>
+            <rect x="15" y="140" width="45" height="45" rx="6" fill="${primary}"/>
+            <rect x="23" y="148" width="29" height="29" rx="3" fill="#ffffff"/>
+            <rect x="29" y="154" width="17" height="17" rx="2" fill="${primary}"/>
+            <g fill="#1a1a2e">
+              <rect x="70" y="20" width="12" height="12" rx="2"/>
+              <rect x="95" y="15" width="10" height="20" rx="2"/>
+              <rect x="70" y="45" width="18" height="10" rx="2"/>
+              <rect x="20" y="70" width="15" height="15" rx="2"/>
+              <rect x="45" y="75" width="18" height="10" rx="2"/>
+              <rect x="140" y="70" width="15" height="15" rx="2"/>
+              <rect x="20" y="118" width="14" height="12" rx="2"/>
+              <rect x="70" y="145" width="14" height="14" rx="2"/>
+              <rect x="140" y="145" width="14" height="14" rx="2"/>
+            </g>
+            <rect x="75" y="75" width="50" height="50" rx="8" fill="${primary}"/>
+            <text x="100" y="105" fill="#ffffff" font-weight="800" font-size="12" text-anchor="middle">${brand}</text>
+          </svg>
+        `;
+      },
+
+      verifyAndCompletePayment() {
+        if (!this.currentCourse) return;
+        const id = this.currentCourse.id;
+        if (!state.enrolledCourseIds.includes(id)) {
+          state.enrolledCourseIds.push(id);
+          app.persistEnrollments();
+        }
+
+        const receiptNo = `BEC-${Math.floor(10000 + Math.random() * 90000)}`;
+        const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+        const scheduleStr = `${state.selectedSchedule.days} • ${state.selectedSchedule.time}`;
+
+        this.lastReceipt = {
+          number: receiptNo,
+          date: dateStr,
+          student: state.currentUser.name,
+          method: this.activeBank === 'aba' ? 'ABA PayWay' : 'ACLEDA KHQR',
+          course: this.currentCourse.title,
+          price: `$${this.currentCourse.price}.00`,
+          schedule: scheduleStr
+        };
+
+        document.getElementById('receiptNumber').textContent = receiptNo;
+        document.getElementById('receiptDate').textContent = dateStr;
+        document.getElementById('receiptStudentName').textContent = state.currentUser.name;
+        document.getElementById('receiptPaymentMethod').textContent = this.lastReceipt.method;
+        document.getElementById('receiptCourseName').textContent = this.currentCourse.title;
+        document.getElementById('receiptItemPrice').textContent = this.lastReceipt.price;
+        
+        const receiptSchedEl = document.getElementById('receiptScheduleDetails');
+        if (receiptSchedEl) receiptSchedEl.textContent = scheduleStr;
+
+        app.closeModal('paymentModal');
+        app.renderCourses();
+        app.showToast("Payment verified! 1-Page e-Receipt generated.", "success");
+        app.openModal('receiptModal');
+      },
+
+      printReceipt() {
+        // Unlock body scroll so browser print renderer does not clip content
+        const prevOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'visible';
+        window.print();
+        document.body.style.overflow = prevOverflow;
+      },
+
+      downloadReceiptHtml() {
+        if (!this.lastReceipt) return;
+        const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>BEC Receipt - ${this.lastReceipt.number}</title><style>body{font-family:system-ui,sans-serif;margin:40px auto;max-width:550px;padding:24px;border:1.5px solid #0f172a;border-radius:12px;color:#0f172a}h2{margin:0 0 6px 0;font-size:20px}.paid{background:#dcfce7;color:#166534;padding:2px 8px;border-radius:99px;font-size:12px;font-weight:bold;float:right}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0;background:#f8fafc;padding:12px;border-radius:8px;font-size:12px}.box{background:#f1f5f9;border-radius:8px;padding:12px;margin-top:12px;font-size:13px}.row{display:flex;justify-content:space-between}</style></head><body><span class="paid">PAID IN FULL</span><h2>BEC Academy</h2><p style="font-size:12px;color:#64748b;margin:0 0 16px 0">Official Enrollment &amp; Tuition Receipt</p><div class="grid"><div><strong>Receipt No:</strong><br>${this.lastReceipt.number}</div><div><strong>Date:</strong><br>${this.lastReceipt.date}</div><div><strong>Learner:</strong><br>${this.lastReceipt.student}</div><div><strong>Payment:</strong><br>${this.lastReceipt.method}</div></div><div class="box"><div class="row"><strong>${this.lastReceipt.course}</strong><strong>${this.lastReceipt.price}</strong></div><div style="font-size:11px;color:#475569;margin-top:4px">10 Weeks / 45 Class Hours</div><div class="row" style="margin-top:10px;padding-top:8px;border-top:1px solid #cbd5e1;font-size:12px"><span>Schedule:</span><strong>${this.lastReceipt.schedule}</strong></div></div><p style="font-size:10px;color:#94a3b8;text-align:center;margin-top:24px">Address: Siem Reap province, Cambodia • Mobile/Telegram: 086 212 277 • CEFR Accredited</p></body></html>`;
+        const blob = new Blob([html], { type: 'text/html' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `${this.lastReceipt.number}.html`;
+        a.click();
+      }
+    };
+
+    const telegramBot = {
+      isOpen: false,
+      toggleChat() {
+        this.isOpen = !this.isOpen;
+        document.getElementById('telegramChatWindow').classList.toggle('hidden', !this.isOpen);
+        if (this.isOpen && document.getElementById('telegramMessages').children.length === 0) {
+          this.addBotMessage("👋 Hello! Welcome to BEC Academy helpdesk in <strong>Siem Reap province, Cambodia</strong>. You can reach us directly on Mobile/Telegram: <strong>086 212 277</strong> or ask about courses, schedules, and KHQR tuition payments here!");
+        }
+      },
+      addBotMessage(text) {
+        const wrap = document.getElementById('telegramMessages');
+        const d = document.createElement('div');
+        d.className = "flex gap-2 items-start";
+        d.innerHTML = `<div class="w-6 h-6 rounded-full bg-[#2AABEE] text-white flex items-center justify-center text-[10px] shrink-0 mt-0.5"><i class="fa-brands fa-telegram"></i></div><div class="bg-white p-2.5 rounded-xl rounded-tl-none border border-slate-200 text-xs">${text}</div>`;
+        wrap.appendChild(d);
+        wrap.scrollTop = wrap.scrollHeight;
+      },
+      addUserMessage(text) {
+        const wrap = document.getElementById('telegramMessages');
+        const d = document.createElement('div');
+        d.className = "flex justify-end";
+        d.innerHTML = `<div class="bg-[#EEF8FE] text-slate-800 p-2.5 rounded-xl rounded-tr-none border border-[#2AABEE]/30 text-xs">${text}</div>`;
+        wrap.appendChild(d);
+        wrap.scrollTop = wrap.scrollHeight;
+      },
+      handleSend(e) {
+        e.preventDefault();
+        const input = document.getElementById('telegramInput');
+        const q = input.value.trim();
+        if (!q) return;
+        this.addUserMessage(q);
+        input.value = "";
+        setTimeout(() => this.respond(q.toLowerCase()), 300);
+      },
+      handleQuickAction(action) {
+        if (action === 'offerings') {
+          this.addUserMessage("Tell me about course tracks.");
+          setTimeout(() => this.addBotMessage("We feature <strong>61 vocational career tracks</strong> across Hospitality, Engineering, Business, Aviation, and Health. Click Courses in the menu to browse!"), 250);
+        } else if (action === 'prices') {
+          this.addUserMessage("What is the tuition?");
+          setTimeout(() => this.addBotMessage("Tuition is a flat <strong>$135 USD</strong> (~550,000 KHR) per 10-week course (45 class hours) with verified CEFR credentials."), 250);
+        } else if (action === 'methodology') {
+          this.addUserMessage("How does CLT work?");
+          setTimeout(() => this.addBotMessage("Our CLT cycle moves through: Input &rarr; Notice &rarr; Practise &rarr; Communicate &rarr; Repeat &rarr; Perform &rarr; Assess. 100% workplace roleplays!"), 250);
+        } else if (action === 'payment') {
+          this.addUserMessage("How do I pay?");
+          setTimeout(() => this.addBotMessage("Pay seamlessly using <strong>ABA KHQR</strong> or <strong>ACLEDA KHQR</strong> directly inside the enrollment modal."), 250);
+        }
+      },
+      respond(q) {
+        if (q.includes('contact') || q.includes('address') || q.includes('phone') || q.includes('mobile') || q.includes('call') || q.includes('location')) {
+          this.addBotMessage("📍 <strong>Address:</strong> Siem Reap province, Cambodia<br>📞 <strong>Mobile/Telegram:</strong> <a href='tel:086212277' class='font-bold text-[#2AABEE] underline'>086 212 277</a>");
+        } else if (q.includes('price') || q.includes('cost') || q.includes('fee')) {
+          this.addBotMessage("Tuition is <strong>$135 USD</strong> flat for the complete 10-week track (45 total classroom hours).");
+        } else if (q.includes('duration') || q.includes('time') || q.includes('hour')) {
+          this.addBotMessage("Each program runs <strong>10 weeks</strong> with <strong>45 classroom hours</strong> (30 classes of 90 minutes each).");
+        } else if (q.includes('faq')) {
+          this.addBotMessage("You can view our dedicated FAQ section anytime by scrolling to the <a href='#faq' class='text-[#2AABEE] underline font-bold'>FAQs area</a>!");
+        } else {
+          this.addBotMessage("You can explore all courses in the catalog, verify enrollment via KHQR, or contact counselor support directly at <strong>Siem Reap province, Cambodia</strong> (Mobile/Telegram: <a href='tel:086212277' class='text-[#2AABEE] font-bold underline'>086 212 277</a>).");
+        }
+      }
+    };
+
+    window.addEventListener('DOMContentLoaded', () => app.init());
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        ['authModal', 'courseDetailModal', 'dashboardModal', 'courseEditorModal', 'confirmModal', 'paymentModal', 'receiptModal'].forEach(id => app.closeModal(id));
+      }
+    });
+  </script>
+</body>
+</html>
